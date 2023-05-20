@@ -26,7 +26,7 @@
 更新 rustup: export RUSTUP_UPDATE_ROOT=https://mirrors.ustc.edu.cn/rust-static/rustup  
 更新 crates: $HOME/.cargo/config
 
-```console
+```ini
 [source.crates-io]
 registry = "https://github.com/rust-lang/crates.io-index"
 replace-with = 'ustc'
@@ -41,7 +41,7 @@ proxy = "[socks5://]server:<port>"
 1. 执行 `gcc -v -E -x c++ -`
 2. 复制 `#include <...> 搜索从这里开始：` 下边的内容到 c_cpp_properties.json
 
-```cpp
+```json
 {
 	"configurations": [{
 		"name": "Linux",
@@ -169,7 +169,7 @@ proxy = "[socks5://]server:<port>"
 
 ## .clang-format
 
-```
+```text
 ---
 # 语言: None, Cpp, Java, JavaScript, ObjC, Proto, TableGen, TextProto
 Language: Cpp
