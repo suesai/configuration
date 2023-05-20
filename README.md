@@ -1,2 +1,2 @@
-# karabiner
-configuration of karabiner elements
+# configuration
+configuration files for commonly used software
