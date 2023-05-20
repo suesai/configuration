@@ -1,3 +1,6 @@
+## karabiner.json
+
+```json
 {
 	"global": {
 		"ask_for_confirmation_before_quitting": true,
@@ -2773,3 +2776,4 @@
 		}
 	]
 }
+```
