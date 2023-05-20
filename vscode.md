@@ -16,14 +16,14 @@
 
 ### 安装 ms-vscode.cpptools 之后再安装 cpptools，如果没办法下载后者，则按照以下步骤
 
-1. 进入C:\Users\用戶名\.vscode\extensions\ms-vscode.cpptools-0.20.1，打开 package.json，可以看到要下载的 C/C++ language components (Windows)，ClangFormat (Windows)，Visual Studio Windows Debugger 的地址
-2. 下载上述三个依赖项，然后解压，得到 bin，debugAdapters，LLVM 这三个文件夹；将 debugAdapters，LLVM 这两个文件夹直接放在 C:\Users\用戶名\.vscode\extensions\ms-vscode.cpptools-0.20.1 目录下；将 bin 文件夹里的两个可执行文件 Microsoft.VSCode.CPP.Extension.exe，Microsoft.VSCode.CPP.IntelliSense.Msvc.exe，放到 C:\Users\用戶名\.vscode\extensions\ms-vscode.cpptools-0.20.1\bin 文件夹下
+1. 进入C:\Users\用戶名\\.vscode\extensions\ms-vscode.cpptools-0.20.1，打开 package.json，可以看到要下载的 C/C++ language components (Windows)，ClangFormat (Windows)，Visual Studio Windows Debugger 的地址
+2. 下载上述三个依赖项，然后解压，得到 bin，debugAdapters，LLVM 这三个文件夹；将 debugAdapters，LLVM 这两个文件夹直接放在 C:\Users\用戶名\\.vscode\extensions\ms-vscode.cpptools-0.20.1 目录下；将 bin 文件夹里的两个可执行文件 Microsoft.VSCode.CPP.Extension.exe，Microsoft.VSCode.CPP.IntelliSense.Msvc.exe，放到 C:\Users\用戶名\\.vscode\extensions\ms-vscode.cpptools-0.20.1\bin 文件夹下
 3. 创建一个空文件，命名为 install.lock
 
 ## 改源
 
-更新 toolchain: export RUSTUP_DIST_SERVER=https://mirrors.ustc.edu.cn/rust-static
-更新 rustup: export RUSTUP_UPDATE_ROOT=https://mirrors.ustc.edu.cn/rust-static/rustup
+更新 toolchain: export RUSTUP_DIST_SERVER=https://mirrors.ustc.edu.cn/rust-static  
+更新 rustup: export RUSTUP_UPDATE_ROOT=https://mirrors.ustc.edu.cn/rust-static/rustup  
 更新 crates: $HOME/.cargo/config
 
 ```console
@@ -36,15 +36,7 @@ registry = "git://mirrors.ustc.edu.cn/crates.io-index"
 proxy = "[socks5://]server:<port>"
 ```
 
-## 远程连接服务器
-
-1. 修改 windows ~/.ssh 及其属下的文件，用户组为 system，用户为自己，只能有一个用户
-2. 将 ~/.ssh/id_rsa.pub 内容复制到 linux ~/.ssh/authorized_keys
-3. 修改 linux 的 ~/.ssh 权限为 700，~/.ssh/* 权限为 600
-4. 修改 /etc/ssh/sshd_config，PermitRootLogin=yes, StrictModes=no, PubkeyAuthentication=yes, PasswordAuthentication=no
-5. 修改 Remote-SSH 选项，"remote.SSH.showLoginTerminal": true, "remote.SSH.useLocalServer": false, "remote.SSH.path"
-
-vscode 报错 “include errors detected”，解决办法，
+## vscode 报错 “include errors detected”，解决办法
 
 1. 执行 `gcc -v -E -x c++ -`
 2. 复制 `#include <...> 搜索从这里开始：` 下边的内容到 c_cpp_properties.json
