@@ -140,6 +140,11 @@ proxy = "[socks5://]server:<port>"
 		"?/?.lua",
 		"/sfos/lualibs/?.lua"
 	],
+	"python.analysis.fixAll": [
+		"source.convertImportFormat",
+		"source.unusedImports"
+	],
+	"python.analysis.typeCheckingMode": "basic",
 	"remote.SSH.connectTimeout": 60,
 	"remote.SSH.path": "C:\\Program Files\\Git\\usr\\bin\\ssh.exe",
 	"remote.SSH.remotePlatform": {
