@@ -95,3 +95,12 @@ StrictHostKeyChecking no
 * 修改 linux 的 ~/.ssh 权限为 700，~/.ssh/* 权限为 600
 * 修改 /etc/ssh/sshd_config，PermitRootLogin=yes, StrictModes=no, PubkeyAuthentication=yes, PasswordAuthentication=no
 * 修改 Remote-SSH 选项，"remote.SSH.showLoginTerminal": true, "remote.SSH.useLocalServer": false, "remote.SSH.path"
+
+6. zsh
+
+```bash
+ZSH_THEME="ys"
+plugins=(git extract autojump zsh-autosuggestions zsh-syntax-highlighting)
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+```
