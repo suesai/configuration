@@ -59,8 +59,7 @@
 											"^net\\.kovidgoyal\\.kitty$",
 											"^tv\\.parsec\\.www$",
 											"^com\\.utmapp\\.UTM$",
-											"^com\\.apple\\.Terminal$",
-											"^com\\.microsoft\\.VSCode$"
+											"^com\\.apple\\.Terminal$"
 										],
 										"type": "frontmost_application_unless"
 									}
@@ -122,8 +121,7 @@
 											"^net\\.kovidgoyal\\.kitty$",
 											"^tv\\.parsec\\.www$",
 											"^com\\.utmapp\\.UTM$",
-											"^com\\.apple\\.Terminal$",
-											"^com\\.microsoft\\.VSCode$"
+											"^com\\.apple\\.Terminal$"
 										],
 										"type": "frontmost_application_unless"
 									}
