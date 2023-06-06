@@ -806,6 +806,19 @@ UseTab: ForIndentation
 		"key": "ctrl+right",
 		"command": "cursorWordRight",
 		"when": "textInputFocus"
+	},
+	{
+		"key": "ctrl+b",
+		"command": "-cursorLeft",
+		"when": "textInputFocus"
+	},
+	{
+		"key": "ctrl+b",
+		"command": "workbench.action.toggleSidebarVisibility"
+	},
+	{
+		"key": "cmd+b",
+		"command": "-workbench.action.toggleSidebarVisibility"
 	}
 ]
 ```
