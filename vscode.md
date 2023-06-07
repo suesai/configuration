@@ -41,25 +41,74 @@ proxy = "[socks5://]server:<port>"
 1. 执行 `gcc -v -E -x c++ -`
 2. 复制 `#include <...> 搜索从这里开始：` 下边的内容到 c_cpp_properties.json
 
+Linux:  
 ```json
 {
-	"configurations": [{
-		"name": "Linux",
-		"includePath": [
-			"${workspaceFolder}/**",
-			"/usr/lib/gcc/x86_64-redhat-linux/7/../../../../include/c++/7",
-			"/usr/lib/gcc/x86_64-redhat-linux/7/../../../../include/c++/7/x86_64-redhat-linux",
-			"/usr/lib/gcc/x86_64-redhat-linux/7/../../../../include/c++/7/backward",
-			"/usr/lib/gcc/x86_64-redhat-linux/7/include",
-			"/usr/local/include",
-			"/usr/include"
-		],
-		"defines": [],
-		"compilerPath": "/usr/bin/clang",
-		"cStandard": "c11",
-		"cppStandard": "c++17",
-		"intelliSenseMode": "clang-x64"
-	}],
+	"configurations": [
+		{
+			"name": "Linux",
+			"includePath": [
+				"${workspaceFolder}/**",
+				"/usr/lib/gcc/x86_64-redhat-linux/7/../../../../include/c++/7",
+				"/usr/lib/gcc/x86_64-redhat-linux/7/../../../../include/c++/7/x86_64-redhat-linux",
+				"/usr/lib/gcc/x86_64-redhat-linux/7/../../../../include/c++/7/backward",
+				"/usr/lib/gcc/x86_64-redhat-linux/7/include",
+				"/usr/local/include",
+				"/usr/include"
+			],
+			"defines": [],
+			"compilerPath": "/usr/bin/clang",
+			"cStandard": "c11",
+			"cppStandard": "c++17",
+			"intelliSenseMode": "clang-x64"
+		}
+	],
+	"version": 4
+}
+```
+
+Windows:  
+```json
+{
+	"configurations": [
+		{
+			"name": "Win32",
+			"includePath": [
+				"${workspaceFolder}/**"
+			],
+			"defines": [
+				"_DEBUG",
+				"UNICODE",
+				"_UNICODE",
+				"__WIN32__"
+			],
+			"windowsSdkVersion": "10.0.17763.0",
+			"compilerPath": "cl.exe",
+			"cStandard": "c17",
+			"cppStandard": "c++17"
+		}
+	],
+	"version": 4
+}
+```
+
+Mac:  
+```json
+{
+	"configurations": [
+		{
+			"name": "Mac",
+			"includePath": [
+				"${workspaceFolder}/**"
+			],
+			"defines": [],
+			"macFrameworkPath": [],
+			"compilerPath": "/usr/bin/clang",
+			"cStandard": "c11",
+			"cppStandard": "c++17",
+			"intelliSenseMode": "clang-x64"
+		}
+	],
 	"version": 4
 }
 ```
@@ -162,6 +211,7 @@ proxy = "[socks5://]server:<port>"
 		"SC2016",
 		"SC1091"
 	],
+	"terminal.integrated.defaultProfile.linux": "zsh",
 	"terminal.integrated.defaultProfile.windows": "Git Bash",
 	"update.enableWindowsBackgroundUpdates": false,
 	"update.mode": "none",
