@@ -225,8 +225,8 @@ zstyle -e ':completion:*:(ssh|scp|sftp|rsh|rsync):hosts' hosts 'reply=(${=${${(f
 YS_VCS_PROMPT_PREFIX1="%F{white} on %f%F{66}"
 YS_VCS_PROMPT_PREFIX2="%f%F{white}:%f%F{65}"
 YS_VCS_PROMPT_SUFFIX="%f"
-YS_VCS_PROMPT_DIRTY=" %F{162}x%f"
-YS_VCS_PROMPT_CLEAN=" %F{158}o%f"
+YS_VCS_PROMPT_DIRTY=" %F{red}x%f"
+YS_VCS_PROMPT_CLEAN=" %F{green}o%f"
 
 # Git info
 local git_info='$(git_prompt_info)'
@@ -269,7 +269,7 @@ virtenv_prompt() {
         echo "${YS_THEME_VIRTUALENV_PROMPT_PREFIX}${VIRTUAL_ENV:t}${YS_THEME_VIRTUALENV_PROMPT_SUFFIX}"
 }
 
-local exit_code="%(?,,%F{white}C:%f%F{162}%?%f)"
+local exit_code="%(?,,%F{white}C:%f%F{red}%?%f)"
 
 # Prompt format:
 #
