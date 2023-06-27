@@ -281,7 +281,7 @@ local exit_code="%(?,,%F{white}C:%f%F{red}%?%f)"
 # % ys @ ys-mbp in ~/.oh-my-zsh on git:master x [21:47:42] C:0
 # $
 PROMPT="
-%B%F{green}#%f%b \
+%F{150}#%f \
 %(#,%K{132}%F{black}%n%f%k,%F{132}%n%f) \
 %F{white}@%f \
 %F{138}%m%f \
@@ -293,7 +293,7 @@ ${svn_info}\
 ${venv_info}\
  \
 %F{white}[%f%F{60}%*%f%F{white}]%f $exit_code
-%B%F{red}$ %f%b"
+%F{168}$ %f"
 
 ```
 
