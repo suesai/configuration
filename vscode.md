@@ -450,52 +450,22 @@ UseTab: ForIndentation
 		"command": "-workbench.action.quickOpen"
 	},
 	{
-		"key": "ctrl+/",
-		"command": "-workbench.action.terminal.sendSequence",
-		"when": "terminalFocus"
-	},
-	{
-		"key": "cmd+left",
-		"command": "-cursorHome",
-		"when": "textInputFocus"
-	},
-	{
-		"key": "cmd+left",
-		"command": "-list.collapseAll",
-		"when": "listFocus && !inputFocus"
-	},
-	{
-		"key": "cmd+left",
-		"command": "-workbench.action.terminal.sendSequence",
-		"when": "terminalFocus"
-	},
-	{
-		"key": "cmd+right",
-		"command": "-editor.action.inlineSuggest.acceptNextWord",
-		"when": "inlineSuggestionVisible && !editorReadonly"
-	},
-	{
-		"key": "cmd+right",
-		"command": "-cursorEnd",
-		"when": "textInputFocus"
-	},
-	{
-		"key": "cmd+right",
-		"command": "-workbench.action.terminal.sendSequence",
-		"when": "terminalFocus"
-	},
-	{
-		"key": "ctrl+shift+p",
-		"command": "workbench.action.showCommands"
-	},
-	{
 		"key": "shift+cmd+p",
 		"command": "-workbench.action.showCommands"
 	},
 	{
 		"key": "ctrl+/",
+		"command": "-workbench.action.terminal.sendSequence",
+		"when": "terminalFocus"
+	},
+	{
+		"key": "ctrl+/",
 		"command": "editor.action.commentLine",
 		"when": "editorTextFocus && !editorReadonly"
+	},
+	{
+		"key": "ctrl+shift+p",
+		"command": "workbench.action.showCommands"
 	},
 	{
 		"key": "cmd+/",
@@ -561,11 +531,11 @@ UseTab: ForIndentation
 		"command": "-workbench.action.openEditorAtIndex1"
 	},
 	{
-		"key": "ctrl+1",
+		"key": "ctrl+f1",
 		"command": "highlightwords.addHighlight"
 	},
 	{
-		"key": "ctrl+shift+1",
+		"key": "ctrl+shift+f1",
 		"command": "highlightwords.removeAllHighlights"
 	},
 	{
@@ -607,6 +577,25 @@ UseTab: ForIndentation
 		"when": "viewContainer.workbench.view.explorer.enabled"
 	},
 	{
+		"key": "cmd+right",
+		"command": "-editor.action.inlineSuggest.acceptNextWord",
+		"when": "inlineSuggestionVisible && !editorReadonly"
+	},
+	{
+		"key": "cmd+right",
+		"command": "-cursorEnd",
+		"when": "textInputFocus"
+	},
+	{
+		"key": "cmd+right",
+		"command": "-workbench.action.terminal.sendSequence",
+		"when": "terminalFocus"
+	},
+	{
+		"key": "alt+0",
+		"command": "workbench.action.focusActiveEditorGroup"
+	},
+	{
 		"key": "alt+right",
 		"command": "-breadcrumbs.focusNext",
 		"when": "breadcrumbsActive && breadcrumbsVisible"
@@ -627,6 +616,46 @@ UseTab: ForIndentation
 		"when": "gitlens:key:alt+right"
 	},
 	{
+		"key": "shift+alt+right",
+		"command": "-cursorWordEndRightSelect",
+		"when": "textInputFocus"
+	},
+	{
+		"key": "ctrl+right",
+		"command": "cursorWordRight",
+		"when": "textInputFocus"
+	},
+	{
+		"key": "ctrl+shift+right",
+		"command": "-editor.action.smartSelect.expand",
+		"when": "editorTextFocus"
+	},
+	{
+		"key": "ctrl+shift+right",
+		"command": "cursorWordRightSelect",
+		"when": "textInputFocus"
+	},
+	{
+		"key": "cmd+left",
+		"command": "-cursorHome",
+		"when": "textInputFocus"
+	},
+	{
+		"key": "cmd+left",
+		"command": "-list.collapseAll",
+		"when": "listFocus && !inputFocus"
+	},
+	{
+		"key": "cmd+left",
+		"command": "-workbench.action.terminal.sendSequence",
+		"when": "terminalFocus"
+	},
+	{
+		"key": "ctrl+left",
+		"command": "cursorWordLeft",
+		"when": "textInputFocus"
+	},
+	{
 		"key": "alt+left",
 		"command": "-breadcrumbs.focusPrevious",
 		"when": "breadcrumbsActive && breadcrumbsVisible"
@@ -640,6 +669,26 @@ UseTab: ForIndentation
 		"key": "alt+left",
 		"command": "-gitlens.key.alt+left",
 		"when": "gitlens:key:alt+left"
+	},
+	{
+		"key": "alt+left",
+		"command": "-cursorWordLeft",
+		"when": "textInputFocus"
+	},
+	{
+		"key": "shift+alt+left",
+		"command": "-cursorWordLeftSelect",
+		"when": "textInputFocus"
+	},
+	{
+		"key": "ctrl+shift+left",
+		"command": "-editor.action.smartSelect.shrink",
+		"when": "editorTextFocus"
+	},
+	{
+		"key": "ctrl+shift+left",
+		"command": "cursorWordLeftSelect",
+		"when": "textInputFocus"
 	},
 	{
 		"key": "ctrl+z",
@@ -709,25 +758,25 @@ UseTab: ForIndentation
 		"when": "editorFocus && parameterHintsMultipleSignatures && parameterHintsVisible"
 	},
 	{
-		"key": "ctrl+t",
-		"command": "workbench.action.files.newUntitledFile"
+		"key": "ctrl+n",
+		"command": "workbench.action.newWindow"
 	},
 	{
 		"key": "cmd+n",
 		"command": "-workbench.action.files.newUntitledFile"
 	},
 	{
+		"key": "shift+cmd+n",
+		"command": "-workbench.action.newWindow"
+	},
+	{
+		"key": "ctrl+t",
+		"command": "workbench.action.files.newUntitledFile"
+	},
+	{
 		"key": "ctrl+t",
 		"command": "-editor.action.transposeLetters",
 		"when": "textInputFocus && !editorReadonly"
-	},
-	{
-		"key": "ctrl+n",
-		"command": "workbench.action.newWindow"
-	},
-	{
-		"key": "shift+cmd+n",
-		"command": "-workbench.action.newWindow"
 	},
 	{
 		"key": "ctrl+shift+t",
@@ -773,33 +822,8 @@ UseTab: ForIndentation
 		"when": "terminalFocus && terminalHasBeenCreated && !terminalAltBufferActive || terminalFocus && terminalProcessSupported && !terminalAltBufferActive"
 	},
 	{
-		"key": "ctrl+shift+left",
-		"command": "-editor.action.smartSelect.shrink",
-		"when": "editorTextFocus"
-	},
-	{
-		"key": "ctrl+shift+right",
-		"command": "-editor.action.smartSelect.expand",
-		"when": "editorTextFocus"
-	},
-	{
-		"key": "ctrl+shift+left",
-		"command": "cursorWordLeftSelect",
-		"when": "textInputFocus"
-	},
-	{
-		"key": "shift+alt+left",
-		"command": "-cursorWordLeftSelect",
-		"when": "textInputFocus"
-	},
-	{
 		"key": "ctrl+home",
 		"command": "cursorTop",
-		"when": "textInputFocus"
-	},
-	{
-		"key": "cmd+up",
-		"command": "-cursorTop",
 		"when": "textInputFocus"
 	},
 	{
@@ -808,18 +832,8 @@ UseTab: ForIndentation
 		"when": "textInputFocus"
 	},
 	{
-		"key": "shift+cmd+up",
-		"command": "-cursorTopSelect",
-		"when": "textInputFocus"
-	},
-	{
 		"key": "ctrl+end",
 		"command": "cursorBottom",
-		"when": "textInputFocus"
-	},
-	{
-		"key": "cmd+down",
-		"command": "-cursorBottom",
 		"when": "textInputFocus"
 	},
 	{
@@ -828,33 +842,23 @@ UseTab: ForIndentation
 		"when": "textInputFocus"
 	},
 	{
+		"key": "cmd+up",
+		"command": "-cursorTop",
+		"when": "textInputFocus"
+	},
+	{
+		"key": "shift+cmd+up",
+		"command": "-cursorTopSelect",
+		"when": "textInputFocus"
+	},
+	{
+		"key": "cmd+down",
+		"command": "-cursorBottom",
+		"when": "textInputFocus"
+	},
+	{
 		"key": "shift+cmd+down",
 		"command": "-cursorBottomSelect",
-		"when": "textInputFocus"
-	},
-	{
-		"key": "alt+left",
-		"command": "-cursorWordLeft",
-		"when": "textInputFocus"
-	},
-	{
-		"key": "ctrl+shift+right",
-		"command": "cursorWordRightSelect",
-		"when": "textInputFocus"
-	},
-	{
-		"key": "shift+alt+right",
-		"command": "-cursorWordEndRightSelect",
-		"when": "textInputFocus"
-	},
-	{
-		"key": "ctrl+left",
-		"command": "cursorWordLeft",
-		"when": "textInputFocus"
-	},
-	{
-		"key": "ctrl+right",
-		"command": "cursorWordRight",
 		"when": "textInputFocus"
 	},
 	{
@@ -869,6 +873,20 @@ UseTab: ForIndentation
 	{
 		"key": "cmd+b",
 		"command": "-workbench.action.toggleSidebarVisibility"
-	}
+	},
+	{
+		"key": "ctrl+shift+r",
+		"command": "-editor.action.refactor",
+		"when": "editorHasCodeActionsProvider && textInputFocus && !editorReadonly"
+	},
+	{
+		"key": "ctrl+shift+r",
+		"command": "-workbench.action.quickOpenNavigatePreviousInRecentFilesPicker",
+		"when": "inQuickOpen && inRecentFilesPicker"
+	},
+	{
+		"key": "ctrl+shift+r",
+		"command": "workbench.view.extension.references-view"
+	},
 ]
 ```
