@@ -1,0 +1,114 @@
+```conf
+set -g default-terminal "screen-256color"
+setw -g xterm-keys on
+set -s escape-time 10
+set -sg repeat-time 500
+set -s focus-events on
+set -sg exit-empty on
+
+set -g history-limit 10000
+
+setw -g automatic-rename on
+set -g renumber-windows on
+
+set -g set-titles on
+
+set -g mouse on
+set -g base-index 1
+set -g pane-base-index 1
+
+set -g visual-activity off
+setw -g monitor-activity off
+setw -g monitor-bell off
+
+set -g display-panes-time 2000
+set -g display-time 2000
+
+set -q -g status-utf8 on
+setw -q -g utf8 on
+
+set -g status-interval 1
+set-option -g status-position top
+
+set -g prefix C-t
+unbind C-b
+bind-key C-t send-prefix
+
+unbind %
+bind | split-window -h 
+
+unbind '"'
+bind - split-window -v
+
+unbind r
+bind r source-file ~/.tmux.conf \; display "Reloaded source file!"
+
+bind -r Down resize-pane -D 5
+bind -r Up resize-pane -U 5
+bind -r Right resize-pane -R 5
+bind -r Left resize-pane -L 5
+
+bind -r m resize-pane -Z
+
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
+
+unbind 1
+unbind 2
+unbind 3
+unbind 4
+unbind 5
+unbind 6
+unbind 7
+unbind 8
+unbind 9
+unbind 0
+bind 1 select-pane -t:.1
+bind 2 select-pane -t:.2
+bind 3 select-pane -t:.3
+bind 4 select-pane -t:.4
+bind 5 select-pane -t:.5
+bind 6 select-pane -t:.6
+bind 7 select-pane -t:.7
+bind 8 select-pane -t:.8
+bind 9 select-pane -t:.9
+bind 0 select-pane -t:.10
+
+bind -n M-1 select-window -t 1
+bind -n M-2 select-window -t 2
+bind -n M-3 select-window -t 3
+bind -n M-4 select-window -t 4
+bind -n M-5 select-window -t 5
+bind -n M-6 select-window -t 6
+bind -n M-7 select-window -t 7
+bind -n M-8 select-window -t 8
+bind -n M-9 select-window -t 9
+
+set -g status-keys emacs
+set-window-option -g mode-keys vi
+
+bind-key -T copy-mode-vi 'v' send -X begin-selection # start selecting text with "v"
+bind-key -T copy-mode-vi 'y' send -X copy-selection # copy text with "y"
+
+unbind -T copy-mode-vi MouseDragEnd1Pane # don't exit copy mode when dragging with mouse
+
+# tpm plugin
+set -g @plugin 'tmux-plugins/tpm'
+
+# list of tmux plugins
+# set -g @plugin 'christoomey/vim-tmux-navigator'
+set -g @plugin 'jimeh/tmux-themepack'
+set -g @plugin 'tmux-plugins/tmux-resurrect' # persist tmux sessions after computer restart
+set -g @plugin 'tmux-plugins/tmux-continuum' # automatically saves sessions for you every 15 minutes
+
+set -g @themepack 'powerline/default/cyan'
+
+set -g @resurrect-processes 'ssh mysql redis-server npm'
+set -g @resurrect-capture-pane-contents 'on'
+set -g @continuum-restore 'on'
+
+# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+run '~/.tmux/plugins/tpm/tpm'
+```
