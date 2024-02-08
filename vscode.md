@@ -150,7 +150,11 @@ Mac:
 	"editor.unicodeHighlight.nonBasicASCII": false,
 	"extensions.autoCheckUpdates": false,
 	"extensions.autoUpdate": false,
+	"extensions.experimental.affinity": {
+		"vscodevim.vim": 1
+ },
 	"extensions.ignoreRecommendations": true,
+	"files.autoGuessEncoding": true,
 	"files.defaultLanguage": "c",
 	"files.encoding": "utf8",
 	"files.eol": "\n",
