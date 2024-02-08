@@ -13,6 +13,7 @@ option.tabstop = 8
 option.shiftwidth = 8
 option.softtabstop = 8
 option.expandtab = false
+option.incsearch = false
 option.listchars:append({
 	-- tab = "→ ",
 	-- tab = " ",
