@@ -152,9 +152,8 @@ Mac:
 	"extensions.autoUpdate": false,
 	"extensions.experimental.affinity": {
 		"vscodevim.vim": 1
- },
+	},
 	"extensions.ignoreRecommendations": true,
-	"files.autoGuessEncoding": true,
 	"files.defaultLanguage": "c",
 	"files.encoding": "utf8",
 	"files.eol": "\n",
@@ -166,8 +165,8 @@ Mac:
 	},
 	"git.ignoreMissingGitWarning": true,
 	"gitlens.hovers.currentLine.over": "line",
-	"gnuGlobal.globalExecutable": "C:\\global\\bin\\global.exe",
-	"gnuGlobal.gtagsExecutable": "C:\\global\\bin\\gtags.exe",
+	"gnuGlobal.globalExecutable": "/usr/local/bin/global",
+	"gnuGlobal.gtagsExecutable": "/usr/local/bin/gtags",
 	"highlightwords.box": {
 		"light": true,
 		"dark": false
@@ -193,13 +192,28 @@ Mac:
 		"?/?.lua",
 		"/sfos/lualibs/?.lua"
 	],
+	"multiCommand.commands": [
+		{
+			"command": "multiCommand.multiEscape",
+			"sequence": [
+				"cancelRenameInput",
+				"closeFindWidget",
+				"closeMarkersNavigation",
+				"closeReferenceSearch",
+				"extension.vim_escape",
+				"hideSuggestWidget",
+				"notifications.clearAll",
+				"workbench.action.focusFirstEditorGroup"
+			]
+		}
+	],
 	"python.analysis.fixAll": [
 		"source.convertImportFormat",
 		"source.unusedImports"
 	],
 	"python.analysis.typeCheckingMode": "basic",
 	"remote.SSH.connectTimeout": 60,
-	"remote.SSH.path": "C:\\Program Files\\Git\\usr\\bin\\ssh.exe",
+	"remote.SSH.path": "/usr/bin/ssh",
 	"remote.SSH.remotePlatform": {
 		"rlk": "linux"
 	},
@@ -210,15 +224,207 @@ Mac:
 	"search.collapseResults": "auto",
 	"search.searchOnType": false,
 	"shellcheck.disableVersionCheck": false,
-	"shellcheck.executablePath": "C:\\Program Files (x86)\\shellcheck\\shellcheck.exe",
+	"shellcheck.executablePath": "/usr/local/bin/shellcheck",
 	"shellcheck.exclude": [
 		"SC2016",
 		"SC1091"
 	],
+	"terminal.integrated.commandsToSkipShell": [
+		"-workbench.action.quickOpen",
+		"-workbench.action.terminal.focusFind",
+		"-workbench.action.toggleSidebarVisibility"
+	],
 	"terminal.integrated.defaultProfile.linux": "zsh",
 	"terminal.integrated.defaultProfile.windows": "Git Bash",
+	"terminal.integrated.macOptionIsMeta": true,
 	"update.enableWindowsBackgroundUpdates": false,
 	"update.mode": "none",
+	"vim.leader": "<space>",
+	"vim.camelCaseMotion.enable": true,
+	"vim.easymotion": true,
+	"vim.enableNeovim": true,
+	"vim.foldfix": true,
+	"vim.handleKeys": {
+		// "<C-/>": true,
+		"<C-s>": true
+	},
+	"vim.highlightedyank.enable": true,
+	"vim.hlsearch": true,
+	"vim.incsearch": true,
+	"vim.insertModeKeyBindingsNonRecursive": [
+		{
+			"before": ["<C-k>"],
+			"command": ["editor.action.triggerParameterHints"]
+		}
+	],
+	"vim.mouseSelectionGoesIntoVisualMode": false,
+	"vim.normalModeKeyBindingsNonRecursive": [
+		{
+			"before": ["K"],
+			"commands": ["editor.action.showHover"]
+		},
+		{
+			"before": ["%"],
+			"commands": ["editor.action.showHover"]
+		},
+		{
+			"before": ["<leader>", ","],
+			"commands": ["workbench.action.quickOpen"]
+		},
+		{
+			"before": ["<leader>", "/"],
+			"commands": ["workbench.action.findInFiles"]
+		},
+		{
+			"before": ["g", "r"],
+			"commands": ["references-view.findReferences"]
+		},
+		{
+			"before": ["<C-h>"],
+			"commands": ["workbench.action.focusLeftGroup"]
+		},
+		{
+			"before": ["<C-l>"],
+			"commands": ["workbench.action.focusRightGroup"]
+		},
+		{
+			"before": ["<C-k>"],
+			"commands": ["workbench.action.focusAboveGroup"]
+		},
+		{
+			"before": ["<C-j>"],
+			"commands": ["workbench.action.focusBelowGroup"]
+		},
+		{
+			"before": ["<leader>", "|"],
+			"commands": ["workbench.action.splitEditorToRightGroup"]
+		},
+		{
+			"before": ["<leader>", "-"],
+			"commands": ["workbench.action.splitEditorToAboveGroup"]
+		},
+		{
+			"before": ["<leader>", "w", "d"],
+			"commands": ["workbench.action.closeActiveEditor"]
+		},
+		{
+			"before": ["L"],
+			"commands": ["workbench.action.nextEditor"]
+		},
+		{
+			"before": ["H"],
+			"commands": ["workbench.action.previousEditor"]
+		},
+		// {
+		// 	"before": ["<C-/>"],
+		// 	"commands": ["workbench.action.terminal.toggleTerminal"]
+		// },
+		{
+			"before": ["g", "d"],
+			"commands": ["editor.action.revealDefinition"]
+		},
+		{
+			"before": ["g", "D"],
+			"commands": ["editor.action.revealDeclaration"]
+		},
+		{
+			"before": ["g", "I"],
+			"commands": ["editor.action.goToImplementation"]
+		},
+		{
+			"before": ["g", "y"],
+			"commands": ["editor.action.goToTypeDefinition"]
+		},
+		{
+			"before": ["<leader>", "r", "n"],
+			"commands": ["editor.action.rename"]
+		},
+		{
+			"before": ["<leader>", "g", "g"],
+			"commands": ["workbench.view.scm"]
+		},
+		{
+			"before": ["<leader>", "h"],
+			"commands": ["highlightwords.addHighlight"]
+		},
+		{
+			"before": ["<leader>", "m", "t"],
+			"commands": ["bookmarks.toggle"]
+		},
+		{
+			"before": ["<leader>", "m", "a"],
+			"commands": ["bookmarks.listFromAllFiles"]
+		},
+		{
+			"before": ["]", "d"],
+			"commands": ["editor.action.marker.nextInFiles"]
+		},
+		{
+			"before": ["[", "d"],
+			"commands": ["editor.action.marker.prevInFiles"]
+		},
+		{
+			"before": ["]", "c"],
+			"commands": ["editor.action.marker.nextChange"]
+		},
+		{
+			"before": ["[", "c"],
+			"commands": ["editor.action.marker.previousChange"]
+		},
+		{
+			"before": ["<Esc>"],
+			"commands": [":nohl", "<Esc>"]
+		},
+		{
+			"before": ["<C-left>"],
+			"commands": ["workbench.action.toggleEditorWidths"]
+		},
+		{
+			"before": ["<C-right>"],
+			"commands": ["workbench.action.toggleEditorWidths"]
+		},
+		{
+			"before": ["<leader>", "e"],
+			"commands": ["workbench.action.toggleSidebarVisibility"]
+		},
+		{
+			"before": ["`", "."],
+			"commands": ["workbench.action.navigateToLastEditLocation"]
+		},
+		{
+			"before": ["<C-s>"],
+			"commands": ["workbench.action.files.save"]
+		},
+		{
+			"before": ["<C-f>"],
+			"commands": ["actions.find"]
+		}
+	],
+	"vim.scroll": 0,
+	"vim.shell": "/bin/zsh",
+	"vim.showcmd": true,
+	"vim.surround": true,
+	"vim.useCtrlKeys": true,
+	"vim.useSystemClipboard": true,
+	"vim.vimrc.enable": false,
+	"vim.visualModeKeyBindingsNonReursive": [
+		{
+			"before": ["<leader>", "/"],
+			"commands": ["workbench.action.findInFiles"]
+		},
+		{
+			"before": ["<C-f>"],
+			"commands": ["actions.find"]
+		},
+		{
+			"before": ["%"],
+			"commands": ["editor.action.selectToBracket"]
+		},
+		{
+			"before": ["g", "r"],
+			"commands": ["references-view.findReferences"]
+		}
+	],
 	"workbench.colorTheme": "Tomorrow Night",
 	"[c]": {
 		"editor.defaultFormatter": "ms-vscode.cpptools"
