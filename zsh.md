@@ -207,4 +207,7 @@ plugins=(git extract z zsh-autosuggestions zsh-syntax-highlighting)
 source $HOME/.config/zsh/completion.zsh
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
+export BAT_THEME=OneHalfDark
+alias cat=batcat
+alias vim=nvim
 ```
