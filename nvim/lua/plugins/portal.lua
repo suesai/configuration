@@ -11,8 +11,9 @@ return {
 		{ "<leader>'", "<cmd>Portal changelist forward<cr>", desc = "[Portal] changelist forward" },
 	},
 	opts = {
+		max_results = 9,
 		labels = {
-			"a", "b", "c", "d", "e", "f", "g", "h", "i"
+			"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",
 		},
 	},
 }
