@@ -210,4 +210,5 @@ export LANG=en_US.UTF-8
 export BAT_THEME=OneHalfDark
 alias cat=batcat
 alias vim=nvim
+alias view="nvim -R"
 ```
