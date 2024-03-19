@@ -1,7 +1,7 @@
 ```conf
 set -g default-terminal "screen-256color"
 setw -g xterm-keys on
-set -s escape-time 10
+set -sg escape-time 1
 set -sg repeat-time 500
 set -s focus-events on
 set -sg exit-empty on
