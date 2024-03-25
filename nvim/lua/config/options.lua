@@ -6,6 +6,8 @@ local option = vim.opt
 local global = vim.g
 
 global.autoformat = false
+global.bookmark_save_per_working_dir = 1
+global.bookmark_auto_save = 1
 
 option.fileencodings = "ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1"
 option.termencoding = "utf-8"
