@@ -33,4 +33,5 @@ option.listchars:append({
 option.whichwrap:append("<,>")
 option.exrc = true
 option.completeopt = "menu,menuone,noinsert,noselect,preview"
+option.jumpoptions = "stack"
 
