@@ -205,6 +205,7 @@ ZSH_THEME="ss"
 plugins=(git extract z zsh-autosuggestions zsh-syntax-highlighting)
 [[ "${TERM}" == "xterm"  ]] && export TERM=xterm-256color
 source $HOME/.config/zsh/completion.zsh
+bindkey "^[q" push-line-or-edit
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
