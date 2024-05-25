@@ -202,15 +202,36 @@ ${venv_info}\
 
 ```bash
 ZSH_THEME="ss"
+
 plugins=(git extract z zsh-autosuggestions zsh-syntax-highlighting)
+
 [[ "${TERM}" == "xterm"  ]] && export TERM=xterm-256color
+
 source $HOME/.config/zsh/completion.zsh
+
 bindkey "^[q" push-line-or-edit
+
+eval "$(fzf --zsh)"
+export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
+export FZF_CTRL_T_COMMAND=""
+export FZF_ALT_C_COMMAND=""
+
+export FZF_DEFAULT_OPTS="--preview 'if [ -d {} ]; then eza --tree --color=always {} | head -200; else batcat -n --color=always --line-range :500 {}; fi'"
+
+_fzf_compgen_path() {
+  fd --hidden --exclude .git . "$1"
+}
+
+_fzf_compgen_dir() {
+  fd --type=d --hidden --exclude .git . "$1"
+}
+
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
 export BAT_THEME=OneHalfDark
 export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.ustc.edu.cn/brew.git" HOMEBREW_CORE_GIT_REMOTE="https://mirrors.ustc.edu.cn/homebrew-core.git" HOMEBREW_API_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles/api" HOMEBREW_API_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles/api" HOMEBREW_BOTTLE_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles/bottles"
+
 alias bcat=batcat
 alias vim=nvim
 alias view="nvim -R"
