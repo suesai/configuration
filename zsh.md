@@ -211,19 +211,30 @@ source $HOME/.config/zsh/completion.zsh
 
 bindkey "^[q" push-line-or-edit
 
-eval "$(fzf --zsh)"
 export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
-export FZF_CTRL_T_COMMAND=""
-export FZF_ALT_C_COMMAND=""
-
-export FZF_DEFAULT_OPTS="--preview 'if [ -d {} ]; then eza --tree --color=always {} | head -200; else batcat -n --color=always --line-range :500 {}; fi'"
+export FZF_CTRL_T_COMMAND=
+export FZF_ALT_C_COMMAND=
+eval "$(fzf --zsh)"
 
 _fzf_compgen_path() {
-  fd --hidden --exclude .git . "$1"
+	fd --hidden --exclude .git . "$1"
 }
 
 _fzf_compgen_dir() {
-  fd --type=d --hidden --exclude .git . "$1"
+	fd --type=d --hidden --exclude .git . "$1"
+}
+
+_fzf_comprun() {
+	local command="$1"
+	shift
+
+	case "$command" in
+		cd)		fzf --preview 'if [ -d {} ]; then eza --tree --color=always --icons=always {} | head -200; fi' "$@" ;;
+		vim|view|nvim|cat|bat) fzf --preview 'if [ -f {} ]; then bat -n --color=always --line-range :500 {}; fi' "$@" ;;
+		export|unset)	fzf --preview "eval 'echo \${}'" "$@" ;;
+		ssh)		fzf --preview 'dig {}' "$@" ;;
+		*)		fzf "$@" ;;
+	esac
 }
 
 export LC_ALL=en_US.UTF-8
@@ -232,7 +243,8 @@ export LANGUAGE=en_US.UTF-8
 export BAT_THEME=OneHalfDark
 export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.ustc.edu.cn/brew.git" HOMEBREW_CORE_GIT_REMOTE="https://mirrors.ustc.edu.cn/homebrew-core.git" HOMEBREW_API_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles/api" HOMEBREW_API_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles/api" HOMEBREW_BOTTLE_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles/bottles"
 
-alias bcat=batcat
+alias bat="bat -n --color=always"
+alias ll="eza --color=always --icons=always -ailbSh"
 alias vim=nvim
 alias view="nvim -R"
 alias proxyhp="export https_proxy=http://127.0.0.1:33210 http_proxy=http://127.0.0.1:33210 all_proxy=socks5://127.0.0.1:33211"
