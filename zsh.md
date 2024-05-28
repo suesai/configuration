@@ -224,14 +224,26 @@ _fzf_compgen_dir() {
 	fd --type=d --hidden --exclude .git . "$1"
 }
 
+_fzf_complete_alias() {
+	_fzf_complete +m -- "$@" < <(
+		alias | sed 's/=.*//'
+	)
+}
+
+_fzf_complete_unalias() {
+	_fzf_complete -m -- "$@" < <(
+		alias | sed 's/=.*//'
+	)
+}
+
 _fzf_comprun() {
 	local command="$1"
 	shift
 
 	case "$command" in
-		cd)		fzf --preview 'if [ -d {} ]; then eza --tree --color=always --icons=always {} | head -200; fi' "$@" ;;
-		vim|view|nvim|cat|bat) fzf --preview 'if [ -f {} ]; then bat -n --color=always --line-range :500 {}; fi' "$@" ;;
+		vim|view|nvim|cat|bat)	fzf --preview 'if [ -f {} ]; then bat -n --color=always --line-range :500 {}; fi' "$@" ;;
 		export|unset)	fzf --preview "eval 'echo \${}'" "$@" ;;
+		cd)		fzf --preview 'if [ -d {} ]; then eza --tree --color=always --icons=always {} | head -200; fi' "$@" ;;
 		ssh)		fzf --preview 'dig {}' "$@" ;;
 		*)		fzf "$@" ;;
 	esac
@@ -243,8 +255,8 @@ export LANGUAGE=en_US.UTF-8
 export BAT_THEME=OneHalfDark
 export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.ustc.edu.cn/brew.git" HOMEBREW_CORE_GIT_REMOTE="https://mirrors.ustc.edu.cn/homebrew-core.git" HOMEBREW_API_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles/api" HOMEBREW_API_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles/api" HOMEBREW_BOTTLE_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles/bottles"
 
-alias bat="bat -n --color=always"
-alias ll="eza --color=always --icons=always -ailbSh"
+alias bat="batcat -p --color=always"
+alias lls="eza --color=always --icons=always -ailbSh"
 alias vim=nvim
 alias view="nvim -R"
 alias proxyhp="export https_proxy=http://127.0.0.1:33210 http_proxy=http://127.0.0.1:33210 all_proxy=socks5://127.0.0.1:33211"
