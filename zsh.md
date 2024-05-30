@@ -243,7 +243,7 @@ _fzf_comprun() {
 	case "$command" in
 		vim|view|nvim|cat|bat)	fzf --preview 'if [ -f {} ]; then bat -n --color=always --line-range :500 {}; fi' "$@" ;;
 		export|unset)	fzf --preview "eval 'echo \${}'" "$@" ;;
-		cd)		fzf --preview 'if [ -d {} ]; then eza --tree --color=always --icons=always {} | head -200; fi' "$@" ;;
+		cd|ls)		fzf --preview 'if [ -d {} ]; then eza --tree --color=always --icons=always {} | head -200; fi' "$@" ;;
 		ssh)		fzf --preview 'dig {}' "$@" ;;
 		*)		fzf "$@" ;;
 	esac
