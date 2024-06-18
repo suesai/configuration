@@ -256,7 +256,9 @@ export BAT_THEME=OneHalfDark
 export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.ustc.edu.cn/brew.git" HOMEBREW_CORE_GIT_REMOTE="https://mirrors.ustc.edu.cn/homebrew-core.git" HOMEBREW_API_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles/api" HOMEBREW_API_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles/api" HOMEBREW_BOTTLE_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles/bottles"
 
 alias bat="batcat -p --color=always"
-alias lls="eza --color=always --icons=always -ailbSh"
+alias ll="eza --color=always --icons=always -ilbSh"
+alias l="eza --color=always --icons=always"
+alias lt="eza --color=always --icons=always -T"
 alias vim=nvim
 alias view="nvim -R"
 alias proxyhp="export https_proxy=http://127.0.0.1:33210 http_proxy=http://127.0.0.1:33210 all_proxy=socks5://127.0.0.1:33211"
