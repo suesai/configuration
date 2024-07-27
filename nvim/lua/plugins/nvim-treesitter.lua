@@ -7,7 +7,7 @@ return {
 	build = ":TSUpdate",
 	opts = {
 		ensure_installed = "all",
-		ignore_innstall = {
+		ignore_install = {
 			"scfg",
 			"smali",
 			"unison",
