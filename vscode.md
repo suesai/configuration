@@ -625,7 +625,7 @@ UseTab: ForIndentation
 
 ```text
 CompileFlags:
-  Remove: [-fconserve-stack, -fno-allow-store-data-races, -mfunction-return=thunk-extern, -mindirect-branch-cs-prefix, -mindirect-branch-register, -mindirect-branch=thunk-extern, -mskip-rax-setup, -mpreferred-stack-boundary=3, -mno-fp-ret-in-387, -fno-var-tracking-assignments, -maccumulate-outgoing-args]
+  Remove: [-fconserve-stack, -fno-allow-store-data-races, -mfunction-return=thunk-extern, -mindirect-branch-cs-prefix, -mindirect-branch-register, -mindirect-branch=thunk-extern, -mskip-rax-setup, -mpreferred-stack-boundary=3, -mno-fp-ret-in-387, -fno-var-tracking-assignments, -maccumulate-outgoing-args, -flive-patching=inline-clone, -mrecord-mcount]
 ```
 
 ## keybindings.json
