@@ -249,6 +249,34 @@ _fzf_comprun() {
 	esac
 }
 
+lsps() {
+	local pid=""
+	local thread=""
+	local args=""
+
+	while [[ $# > 0 ]]; do
+		if [[ "$1" == "-t" ]]; then
+			thread="1"
+		elif [[ "$1" == "-p" ]]; then
+			shift
+			pid="$1"
+		fi
+		shift
+	done
+
+	if [[ -n "${thread}" ]] && [[ -n "${pid}" ]]; then
+		args="-L -o pid,nlwp,lwp,ppid,pgid,euser,etime,time,rss,stat,command -p ${pid}"
+	elif [[ -n "${thread}" ]]; then
+		args="-eL -o pid,nlwp,lwp,ppid,pgid,euser,etime,time,rss,stat,command"
+	elif [[ -n "${pid}" ]]; then
+		args="-o pid,nlwp,ppid,pgid,euser,etime,time,rss,stat,command -p ${pid}"
+	else
+		args="-e -o pid,nlwp,ppid,pgid,euser,etime,time,rss,stat,command"
+	fi
+
+	eval ps "${args}"
+}
+
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
