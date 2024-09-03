@@ -192,6 +192,6 @@ UseTab: ForIndentation
 ```text
 CompileFlags:
   CompilationDatabase: build/
-  Remove: [-fconserve-stack, -fno-allow-store-data-races, -mfunction-return=thunk-extern, -mindirect-branch-cs-prefix, -mindirect-branch-register, -mindirect-branch=thunk-extern, -mskip-rax-setup, -mpreferred-stack-boundary=3, -mno-fp-ret-in-387, -fno-var-tracking-assignments, -maccumulate-outgoing-args, -flive-patching=inline-clone, -mrecord-mcount, -Werror=designated-init, -fmerge-constants, -falign-jumps=1, -Wno-packed-not-aligned, -fuint-at-a-time, --param=allow-store-data-races=0, -Wno-stringop-truncation, -Wno-stringop-overflow, -Wno-restrict, -Wno-maybe-uninitialized]
+  Remove: [-fconserve-stack, -fno-allow-store-data-races, -mfunction-return=thunk-extern, -mindirect-branch-cs-prefix, -mindirect-branch-register, -mindirect-branch=thunk-extern, -mskip-rax-setup, -mpreferred-stack-boundary=3, -mno-fp-ret-in-387, -fno-var-tracking-assignments, -maccumulate-outgoing-args, -flive-patching=inline-clone, -mrecord-mcount, -Werror=designated-init, -fmerge-constants, -falign-jumps=1, -Wno-packed-not-aligned, -fuint-at-a-time, --param=allow-store-data-races=0, -Wno-stringop-truncation, -Wno-stringop-overflow, -Wno-restrict, -Wno-maybe-uninitialized, -Wstrict-aliasing=3]
 ```
 
