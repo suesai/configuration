@@ -190,6 +190,7 @@ UseTab: ForIndentation
 ## .clangd
 
 clangd 一共有三种index模式：BackgroundIndex，StaticIndex，RemoteIndex。StaticIndex 命令为：`clangd-indexer -extra-arg="-Wno-everything" --executor=all-TUs compile_commands.json >.clangd.idx`。
+
 ```text
 CompileFlags:
   CompilationDatabase: build/
