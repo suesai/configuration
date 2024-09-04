@@ -197,6 +197,7 @@ CompileFlags:
   Remove: [-fconserve-stack, -fno-allow-store-data-races, -mfunction-return=*, -mindirect-branch-cs-prefix, -mindirect-branch-register, -mindirect-branch=*, -mskip-rax-setup, -mpreferred-stack-boundary=*, -mno-fp-ret-in-387, -fno-var-tracking-assignments, -maccumulate-outgoing-args, -flive-patching=*, -mrecord-mcount, -Werror=*, -fmerge-constants, -falign-jumps=*, -Wno-packed-not-aligned, -fuint-at-a-time, --param=allow-store-data-races=0, -Wno-stringop-truncation, -Wno-stringop-overflow, -Wno-restrict, -Wno-maybe-uninitialized, -Wstrict-aliasing=*]
 Index:
   Background: Skip
-  File: .clangd.idx
+  External:
+    File: .clangd.idx
 ```
 
