@@ -265,13 +265,13 @@ lsps () {
 	done
 
 	if [[ -n "${thread}" ]] && [[ -n "${pid}" ]]; then
-		args="-L -o pid,nlwp,lwp,ppid,pgid,euser,etime:12,time:12,rss:7,stat,command -p ${pid}"
+		args="-L -o pid,nlwp,lwp,ppid,pgid,euser,etime:12,time:12,rss:8,stat,command -p ${pid}"
 	elif [[ -n "${thread}" ]]; then
-		args="-eL -o pid,nlwp,lwp,ppid,pgid,euser,etime:12,time:12,rss:7,stat,command"
+		args="-eL -o pid,nlwp,lwp,ppid,pgid,euser,etime:12,time:12,rss:8,stat,command"
 	elif [[ -n "${pid}" ]]; then
-		args="-o pid,nlwp,ppid,pgid,euser,etime:12,time:12,rss:7,stat,command -p ${pid}"
+		args="-o pid,nlwp,ppid,pgid,euser,etime:12,time:12,rss:8,stat,command -p ${pid}"
 	else
-		args="-e -o pid,nlwp,ppid,pgid,euser,etime:12,time:12,rss:7,stat,command"
+		args="-e -o pid,nlwp,ppid,pgid,euser,etime:12,time:12,rss:8,stat,command"
 	fi
 
 	eval ps "${args}" "${other_args}"
