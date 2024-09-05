@@ -249,32 +249,32 @@ _fzf_comprun() {
 	esac
 }
 
-lsps() {
-	local pid=""
-	local thread=""
-	local args=""
+lsps () {
+	local pid thread args other_args
 
-	while [[ $# > 0 ]]; do
+	while [[ $# -gt 0 ]]; do
 		if [[ "$1" == "-t" ]]; then
 			thread="1"
 		elif [[ "$1" == "-p" ]]; then
 			shift
 			pid="$1"
+		else
+			other_args="${other_args} $1"
 		fi
 		shift
 	done
 
 	if [[ -n "${thread}" ]] && [[ -n "${pid}" ]]; then
-		args="-L -o pid,nlwp,lwp,ppid,pgid,euser,etime,time,rss,stat,command -p ${pid}"
+		args="-L -o pid,nlwp,lwp,ppid,pgid,euser,etime:12,time:12,rss:7,stat,command -p ${pid}"
 	elif [[ -n "${thread}" ]]; then
-		args="-eL -o pid,nlwp,lwp,ppid,pgid,euser,etime,time,rss,stat,command"
+		args="-eL -o pid,nlwp,lwp,ppid,pgid,euser,etime:12,time:12,rss:7,stat,command"
 	elif [[ -n "${pid}" ]]; then
-		args="-o pid,nlwp,ppid,pgid,euser,etime,time,rss,stat,command -p ${pid}"
+		args="-o pid,nlwp,ppid,pgid,euser,etime:12,time:12,rss:7,stat,command -p ${pid}"
 	else
-		args="-e -o pid,nlwp,ppid,pgid,euser,etime,time,rss,stat,command"
+		args="-e -o pid,nlwp,ppid,pgid,euser,etime:12,time:12,rss:7,stat,command"
 	fi
 
-	eval ps "${args}"
+	eval ps "${args}" "${other_args}"
 }
 
 export LC_ALL=en_US.UTF-8
