@@ -5,7 +5,7 @@ return {
 			"asm", "bash", "c", "cmake", "cpp", "css", "diff", "disassembly", "dockerfile", "doxygen", "fish",
 			"git_config", "git_rebase", "gitattributes", "gitcommit", "gitignore", "go", "html", "http",
 			"java", "javascript", "jq", "jsdoc", "json", "json5", "kconfig", "kotlin", "lua", "luadoc",
-			"make", "markdown", "objdump", "perl", "printf", "python", "regex", "rust",
+			"make", "markdown", "meson", "ninja", "objdump", "perl", "printf", "python", "regex", "rust",
 			"sql", "strace", "systemtap", "toml", "typescript", "vim", "vimdoc", "xml", "yaml",
 		},
 
