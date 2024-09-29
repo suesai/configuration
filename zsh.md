@@ -308,5 +308,5 @@ proxyhp
 	6. rg
 	7. tmux
 	8. tree-sitter
-	9.bat
+	9. bat
 	10. node
