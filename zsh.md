@@ -297,3 +297,16 @@ alias -g -- --help='--help 2>&1 | bat -l help -pp'
 
 proxyhp
 ```
+
+5. 工具
+
+	1. compiledb
+	2. eaz
+	3. fd
+	4. fzf, fzf-preview.sh, fzf-tmux
+	5. lazygit
+	6. rg
+	7. tmux
+	8. tree-sitter
+	9.bat
+	10. node
