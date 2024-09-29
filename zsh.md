@@ -280,12 +280,12 @@ lsps () {
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
-export BAT_THEME=TwoDark
-export MANPAGER="sh -c 'col -bx | batcat -l man -p'"
+export BAT_THEME="Visual Studio Dark+"
+export MANPAGER="sh -c 'col -bx | bat -l man --paging=always --style=plain'"
 export MANROFFOPT="-c"
 export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.ustc.edu.cn/brew.git" HOMEBREW_CORE_GIT_REMOTE="https://mirrors.ustc.edu.cn/homebrew-core.git" HOMEBREW_API_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles/api" HOMEBREW_API_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles/api" HOMEBREW_BOTTLE_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles/bottles"
 
-alias bat="batcat --tabs 8"
+alias bat="bat --tabs 8"
 alias ll="eza --color=always --icons=always -ilbSh"
 alias l="eza --color=always --icons=always"
 alias lt="eza --color=always --icons=always -T"
@@ -293,5 +293,7 @@ alias vim=nvim
 alias view="nvim -R"
 alias proxyhp="export https_proxy=http://127.0.0.1:33210 http_proxy=http://127.0.0.1:33210 all_proxy=socks5://127.0.0.1:33211"
 alias unproxyhp="unset https_proxy http_proxy all_proxy"
+alias -g -- --help='--help 2>&1 | bat -l help -pp'
+
 proxyhp
 ```
