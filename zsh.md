@@ -205,12 +205,41 @@ ZSH_THEME="ss"
 
 plugins=(git extract z zsh-autosuggestions zsh-syntax-highlighting)
 
-[[ "${TERM}" == "xterm"  ]] && export TERM=xterm-256color
-
 source $HOME/.config/zsh/completion.zsh
 
+# every shell has its history
+unsetopt share_history
+unsetopt inc_append_history
+
+# alais
+alias bat="bat --tabs 8"
+alias ll="eza --color=always --icons=always -ilbSh"
+alias l="eza --color=always --icons=always"
+alias lt="eza --color=always --icons=always -T"
+alias tmux="TERM=xterm-256color tmux"
+alias vim=nvim
+alias view="nvim -R"
+alias proxyhp="export https_proxy=http://127.0.0.1:33210 http_proxy=http://127.0.0.1:33210 all_proxy=socks5://127.0.0.1:33211"
+alias unproxyhp="unset https_proxy http_proxy all_proxy"
+alias -g -- --help='--help 2>&1 | bat -l help -pp'
+
+# export
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LANGUAGE=en_US.UTF-8
+export BAT_THEME="Visual Studio Dark+"
+export MANPAGER="sh -c 'col -bx | bat -l man --style=plain --paging=always'"
+export MANROFFOPT="-c"
+export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.ustc.edu.cn/brew.git"
+export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.ustc.edu.cn/homebrew-core.git"
+export HOMEBREW_API_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles/api"
+export HOMEBREW_API_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles/api"
+export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles/bottles"
+
+# escape q to edit muliple line
 bindkey "^[q" push-line-or-edit
 
+# fzf
 export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
 export FZF_CTRL_T_COMMAND=
 export FZF_ALT_C_COMMAND=
@@ -277,23 +306,16 @@ lsps () {
 	eval ps "${args}" "${other_args}"
 }
 
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-export LANGUAGE=en_US.UTF-8
-export BAT_THEME="Visual Studio Dark+"
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-export MANROFFOPT="-c"
-export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.ustc.edu.cn/brew.git" HOMEBREW_CORE_GIT_REMOTE="https://mirrors.ustc.edu.cn/homebrew-core.git" HOMEBREW_API_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles/api" HOMEBREW_API_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles/api" HOMEBREW_BOTTLE_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles/bottles"
+tailog() {
+	local file="$1"
 
-alias bat="bat --tabs 8"
-alias ll="eza --color=always --icons=always -ilbSh"
-alias l="eza --color=always --icons=always"
-alias lt="eza --color=always --icons=always -T"
-alias vim=nvim
-alias view="nvim -R"
-alias proxyhp="export https_proxy=http://127.0.0.1:33210 http_proxy=http://127.0.0.1:33210 all_proxy=socks5://127.0.0.1:33211"
-alias unproxyhp="unset https_proxy http_proxy all_proxy"
-alias -g -- --help='--help 2>&1 | bat -l help -pp'
+	if [[ ! -e "${file}" ]]; then
+		echo "usage: tailog file"
+		return 22
+	fi
+
+	tail -F "${file}" | BAT_THEME=base16 bat -pp -l log
+}
 
 proxyhp
 ```
