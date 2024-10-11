@@ -6,7 +6,7 @@ return {
 			"git_config", "git_rebase", "gitattributes", "gitcommit", "gitignore", "go", "html", "http", "ini",
 			"java", "javascript", "jq", "jsdoc", "json", "json5", "jsonc", "kconfig", "kotlin", "latex", "llvm", "lua", "luadoc", "luap",
 			"make", "markdown", "markdown_inline", "matlab", "meson", "nasm", "nginx", "ninja", "objdump", "passwd", "perl", "printf", "python", "regex", "rust",
-			"scfg", "scheme", "slint", "sql", "strace", "systemtap", "tmux", "toml", "typescript", "udev", "vim", "vimdoc", "xml", "yaml",
+			"scheme", "slint", "sql", "strace", "systemtap", "tmux", "toml", "typescript", "udev", "vim", "vimdoc", "xml", "yaml",
 		},
 
 		highlight = {
