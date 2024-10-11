@@ -166,5 +166,17 @@ return {
 				},
 			},
 		},
+		on_keys = {
+			auto_hlsearch = {
+				function(char)
+					if vim.fn.mode() == "n" then
+						local key = vim.fn.keytrans(char)
+						if key == "<Esc>" then
+							vim.cmd ":noh"
+						end
+					end
+				end
+			},
+		},
 	},
 }
