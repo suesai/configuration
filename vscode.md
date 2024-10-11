@@ -118,25 +118,30 @@ Mac:
 ```json
 {
 	"breadcrumbs.enabled": true,
-	"C_Cpp.autocomplete": "Default",
+
+	"C_Cpp.autocomplete": "default",
 	"C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: Google, IndentWidth: 8, TabWidth: 8, UseTab: ForIndentation, AllowShortIfStatementsOnASingleLine: true, ColumnLimit: 128 }",
 	"C_Cpp.clang_format_sortIncludes": false,
-	"C_Cpp.default.intelliSenseMode": "linux-gcc-x64",
-	"C_Cpp.errorSquiggles": "Enabled",
-	"C_Cpp.intelliSenseEngineFallback": "Enabled",
-	"C_Cpp.intelliSenseEngine": "Default",
+	"C_Cpp.default.compilerPath": "/usr/bin/clang",
+	"C_Cpp.default.intelliSenseMode": "linux-clang-x64",
+	"C_Cpp.errorSquiggles": "enabled",
+	"C_Cpp.intelliSenseEngineFallback": "enabled",
+	"C_Cpp.intelliSenseEngine": "default",
 	"C_Cpp.suggestSnippets": false,
+
 	"clang-format.fallbackStyle": "Google",
+
 	"debug.allowBreakpointsEverywhere": true,
+
 	"editor.acceptSuggestionOnEnter": "off",
 	"editor.bracketPairColorization.enabled": true,
 	"editor.cursorSmoothCaretAnimation": "off",
 	"editor.detectIndentation": false,
 	"editor.dragAndDrop": false,
 	"editor.formatOnType": false,
-	"editor.fontFamily": "Consolas",
+	"editor.fontFamily": "'IntoneMono Nerd Font Mono'",
 	"editor.fontLigatures": false,
-	"editor.fontSize": 16,
+	"editor.fontSize": 14,
 	"editor.insertSpaces": false,
 	"editor.renderControlCharacters": true,
 	"editor.renderWhitespace": "boundary",
@@ -148,12 +153,14 @@ Mac:
 	"editor.suggest.snippetsPreventQuickSuggestions": false,
 	"editor.tabSize": 8,
 	"editor.unicodeHighlight.nonBasicASCII": false,
-	"extensions.autoCheckUpdates": false,
-	"extensions.autoUpdate": false,
+
+	// "extensions.autoCheckUpdates": false,
+	// "extensions.autoUpdate": false,
 	"extensions.experimental.affinity": {
 		"vscodevim.vim": 1
 	},
-	"extensions.ignoreRecommendations": true,
+	// "extensions.ignoreRecommendations": true,
+
 	"files.defaultLanguage": "c",
 	"files.encoding": "utf8",
 	"files.eol": "\n",
@@ -163,10 +170,10 @@ Mac:
 	"files.watcherExclude": {
 		"**/target/**": true
 	},
+
 	"git.ignoreMissingGitWarning": true,
 	"gitlens.hovers.currentLine.over": "line",
-	"gnuGlobal.globalExecutable": "/usr/local/bin/global",
-	"gnuGlobal.gtagsExecutable": "/usr/local/bin/gtags",
+
 	"highlightwords.box": {
 		"light": true,
 		"dark": false
@@ -183,8 +190,10 @@ Mac:
 	],
 	"highlightwords.defaultMode": 1,
 	"highlightwords.showSidebar": true,
+
 	"lldb.dereferencePointers": true,
 	"lldb.displayFormat": "auto",
+
 	"Lua.develop.enable": true,
 	"Lua.runtime.path": [
 		"?.lua",
@@ -192,6 +201,7 @@ Mac:
 		"?/?.lua",
 		"/sfos/lualibs/?.lua"
 	],
+
 	"multiCommand.commands": [
 		{
 			"command": "multiCommand.multiEscape",
@@ -207,28 +217,32 @@ Mac:
 			]
 		}
 	],
+
 	"python.analysis.fixAll": [
 		"source.convertImportFormat",
 		"source.unusedImports"
 	],
 	"python.analysis.typeCheckingMode": "basic",
+
 	"remote.SSH.connectTimeout": 60,
-	"remote.SSH.path": "/usr/bin/ssh",
 	"remote.SSH.remotePlatform": {
 		"rlk": "linux"
 	},
 	"remote.SSH.showLoginTerminal": true,
 	"remote.SSH.useLocalServer": true,
+
 	"rust-analyzer.updates.askBeforeDownload": false,
 	"rust-analyzer.updates.channel": "nightly",
+
 	"search.collapseResults": "auto",
 	"search.searchOnType": false,
+
 	"shellcheck.disableVersionCheck": false,
-	"shellcheck.executablePath": "/usr/local/bin/shellcheck",
 	"shellcheck.exclude": [
 		"SC2016",
 		"SC1091"
 	],
+
 	"terminal.integrated.commandsToSkipShell": [
 		"-workbench.action.quickOpen",
 		"-workbench.action.terminal.focusFind",
@@ -237,8 +251,10 @@ Mac:
 	"terminal.integrated.defaultProfile.linux": "zsh",
 	"terminal.integrated.defaultProfile.windows": "Git Bash",
 	"terminal.integrated.macOptionIsMeta": true,
-	"update.enableWindowsBackgroundUpdates": false,
-	"update.mode": "none",
+
+	// "update.enableWindowsBackgroundUpdates": false,
+	// "update.mode": "none",
+
 	"vim.leader": "<space>",
 	"vim.camelCaseMotion.enable": true,
 	"vim.easymotion": true,
@@ -425,10 +441,8 @@ Mac:
 			"commands": ["references-view.findReferences"]
 		}
 	],
-	"workbench.colorTheme": "Tomorrow Night",
-	"[c]": {
-		"editor.defaultFormatter": "ms-vscode.cpptools"
-	}
+
+	"window.commandCenter": false,
 }
 ```
 
