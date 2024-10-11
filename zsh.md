@@ -216,7 +216,6 @@ alias bat="bat --tabs 8 --paging=always"
 alias ll="eza --color=always --icons=always -ilbSh"
 alias l="eza --color=always --icons=always"
 alias lt="eza --color=always --icons=always -T"
-alias tmux="TERM=xterm-256color tmux"
 alias vim="nvim"
 alias view="nvim -R"
 alias proxyhp="export https_proxy=http://127.0.0.1:33210 http_proxy=http://127.0.0.1:33210 all_proxy=socks5://127.0.0.1:33211"
@@ -230,6 +229,7 @@ export LANGUAGE=en_US.UTF-8
 export BAT_THEME="Visual Studio Dark+"
 export MANPAGER="sh -c 'col -bx | bat -l man --style=plain --paging=always'"
 export MANROFFOPT="-c"
+[[ "${TERM}" == "xterm" ]] && export TERM=xterm-256color
 # homebrew
 export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.ustc.edu.cn/brew.git"
 export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.ustc.edu.cn/homebrew-core.git"
