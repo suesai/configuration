@@ -13,6 +13,7 @@
 11. ShellCheck
 12. x86 and x86_64 Assembly
 13. Tomorrow and Tomorrow Night Theme
+14. clangd
 
 ### 安装 ms-vscode.cpptools 之后再安装 cpptools，如果没办法下载后者，则按照以下步骤
 
