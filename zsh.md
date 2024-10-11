@@ -189,10 +189,6 @@ PROMPT="
 %F{138}%m%f \
 %F{white}in%f \
 %B%F{blue}%~%f%b\
-${hg_info}\
-${git_info}\
-${svn_info}\
-${venv_info}\
  \
 %F{white}[%f%F{60}%*%f%F{white}]%f $exit_code
 %F{168}$ %f"
