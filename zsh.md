@@ -212,12 +212,12 @@ unsetopt share_history
 unsetopt inc_append_history
 
 # alais
-alias bat="bat --tabs 8"
+alias bat="bat --tabs 8 --paging=always"
 alias ll="eza --color=always --icons=always -ilbSh"
 alias l="eza --color=always --icons=always"
 alias lt="eza --color=always --icons=always -T"
 alias tmux="TERM=xterm-256color tmux"
-alias vim=nvim
+alias vim="nvim"
 alias view="nvim -R"
 alias proxyhp="export https_proxy=http://127.0.0.1:33210 http_proxy=http://127.0.0.1:33210 all_proxy=socks5://127.0.0.1:33211"
 alias unproxyhp="unset https_proxy http_proxy all_proxy"
