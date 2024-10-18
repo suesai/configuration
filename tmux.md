@@ -30,9 +30,9 @@ setw -q -g utf8 on
 set -g status-interval 1
 set-option -g status-position top
 
-set -g prefix C-t
 unbind C-b
-bind-key C-t send-prefix
+set -g prefix C-g
+bind-key C-g send-prefix
 
 unbind %
 bind | split-window -h 
