@@ -238,6 +238,8 @@ export RUSTUP_UPDATE_ROOT=https://mirrors.tuna.tsinghua.edu.cn/rustup/rustup
 
 # escape q to edit muliple line
 bindkey "^[q" push-line-or-edit
+bindkey "^u"  backward-kill-line
+bindkey "^[l" down-case-word
 
 # fzf
 export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
