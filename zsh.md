@@ -236,9 +236,11 @@ export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles/bott
 export RUSTUP_DIST_SERVER=https://mirrors.tuna.tsinghua.edu.cn/rustup
 export RUSTUP_UPDATE_ROOT=https://mirrors.tuna.tsinghua.edu.cn/rustup/rustup
 
-# escape q to edit muliple line
+# escape q or alt q to edit muliple line
 bindkey "^[q" push-line-or-edit
+# ctrl u to cut words before cursor
 bindkey "^u"  backward-kill-line
+# escape l or alt l to lower case
 bindkey "^[l" down-case-word
 
 # fzf
