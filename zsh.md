@@ -3,7 +3,7 @@
 ```bash
 git clone https://github.com/zsh-users/zsh-completions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-completions
 git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-git clone git@github.com:zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 ```
 
 2. 创建 $HOME/.config/zsh/completion.zsh
@@ -327,7 +327,7 @@ proxyhp
 5. 工具
 
 	1. compiledb
-	2. eaz
+	2. eza
 	3. fd
 	4. fzf, fzf-preview.sh, fzf-tmux
 	5. lazygit
