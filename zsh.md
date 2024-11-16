@@ -214,8 +214,8 @@ alias l="eza --color=always --icons=always"
 alias lt="eza --color=always --icons=always -T"
 alias vim="nvim"
 alias view="nvim -R"
-alias proxyhp="export https_proxy=http://127.0.0.1:33210 http_proxy=http://127.0.0.1:33210 all_proxy=socks5://127.0.0.1:33211"
-alias unproxyhp="unset https_proxy http_proxy all_proxy"
+alias proxyhp="export http_proxy=http://127.0.0.1:33210 https_proxy=http://127.0.0.1:33210 no_proxy=127.0.0.1,localhost"
+alias unproxyhp="unset http_proxy https_proxy no_proxy"
 alias -g -- --help='--help 2>&1 | bat -l help -pp'
 
 # export
