@@ -27,6 +27,4 @@ return {
 			default_prog = { "zsh", "-l" },
 		},
 	},
-
-	default_gui_startup_args = { "connect", "unix" },
 }
