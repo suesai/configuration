@@ -1,0 +1,259 @@
+-- Pull in the wezterm API
+local wezterm = require("wezterm")
+local mux     = wezterm.mux
+local action  = wezterm.action
+
+
+wezterm.on("gui-startup", function(cmd)
+	local tab, pane, window = mux.spawn_window(cmd or {})
+	window:gui_window():maximize()
+end)
+
+
+local function is_vim(pane)
+	-- this is set by the plugin, and unset on ExitPre in Neovim
+	return pane:get_user_vars().IS_NVIM == "true"
+end
+
+
+local direction_keys = {
+	h = "Left",
+	j = "Down",
+	k = "Up",
+	l = "Right",
+}
+
+local function split_nav(key)
+	return {
+		key    = key,
+		mods   = "CTRL",
+		action = wezterm.action_callback(function(win, pane)
+			if is_vim(pane) then
+				-- pass the keys through to vim/nvim
+				win:perform_action({
+					SendKey = { key = "w", mods = "CTRL" },
+				}, pane)
+				-- os.execute("sleep 0.1")
+				-- win:perform_action({
+				-- 	SendKey = { key },
+				-- }, pane)
+
+				-- win:perform_action({
+				-- 	action.Multiple({
+				-- 		action.SendKey = { key = "w", mods = "CTRL" },
+				-- 		action.SendKey = { key = key },
+				-- 	})
+				-- }, pane)
+
+				-- win:perform_action({
+				-- 	action.Multiple({
+				-- 		action.SendKey({ key = "w", mods = "CTRL" }),
+				-- 		action.SendKey({ key = key }),
+				-- 	})
+				-- })
+			else
+				win:perform_action({
+					SendKey = { key = key, mods = "CTRL" },
+				}, pane)
+			end
+		end),
+	}
+end
+
+
+-- This will hold the configuration.
+local config = wezterm.config_builder()
+
+-- This is where you actually apply your config choices
+
+config.color_scheme = "Tomorrow Night"
+config.font = wezterm.font("IntoneMono Nerd Font Mono")
+config.font_size = 14
+
+config.enable_tab_bar = true
+config.use_fancy_tab_bar = true
+config.hide_tab_bar_if_only_one_tab = false
+
+config.adjust_window_size_when_changing_font_size = false
+config.window_decorations = "RESIZE"
+config.window_background_opacity = 0.8
+config.macos_window_background_blur = 10
+config.window_padding = {
+	left = 20,
+	right = 20,
+	top = 20,
+	bottom = 5,
+}
+-- config.window_frame = {
+-- 	font = wezterm.font("IntoneMono Nerd Font Mono"),
+-- 	font_size = 12,
+-- }
+
+-- config.text_background_opacity = 0.8
+
+config.scrollback_lines = 10240
+config.enable_scroll_bar = true
+
+config.term = "xterm-256color"
+
+config.warn_about_missing_glyphs = false
+
+config.ssh_domains = {
+	{
+		name = "rlk",
+		remote_address = "192.168.0.104",
+		username = "root",
+		remote_wezterm_path = "/usr/bin/wezterm",
+	}
+}
+config.unix_domains = {
+	{
+		name = "unix"
+	}
+}
+config.default_gui_startup_args = { "connect", "unix" }
+
+config.disable_default_key_bindings = true
+config.leader = {
+	key   = "g",
+	mods  = "CTRL",
+	timeout_milliseconds = 1000,
+}
+config.keys   = {
+	-- Send "CTRL-G" to the terminal when pressing CTRL-G, CTRL-G
+	{
+		key    = "g",
+		mods   = "LEADER|CTRL",
+		action = action.SendKey({ key = "g", mods = "CTRL" }),
+	},
+	{
+		key    = "r",
+		mods   = "LEADER",
+		action = action.ReloadConfiguration,
+	},
+	{
+		key    = "\\",
+		mods   = "LEADER",
+		action = action.SplitHorizontal({ domain = "CurrentPaneDomain" }),
+	},
+	{
+		key    = "-",
+		mods   = "LEADER",
+		action = action.SplitVertical({ domain = "CurrentPaneDomain" }),
+	},
+	{
+		key    = "m",
+		mods   = "LEADER",
+		action = action.TogglePaneZoomState,
+	},
+	{
+		key    = "c",
+		mods   = "LEADER",
+		action = action.SpawnTab("CurrentPaneDomain"),
+	},
+	{
+		key    = "w",
+		mods   = "LEADER",
+		action = action.CloseCurrentTab({ confirm = true }),
+	},
+	{
+		key    = "p",
+		mods   = "LEADER",
+		action = action.ActivateTabRelative(-1),
+	},
+	{
+		key    = "n",
+		mods   = "LEADER",
+		action = action.ActivateTabRelative(1),
+	},
+	{
+		key    = "LeftArrow",
+		mods   = "LEADER",
+		action = action.AdjustPaneSize({ "Left", 5 }),
+	},
+	{
+		key    = "RightArrow",
+		mods   = "LEADER",
+		action = action.AdjustPaneSize({ "Right", 5 }),
+	},
+	{
+		key    = "DownArrow",
+		mods   = "LEADER",
+		action = action.AdjustPaneSize({ "Down", 5 }),
+	},
+	{
+		key    = "UpArrow",
+		mods   = "LEADER",
+		action = action.AdjustPaneSize({ "Up", 5 }),
+	},
+	{
+		key    = "h",
+		mods   = "LEADER",
+		action = action.ActivatePaneDirection("Left"),
+	},
+	{
+		key    = "l",
+		mods   = "LEADER",
+		action = action.ActivatePaneDirection("Right"),
+	},
+	{
+		key    = "k",
+		mods   = "LEADER",
+		action = action.ActivatePaneDirection("Up"),
+	},
+	{
+		key    = "j",
+		mods   = "LEADER",
+		action = action.ActivatePaneDirection("Down"),
+	},
+	{
+		key    = "x",
+		mods   = "LEADER",
+		action = action.CloseCurrentPane({ confirm = false }),
+	},
+	{
+		key    = "[",
+		mods   = "LEADER",
+		action = action.ActivateCopyMode,
+	},
+	{
+		key    = "d",
+		mods   = "LEADER",
+		action = action.DetachDomain("CurrentPaneDomain"),
+	},
+	{
+		key    = "f",
+		mods   = "CTRL|SHIFT",
+		action = action.Search("CurrentSelectionOrEmptyString"),
+	},
+	{
+		key    = "l",
+		mods   = "CTRL|SHIFT",
+		action = action.ShowDebugOverlay,
+	},
+	{
+		key    = "c",
+		mods   = "CTRL|SHIFT",
+		action = action.CopyTo("ClipboardAndPrimarySelection"),
+	},
+	{
+		key    = "v",
+		mods   = "CTRL|SHIFT",
+		action = action.PasteFrom("Clipboard"),
+	},
+	-- split_nav("h"),
+	-- split_nav("j"),
+	-- split_nav("k"),
+	-- split_nav("l"),
+}
+
+for i = 1, 9 do
+	table.insert(config.keys, {
+		key    = tostring(i),
+		mods   = "CMD",
+		action = action.ActivateTab(i - 1),
+	})
+end
+
+-- and finally, return the configuration to wezterm
+return config
