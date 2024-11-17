@@ -101,11 +101,15 @@ local keys = {
 			backdrops:set_img(window, tonumber(idx))
 		end),
 	})},
-	{ key = "/", mods = mod.SUPER, action = wezterm.action_callback(
+	{ key = "/",  mods = mod.SUPER,     action = wezterm.action_callback(
 		function(window, _)
 			backdrops:toggle_focus(window)
 		end
 	)},
+
+	-- session manager
+	{ key = "s",  mods = mod.MODIFIER,  action = act.EmitEvent("save_session") },
+	{ key = "r",  mods = mod.MODIFIER,  action = act.EmitEvent("restore_session") },
 }
 
 local mouse_bindings = {
