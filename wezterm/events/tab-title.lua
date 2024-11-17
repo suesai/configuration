@@ -62,8 +62,6 @@ end
 local function create_title(process_name, base_title, max_width, inset)
 	local title
 
-	wezterm.log_info("susai test: process_name " .. process_name .. ", base_title " .. base_title)
-
 	if process_name:len() > 0 then
 		title = process_name .. " ~ " .. base_title
 	else
@@ -79,10 +77,6 @@ local function create_title(process_name, base_title, max_width, inset)
 		title = base_title:gsub("InputSelector:", GLYPH_SEARCH)
 		inset = inset - 2
 	end
-
-	-- wezterm.log_info("susai test: " .. title .. ", title:len " .. tostring(title:len()) .. ", max_width " .. tostring(max_width) ", inset " .. tostring(inset))
-
-	wezterm.log_info("susai test: title " .. title)
 
 	if title:len() > max_width - inset then
 		local diff = title:len() - max_width + inset
