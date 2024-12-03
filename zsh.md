@@ -197,15 +197,25 @@ PROMPT="
 4. 修改 .zshrc
 
 ```bash
+export ZSH="$HOME/.oh-my-zsh"
+
 ZSH_THEME="ss"
+
+HIST_STAMPS="%Y-%m-%d %H:%M:%S"
 
 plugins=(git extract z zsh-autosuggestions zsh-syntax-highlighting)
 
+source $ZSH/oh-my-zsh.sh
 source $HOME/.config/zsh/completion.zsh
 
 # every shell has its history
-unsetopt share_history
-unsetopt inc_append_history
+SAVEHIST=40960
+HISTSIZE=40960
+setopt   EXTENDED_HISTORY
+setopt   INC_APPEND_HISTORY_TIME
+unsetopt APPEND_HISTORY
+unsetopt SHARE_HISTORY
+unsetopt INC_APPEND_HISTORY
 
 # alais
 alias bat="bat --tabs 8 --paging=always"
@@ -282,6 +292,30 @@ _fzf_comprun() {
 	esac
 }
 
+fzf-history-widget() {
+	local selected num
+
+	setopt localoptions noglobsubst noposixbuiltins pipefail no_aliases 2> /dev/null
+
+	selected="$(fc -rlD -t '%Y-%m-%d %H:%M:%S' 1 | awk '{ cmd=$0; sub(/^[ \t]*[0-9]+\**[ \t]+/, "", cmd); if (!seen[cmd]++) print $0 }' |
+		FZF_DEFAULT_OPTS=$(__fzf_defaults "" "-n2..,.. --scheme=history --bind=ctrl-r:toggle-sort ${FZF_CTRL_R_OPTS-} --query=${(qqq)LBUFFER} +m") \
+		FZF_DEFAULT_OPTS_FILE='' $(__fzfcmd))"
+	local ret=$?
+
+	if [ -n "$selected" ]; then
+	num=$(awk '{print $1}' <<< "$selected")
+	if [[ "$num" =~ '^[1-9][0-9]*\*?$' ]]; then
+		zle vi-fetch-history -n ${num%\*}
+	else # selected is a custom query, not from history
+		LBUFFER="$selected"
+	fi
+	fi
+
+	zle reset-prompt
+
+	return $ret
+}
+
 lsps () {
 	local pid thread args other_args
 
@@ -321,7 +355,10 @@ tailog() {
 	tail -F "${file}" | BAT_THEME=base16 bat -pp -l log
 }
 
-proxyhp
+
+hist() {
+	fc -lD -t '%Y-%m-%d %H:%M:%S' -1 0
+}
 ```
 
 5. 工具
