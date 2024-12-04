@@ -1,13 +1,7 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
 	opts = {
-		ensure_installed = {
-			"asm", "awk", "bash", "c", "cmake", "comment", "cpp", "css", "devicetree", "diff", "disassembly", "dockerfile", "doxygen", "fish",
-			"git_config", "git_rebase", "gitattributes", "gitcommit", "gitignore", "go", "html", "http", "ini",
-			"java", "javascript", "jq", "jsdoc", "json", "json5", "jsonc", "kconfig", "kotlin", "latex", "llvm", "lua", "luadoc", "luap",
-			"make", "markdown", "markdown_inline", "matlab", "meson", "nasm", "nginx", "ninja", "objdump", "passwd", "perl", "printf", "python", "regex", "rust",
-			"scheme", "slint", "sql", "strace", "systemtap", "tmux", "toml", "typescript", "udev", "vim", "vimdoc", "xml", "yaml",
-		},
+		ensure_installed = "all",
 
 		highlight = {
 			enable = true,
@@ -18,6 +12,7 @@ return {
 			"scfg",
 			"smali",
 			"unison",
+			"systemverilog"
 		},
 
 		indent = {
