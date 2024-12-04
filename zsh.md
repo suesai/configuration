@@ -317,7 +317,7 @@ fzf-history-widget() {
 }
 
 lsps () {
-	local pid thread args other_args
+	local pid thread args other_args ps_out
 
 	while [[ $# -gt 0 ]]; do
 		if [[ "$1" == "-t" ]]; then
@@ -332,16 +332,18 @@ lsps () {
 	done
 
 	if [[ -n "${thread}" ]] && [[ -n "${pid}" ]]; then
-		args="-L -o pid,nlwp,lwp,ppid,pgid,euser,etime:12,time:12,rss:8,wchan:16,stat:5,command -p ${pid}"
+		args="-L -o pid,ppid,pgid,nlwp,lwp,euser,etime:12,time:12,rss:8,wchan:16,stat:5,command -p ${pid}"
 	elif [[ -n "${thread}" ]]; then
-		args="-eL -o pid,nlwp,lwp,ppid,pgid,euser,etime:12,time:12,rss:8,wchan:16,stat:5,command"
+		args="-eL -o pid,ppid,pgid,nlwp,lwp,euser,etime:12,time:12,rss:8,wchan:16,stat:5,command"
 	elif [[ -n "${pid}" ]]; then
-		args="-o pid,nlwp,ppid,pgid,euser,etime:12,time:12,rss:8,wchan:16,stat:5,command -p ${pid}"
+		args="-o pid,ppid,pgid,nlwp,euser,etime:12,time:12,rss:8,wchan:16,stat:5,command -p ${pid}"
 	else
-		args="-e -o pid,nlwp,ppid,pgid,euser,etime:12,time:12,rss:8,wchan:16,stat:5,command"
+		args="-e -o pid,ppid,pgid,nlwp,euser,etime:12,time:12,rss:8,wchan:16,stat:5,command"
 	fi
 
-	eval ps "${args}" "${other_args}"
+	ps_out="$(eval ps "${args}" "${other_args}")"
+	head -n 1 <<<"${ps_out}" 1>&2
+	tail -n +2 <<<"${ps_out}"
 }
 
 tailog() {
