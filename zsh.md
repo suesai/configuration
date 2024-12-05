@@ -1,4 +1,4 @@
-1. 下载插件
+## 下载插件
 
 ```bash
 git clone https://github.com/zsh-users/zsh-completions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-completions
@@ -6,7 +6,7 @@ git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 ```
 
-2. 创建 $HOME/.config/zsh/completion.zsh
+## 创建 $HOME/.config/zsh/completion.zsh
 
 ```bash
   # ____ ___  __  __ ____  _     _____ _____ ___ ___  _   _ 
@@ -113,7 +113,7 @@ zstyle ':completion:*' keep-prefix true
 zstyle -e ':completion:*:(ssh|scp|sftp|rsh|rsync):hosts' hosts 'reply=(${=${${(f)"$(cat {/etc/ssh_,~/.ssh/known_}hosts(|2)(N) /dev/null)"}%%[# ]*}//,/ })'
 ```
 
-3. prompt 配色，创建 ~/.oh-my-zsh/custom/themes/ss.zsh-theme
+## prompt 配色，创建 ~/.oh-my-zsh/custom/themes/ss.zsh-theme
 
 ```bash
 # Clean, simple, compatible and meaningful.
@@ -194,7 +194,7 @@ PROMPT="
 %F{168}$ %f"
 ```
 
-4. 修改 .zshrc
+## 修改 .zshrc
 
 ```bash
 export ZSH="$HOME/.oh-my-zsh"
@@ -218,12 +218,10 @@ unsetopt SHARE_HISTORY
 unsetopt INC_APPEND_HISTORY
 
 # alais
-alias bat="bat --tabs 8 --paging=always"
+alias bat="bat --tabs 0 --paging=always"
 alias ll="eza --color=always --icons=always -ilbSh"
 alias l="eza --color=always --icons=always"
 alias lt="eza --color=always --icons=always -T"
-alias vim="nvim"
-alias view="nvim -R"
 alias proxyhp="export http_proxy=http://127.0.0.1:33210 https_proxy=http://127.0.0.1:33210 no_proxy=127.0.0.1,localhost"
 alias unproxyhp="unset http_proxy https_proxy no_proxy"
 alias -g -- --help='--help 2>&1 | bat -l help -pp'
@@ -363,15 +361,14 @@ hist() {
 }
 ```
 
-5. 工具
+## 依赖
 
-	1. compiledb
-	2. eza
-	3. fd
-	4. fzf, fzf-preview.sh, fzf-tmux
-	5. lazygit
-	6. rg
-	7. tmux
-	8. tree-sitter
-	9. bat
-	10. node
+1. compiledb
+2. eza
+3. fd
+4. fzf, fzf-preview.sh, fzf-tmux
+5. lazygit
+6. rg
+7. tmux
+8. tree-sitter
+9. bat
