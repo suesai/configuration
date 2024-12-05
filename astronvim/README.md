@@ -32,3 +32,10 @@ git clone https://github.com/<your_user>/<your_repository> ~/.config/nvim
 ```shell
 nvim
 ```
+
+## Dependencies
+
+1. node
+2. rust
+3. lua (at least 5.3)
+4. go
