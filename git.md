@@ -26,6 +26,7 @@
 	dark = true
 	line-numbers = true
 	side-by-side = true
+	paging = always
 
 [merge]
 	conflictstyle = diff3
