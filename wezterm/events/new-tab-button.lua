@@ -1,10 +1,10 @@
-local wezterm = require("wezterm")
+local wez         = require("wezterm")
 local launch_menu = require("config.launch").launch_menu
-local domains = require("config.domains")
-local Cells = require("utils.cells")
+local domains     = require("config.domains")
+local Cells       = require("utils.cells")
 
-local nf = wezterm.nerdfonts
-local act = wezterm.action
+local nf   = wez.nerdfonts
+local act  = wez.action
 local attr = Cells.attr
 
 local M = {}
@@ -12,11 +12,11 @@ local M = {}
 ---@type table<string, Cells.SegmentColors>
 -- stylua: ignore
 local colors = {
-	label_text   = { fg = '#CDD6F4' },
-	icon_default = { fg = '#89B4FA' },
-	icon_wsl     = { fg = '#FAB387' },
-	icon_ssh     = { fg = '#F38BA8' },
-	icon_unix    = { fg = '#CBA6F7' },
+	label_text   = { fg = "#CDD6F4" },
+	icon_default = { fg = "#89B4FA" },
+	icon_wsl     = { fg = "#FAB387" },
+	icon_ssh     = { fg = "#F38BA8" },
+	icon_unix    = { fg = "#CBA6F7" },
 }
 
 local cells = Cells:new()
@@ -37,7 +37,7 @@ local function build_choices()
 
 		table.insert(choices, {
 			id = tostring(idx),
-			label = wezterm.format(cells:render({ "icon_default", "label_text" })),
+			label = wez.format(cells:render({ "icon_default", "label_text" })),
 		})
 		table.insert(choices_data, {
 			args = v.args,
@@ -52,7 +52,7 @@ local function build_choices()
 
 		table.insert(choices, {
 			id = tostring(idx),
-			label = wezterm.format(cells:render({ "icon_wsl", "label_text" })),
+			label = wez.format(cells:render({ "icon_wsl", "label_text" })),
 		})
 		table.insert(choices_data, {
 			domain = { DomainName = v.name },
@@ -65,7 +65,7 @@ local function build_choices()
 		cells:update_segment_text("label_text", v.name)
 		table.insert(choices, {
 			id = tostring(idx),
-			label = wezterm.format(cells:render({ "icon_ssh", "label_text" })),
+			label = wez.format(cells:render({ "icon_ssh", "label_text" })),
 		})
 		table.insert(choices_data, {
 			domain = { DomainName = v.name },
@@ -78,7 +78,7 @@ local function build_choices()
 		cells:update_segment_text("label_text", v.name)
 		table.insert(choices, {
 			id = tostring(idx),
-			label = wezterm.format(cells:render({ "icon_unix", "label_text" })),
+			label = wez.format(cells:render({ "icon_unix", "label_text" })),
 		})
 		table.insert(choices_data, {
 			domain = { DomainName = v.name },
@@ -92,7 +92,7 @@ end
 local choices, choices_data = build_choices()
 
 M.setup = function()
-	wezterm.on("new-tab-button-click", function(window, pane, button, default_action)
+	wez.on("new-tab-button-click", function(window, pane, button, default_action)
 		if default_action and button == "Left" then
 			window:perform_action(default_action, pane)
 		end
@@ -104,12 +104,12 @@ M.setup = function()
 					choices = choices,
 					fuzzy = true,
 					fuzzy_description = nf.md_rocket .. " Select a lauch item: ",
-					action = wezterm.action_callback(function(_window, _pane, id, label)
+					action = wez.action_callback(function(_window, _pane, id, label)
 						if not id and not label then
 							return
 						else
-							wezterm.log_info("you selected ", id, label)
-							wezterm.log_info(choices_data[tonumber(id)])
+							wez.log_info("you selected ", id, label)
+							wez.log_info(choices_data[tonumber(id)])
 							window:perform_action(act.SpawnCommandInNewTab(choices_data[tonumber(id)]), pane)
 						end
 					end),

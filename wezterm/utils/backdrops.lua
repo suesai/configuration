@@ -1,4 +1,4 @@
-local wezterm = require("wezterm")
+local wez    = require("wezterm")
 local colors = require("colors.custom")
 
 -- Seeding random numbers before generating for use
@@ -41,7 +41,7 @@ end
 ---   This throws a coroutine error if the function is invoked in outside of `wezterm.lua` in the -
 ---   initial load of the Terminal config.
 function BackDrops:set_files()
-	self.files = wezterm.glob(wezterm.config_dir .. "/backdrops/" .. GLOB_PATTERN)
+	self.files = wez.glob(wez.config_dir .. "/backdrops/" .. GLOB_PATTERN)
 	return self
 end
 
@@ -153,7 +153,7 @@ end
 ---@param idx number index of the `files` array
 function BackDrops:set_img(window, idx)
 	if idx > #self.files or idx < 0 then
-		wezterm.log_error("Index out of range")
+		wez.log_error("Index out of range")
 		return
 	end
 

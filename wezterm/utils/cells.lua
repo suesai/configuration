@@ -4,13 +4,13 @@
 ---@field Text string
 
 ---@class FormatItem.Attribute.Intensity
----@field Intensity 'Bold'|'Half'|'Normal'
+---@field Intensity "Bold"|"Half"|"Normal"
 
 ---@class FormatItem.Attribute.Italic
 ---@field Italic boolean
 
 ---@class FormatItem.Attribute.Underline
----@field Underline 'None'|'Single'|'Double'|'Curly'
+---@field Underline "None"|"Single"|"Double"|"Curly"
 
 ---@class FormatItem.Attribute
 ---@field Attribute FormatItem.Attribute.Intensity|FormatItem.Attribute.Italic|FormatItem.Attribute.Underline
@@ -21,14 +21,14 @@
 ---@class FormatItem.Background
 ---@field Foreground {Color: string}
 
----@alias FormatItem.Reset 'ResetAttributes'
+---@alias FormatItem.Reset "ResetAttributes"
 
 ---@alias FormatItem FormatItem.Text|FormatItem.Attribute|FormatItem.Foreground|FormatItem.Background|FormatItem.Reset
 --[[ FormatItems: End ]]
 
 local attr = {}
 
----@param type 'Bold'|'Half'|'Normal'
+---@param type "Bold"|"Half"|"Normal"
 ---@return {Attribute: FormatItem.Attribute.Intensity}
 attr.intensity = function(type)
 	return { Attribute = { Intensity = type } }
@@ -39,13 +39,13 @@ attr.italic = function()
 	return { Attribute = { Italic = true } }
 end
 
----@param type 'None'|'Single'|'Double'|'Curly'
+---@param type "None"|"Single"|"Double"|"Curly"
 ---@return {Attribute: FormatItem.Attribute.Underline}
 attr.underline = function(type)
 	return { Attribute = { Underline = type } }
 end
 
----@alias Cells.SegmentColors {bg?: string|'UNSET', fg?: string|'UNSET'}
+---@alias Cells.SegmentColors {bg?: string|"UNSET", fg?: string|"UNSET"}
 
 ---@class Cells.Segment
 ---@field items FormatItem[]
@@ -59,8 +59,8 @@ local Cells = {}
 Cells.__index = Cells
 
 ---@class Cells.Attributes
----@field intensity fun(type: 'Bold'|'Half'|'Normal'): {Attribute: FormatItem.Attribute.Intensity}
----@field underline fun(type: 'None'|'Single'|'Double'|'Curly'): {Attribute: FormatItem.Attribute.Underline}
+---@field intensity fun(type: "Bold"|"Half"|"Normal"): {Attribute: FormatItem.Attribute.Intensity}
+---@field underline fun(type: "None"|"Single"|"Double"|"Curly"): {Attribute: FormatItem.Attribute.Underline}
 ---@field italic fun(): {Attribute: FormatItem.Attribute.Italic}
 ---@overload fun(...: FormatItem.Attribute): FormatItem.Attribute[]
 Cells.attr = setmetatable(attr, {

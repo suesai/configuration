@@ -2,10 +2,10 @@
 -- Inspired by https://github.com/wez/wezterm/discussions/628#discussioncomment-1874614 --
 ------------------------------------------------------------------------------------------
 
-local wezterm = require("wezterm")
+local wez   = require("wezterm")
 local Cells = require("utils.cells")
 
-local nf = wezterm.nerdfonts
+local nf = wez.nerdfonts
 local attr = Cells.attr
 
 local GLYPH_SCIRCLE_LEFT = nf.ple_left_half_circle_thick --[[  ]]
@@ -36,17 +36,17 @@ local RENDER_VARIANTS = {
 ---@type table<string, Cells.SegmentColors>
 -- stylua: ignore
 local colors = {
-	text_default          = { bg = '#45475A', fg = '#1C1B19' },
-	text_hover            = { bg = '#587D8C', fg = '#1C1B19' },
-	text_active           = { bg = '#7FB4CA', fg = '#11111B' },
+	text_default          = { bg = "#45475A", fg = "#1C1B19" },
+	text_hover            = { bg = "#587D8C", fg = "#1C1B19" },
+	text_active           = { bg = "#7FB4CA", fg = "#11111B" },
 
-	unseen_output_default = { bg = '#45475A', fg = '#FFA066' },
-	unseen_output_hover   = { bg = '#587D8C', fg = '#FFA066' },
-	unseen_output_active  = { bg = '#7FB4CA', fg = '#FFA066' },
+	unseen_output_default = { bg = "#45475A", fg = "#FFA066" },
+	unseen_output_hover   = { bg = "#587D8C", fg = "#FFA066" },
+	unseen_output_active  = { bg = "#7FB4CA", fg = "#FFA066" },
 
-	scircle_default       = { bg = 'rgba(0, 0, 0, 0.4)', fg = '#45475A' },
-	scircle_hover         = { bg = 'rgba(0, 0, 0, 0.4)', fg = '#587D8C' },
-	scircle_active        = { bg = 'rgba(0, 0, 0, 0.4)', fg = '#7FB4CA' },
+	scircle_default       = { bg = "rgba(0, 0, 0, 0.4)", fg = "#45475A" },
+	scircle_hover         = { bg = "rgba(0, 0, 0, 0.4)", fg = "#587D8C" },
+	scircle_active        = { bg = "rgba(0, 0, 0, 0.4)", fg = "#7FB4CA" },
 }
 
 ---@param proc string
@@ -191,15 +191,15 @@ M.setup = function()
 	-- CUSTOM EVENT
 	-- Event listener to manually update the tab name
 	-- Tab name will remain locked until the `reset-tab-title` is triggered
-	wezterm.on("tabs.manual-update-tab-title", function(window, pane)
+	wez.on("tabs.manual-update-tab-title", function(window, pane)
 		window:perform_action(
-			wezterm.action.PromptInputLine({
-				description = wezterm.format({
+			wez.action.PromptInputLine({
+				description = wez.format({
 					{ Foreground = { Color = "#FFFFFF" } },
 					{ Attribute = { Intensity = "Bold" } },
 					{ Text = "Enter new name for tab" },
 				}),
-				action = wezterm.action_callback(function(_window, _pane, line)
+				action = wez.action_callback(function(_window, _pane, line)
 					if line ~= nil then
 						local tab = window:active_tab()
 						local id = tab:tab_id()
@@ -213,7 +213,7 @@ M.setup = function()
 
 	-- CUSTOM EVENT
 	-- Event listener to unlock manually set tab name
-	wezterm.on("tabs.reset-tab-title", function(window, _pane)
+	wez.on("tabs.reset-tab-title", function(window, _pane)
 		local tab = window:active_tab()
 		local id = tab:tab_id()
 		tab_list[id].title_locked = false
@@ -221,7 +221,7 @@ M.setup = function()
 
 	-- CUSTOM EVENT
 	-- Event listener to manually update the tab name
-	wezterm.on("tabs.toggle-tab-bar", function(window, _pane)
+	wez.on("tabs.toggle-tab-bar", function(window, _pane)
 		local effective_config = window:effective_config()
 		window:set_config_overrides({
 			enable_tab_bar = not effective_config.enable_tab_bar,
@@ -230,7 +230,7 @@ M.setup = function()
 	end)
 
 	-- BUILTIN EVENT
-	wezterm.on("format-tab-title", function(tab, _tabs, _panes, _config, hover, max_width)
+	wez.on("format-tab-title", function(tab, _tabs, _panes, _config, hover, max_width)
 		if not tab_list[tab.tab_id] then
 			tab_list[tab.tab_id] = Tab:new()
 			tab_list[tab.tab_id]:set_info(tab.active_pane, max_width)

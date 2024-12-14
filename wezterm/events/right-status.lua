@@ -1,8 +1,8 @@
-local wezterm = require("wezterm")
+local wez   = require("wezterm")
 local umath = require("utils.math")
 local Cells = require("utils.cells")
 
-local nf = wezterm.nerdfonts
+local nf = wez.nerdfonts
 local attr = Cells.attr
 
 local M = {}
@@ -40,9 +40,9 @@ local charging_icons = {
 ---@type table<string, Cells.SegmentColors>
 -- stylua: ignore
 local colors = {
-	date      = { fg = '#fab387', bg = 'rgba(0, 0, 0, 0.4)' },
-	battery   = { fg = '#f9e2af', bg = 'rgba(0, 0, 0, 0.4)' },
-	separator = { fg = '#74c7ec', bg = 'rgba(0, 0, 0, 0.4)' }
+	date      = { fg = "#fab387", bg = "rgba(0, 0, 0, 0.4)" },
+	battery   = { fg = "#f9e2af", bg = "rgba(0, 0, 0, 0.4)" },
+	separator = { fg = "#74c7ec", bg = "rgba(0, 0, 0, 0.4)" }
 }
 
 local cells = Cells:new()
@@ -60,7 +60,7 @@ local function battery_info()
 	local charge = ""
 	local icon = ""
 
-	for _, b in ipairs(wezterm.battery_info()) do
+	for _, b in ipairs(wez.battery_info()) do
 		if "nan" == tostring(b.state_of_charge) then
 			charge = "100%"
 			if b.state == "Charging" then
@@ -83,14 +83,14 @@ local function battery_info()
 end
 
 M.setup = function()
-	wezterm.on("update-right-status", function(window, _pane)
+	wez.on("update-right-status", function(window, _pane)
 		local battery_text, battery_icon = battery_info()
 
-		cells:update_segment_text("date_text", wezterm.strftime("%a %H:%M:%S"))
+		cells:update_segment_text("date_text", wez.strftime("%a %H:%M:%S"))
 			:update_segment_text("battery_icon", battery_icon)
 			:update_segment_text("battery_text", battery_text)
 
-		window:set_right_status(wezterm.format(cells:render({ "date_icon", "date_text", "separator", "battery_icon", "battery_text" })))
+		window:set_right_status(wez.format(cells:render({ "date_icon", "date_text", "separator", "battery_icon", "battery_text" })))
 	end)
 end
 
