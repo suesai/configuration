@@ -44,13 +44,17 @@ local keys = {
 	-- window: spawn windows
 	{ key = "n",  mods = mod.SUPER,     action = act.SpawnWindow },
 
+	-- window: resize
+	{ key = "n",  mods = mod.MOD,       action = act.EmitEvent("center_window") },
+	{ key = "m",  mods = mod.MOD,       action = act.EmitEvent("max_window") },
+
 	-- panes --
 	-- panes: split panes
 	{ key = "\\", mods = mod.MOD,       action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
 	{ key = "-",  mods = mod.MOD,       action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
 
 	-- panes: zoom+close pane
-	{ key = "m",  mods = mod.MOD,       action = act.TogglePaneZoomState },
+	{ key = "z",  mods = mod.MOD,       action = act.TogglePaneZoomState },
 	{ key = "x",  mods = mod.SUPER,     action = act.CloseCurrentPane({ confirm = false }) },
 
 	-- panes: navigation
