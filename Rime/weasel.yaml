@@ -11,40 +11,44 @@ config_version: "2024-05-14"
 
 # [app_options]
 # 针对特定应用的设置
-app_options:
-  firefox.exe:
-    inline_preedit: true   # 行内显示预编辑区：规避 <https://github.com/rime/weasel/issues/946>
-  # nvim-qt.exe:
-  #   vim_mode: true       # vim 模式, Esc <C-c> <C-[> 切换到 ascii 状态
-  #   ascii_mode: true
-  # cmd.exe:               # 带 .exe 的进程名：Weasel 15.0 及之前版本须小写; PR #1049 合并后释出的版本大小写不敏感
-  #   ascii_mode: true     # 英文模式
-  # conhost.exe:
-  #   ascii_mode: true
-  # windowsterminal.exe:
-  #   ascii_mode: true
-  # wt.exe:
-  #   ascii_mode: true
-  # pwsh.exe:
-  #   ascii_mode: true
-  # powershell.exe:
-  #   ascii_mode: true
-  # mintty.exe:
-  #   ascii_mode: true
-  # Code.exe:
-  #   ascii_mode: true
-  # Xshell.exe:
-  #   ascii_mode: true
-  # sublime_text.exe:
-  #   ascii_mode: true
-  # MobaXterm.exe:
-  #   ascii_mode: true
-  # filezilla.exe:
-  #   ascii_mode: true
-  # devenv.exe:
-  #   ascii_mode: true
-  # notepad++.exe:
-  #   ascii_mode: true
+# app_options:
+#   cmd.exe:               # 带 .exe 的进程名：Weasel 15.0 及之前版本须小写; PR #1049 合并后释出的版本大小写不敏感
+#     ascii_mode: true     # 英文模式
+#   Code.exe:
+#     ascii_mode: true
+#   conhost.exe:
+#     ascii_mode: true
+#   devenv.exe:
+#     ascii_mode: true
+#   Everything.exe:
+#     ascii_mode: true
+#   filezilla.exe:
+#     ascii_mode: true
+#   firefox.exe:
+#     inline_preedit: true   # 行内显示预编辑区：规避 <https://github.com/rime/weasel/issues/946>
+#   mintty.exe:
+#     ascii_mode: true
+#   MobaXterm.exe:
+#     ascii_mode: true
+#   msedge.exe:
+#     ascii_mode: true
+#   notepad++.exe:
+#     ascii_mode: true
+#   nvim-qt.exe:
+#     vim_mode: true       # vim 模式, Esc <C-c> <C-[> 切换到 ascii 状态
+#     ascii_mode: true
+#   powershell.exe:
+#     ascii_mode: true
+#   pwsh.exe:
+#     ascii_mode: true
+#   sublime_text.exe:
+#     ascii_mode: true
+#   windowsterminal.exe:
+#     ascii_mode: true
+#   wt.exe:
+#     ascii_mode: true
+#   Xshell.exe:
+#     ascii_mode: true
 # [End of <app_options>]
 
 # [global settings]
@@ -56,8 +60,8 @@ global_ascii: false                        # 切换为 ascii 模式时，是否�
 # [style]
 # 字体；候选项、候选窗口的行为、布局及样式
 style:
-  color_scheme: flypy      # 默认配色方案
-  color_scheme_dark: nord                # 深色模式下，Weasel 的配色方案，Windows 10 1809+ 可用
+  color_scheme: wechat_light               # 默认配色方案
+  color_scheme_dark: wechat_dark           # 深色模式下，Weasel 的配色方案，Windows 10 1809+ 可用
 
   # 全局字体
   # 格式：字体1:起始码位:结束码位:字重:字形,字体2……，字体会依次 fallback
@@ -179,6 +183,88 @@ preset_color_schemes:
     hilited_candidate_label_color: 0x4C4C4C
     hilited_candidate_text_color: 0x000000
 
+  wechat_light:
+    name: "Wechat Light"
+    author: 小码哥
+    font_face: "PingFangSC"          # 字体及大小
+    font_point: 16
+    label_font_face: "PingFangSC"    # 序号字体及大小
+    label_font_point: 13
+    comment_font_face: "PingFangSC"  # 注字体及大小
+    comment_font_point: 16
+    candidate_format: "%c\u2005%@\u2005" # 编号 %c 和候选词 %@ 前后的空间
+    candidate_list_layout: linear   # 候选排布：层叠 stacked | 行 linear
+    text_orientation: horizontal    # 行文向： 横 horizontal | 纵 vertical
+    inline_preedit: true            # 拼音位于： 候选框 false | 行内 true
+    translucency: false             # 磨砂： false | true
+    mutual_exclusive: false         # 色不叠加： false | true
+    border_height: 1                # 外边框 高
+    border_width: 1                 # 外边框 宽
+    corner_radius: 5                # 外边框 圆角半径
+    hilited_corner_radius: 5       # 选中框 圆角半径
+    surrounding_extra_expansion: 0 # 候选项背景相对大小？
+    shadow_size: 0                 # 阴影大小
+    line_spacing: 5                # 行间距
+    base_offset: 0                 # 字基高
+    alpha: 1                       # 透明度，0~1
+    spacing: 10                    # 拼音与候选项之间的距离 （inline_preedit: false）
+    color_space: srgb                       # 色彩空间： srgb | display_p3
+    back_color: 0xFFFFFF                    # 底色
+    hilited_candidate_back_color: 0x79af22  # 选中底色
+    label_color: 0x999999                   # 序号颜色
+    hilited_candidate_label_color: 0xFFFFFF # 选中序号颜色
+    candidate_text_color: 0x3c3c3c          # 文字颜色
+    hilited_candidate_text_color: 0xFFFFFF  # 选中文字颜色
+    comment_text_color: 0x999999            # 注颜色
+    hilited_comment_text_color: 0x999999    # 选中注颜色
+    text_color: 0x424242                    # 拼音颜色 （inline_preedit: false）
+    hilited_text_color: 0x999999            # 选中拼音颜色 （inline_preedit: false）
+    candidate_back_color: 0xFFFFFF          # 候选项底色
+    # preedit_back_color:                   # 拼音底色 （inline_preedit: false）
+    # hilited_back_color: 0x79af22            # 选中拼音底色 （inline_preedit: false）
+    border_color: 0xFFFFFF                  # 外边框颜色
+
+  wechat_dark:
+    name: "Wechat Dark"
+    author: 小码哥
+    font_face: "PingFangSC"          # 字体及大小
+    font_point: 16
+    label_font_face: "PingFangSC"    # 序号字体及大小
+    label_font_point: 13
+    comment_font_face: "PingFangSC"  # 注字体及大小
+    comment_font_point: 16
+    candidate_format: "%c\u2005%@\u2005" # 编号 %c 和候选词 %@ 前后的空间
+    candidate_list_layout: linear   # 候选排布：层叠 stacked | 行 linear
+    text_orientation: horizontal    # 行文向： 横 horizontal | 纵 vertical
+    inline_preedit: true            # 拼音位于： 候选框 false | 行内 true
+    translucency: false             # 磨砂： false | true
+    mutual_exclusive: false         # 色不叠加： false | true
+    border_height: 1                # 外边框 高
+    border_width: 1                 # 外边框 宽
+    corner_radius: 5                # 外边框 圆角半径
+    hilited_corner_radius: 5       # 选中框 圆角半径
+    surrounding_extra_expansion: 0 # 候选项背景相对大小？
+    shadow_size: 0                 # 阴影大小
+    line_spacing: 5                # 行间距
+    base_offset: 0                 # 字基高
+    alpha: 1                       # 透明度，0~1
+    spacing: 10                    # 拼音与候选项之间的距离 （inline_preedit: false）
+    color_space: srgb                       # 色彩空间： srgb | display_p3
+    back_color: 0x151515                    # 底色
+    hilited_candidate_back_color: 0x79af22  # 选中底色
+    label_color: 0x999999                   # 序号颜色
+    hilited_candidate_label_color: 0xFFFFFF # 选中序号颜色
+    candidate_text_color: 0xbbbbbb          # 文字颜色
+    hilited_candidate_text_color: 0xFFFFFF  # 选中文字颜色
+    comment_text_color: 0x999999            # 注颜色
+    hilited_comment_text_color: 0xFFFFFF    # 选中注颜色
+    text_color: 0xbbbbbb                    # 拼音颜色 （inline_preedit: false）
+    hilited_text_color: 0x999999            # 选中拼音颜色 （inline_preedit: false）
+    candidate_back_color: 0x151515          # 候选项底色
+    # preedit_back_color:                   # 拼音底色 （inline_preedit: false）
+    # hilited_back_color: 0x79af22            # 选中拼音底色 （inline_preedit: false）
+    border_color: 0x292929                  # 外边框颜色
+
   ms_babyblue:
     name: "MS 宝宝蓝／MS BabyBlue"
     author: 小码哥
@@ -217,26 +303,6 @@ preset_color_schemes:
     candidate_back_color: 0xFFFFFF          # 候选项底色
     # preedit_back_color:                   # 拼音底色 （inline_preedit: false）
     hilited_back_color: 0xD75A00            # 选中拼音底色 （inline_preedit: false）
-    border_color: 0xeaeaea                  # 外边框颜色
-
-  ms_wechatgreen:
-    name: "MS 微信绿／MS Wechat Green"
-    author: 小码哥
-    candidate_format: "%c\u2005%@\u2005" # 编号 %c 和候选词 %@ 前后的空间
-    back_color: 0xFFFFFF                    # 底色
-    hilited_candidate_back_color: 0x79af22  # 选中底色
-    label_color: 0x999999                   # 序号颜色
-    hilited_label_color: 0xFFFFFF           # 序号颜色
-    hilited_candidate_label_color: 0xFFFFFF # 选中序号颜色
-    candidate_text_color: 0x3c3c3c          # 文字颜色
-    hilited_candidate_text_color: 0xFFFFFF  # 选中文字颜色
-    comment_text_color: 0x999999            # 注颜色
-    hilited_comment_text_color: 0xFFFFFF    # 选中注颜色
-    text_color: 0x424242                    # 拼音颜色 （inline_preedit: false）
-    hilited_text_color: 0xFFFFFF            # 选中拼音颜色 （inline_preedit: false）
-    candidate_back_color: 0xFFFFFF          # 候选项底色
-    # preedit_back_color:                   # 拼音底色 （inline_preedit: false）
-    hilited_back_color: 0x79af22            # 选中拼音底色 （inline_preedit: false）
     border_color: 0xeaeaea                  # 外边框颜色
 
   # 以下为 weasel 自带的配色方案
