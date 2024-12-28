@@ -195,9 +195,15 @@ clangd 一共有三种index模式：BackgroundIndex，StaticIndex，RemoteIndex�
 CompileFlags:
   CompilationDatabase: build/
   Remove: [-fconserve-stack, -fno-allow-store-data-races, -mfunction-return=*, -mindirect-branch-cs-prefix, -mindirect-branch-register, -mindirect-branch=*, -mskip-rax-setup, -mpreferred-stack-boundary=*, -mno-fp-ret-in-387, -fno-var-tracking-assignments, -maccumulate-outgoing-args, -flive-patching=*, -mrecord-mcount, -Werror=*, -fmerge-constants, -falign-jumps=*, -Wno-packed-not-aligned, -fuint-at-a-time, --param=allow-store-data-races=0, -Wno-stringop-truncation, -Wno-stringop-overflow, -Wno-restrict, -Wno-maybe-uninitialized, -Wstrict-aliasing=*]
+  Add: ["-target", "i386", "--gcc-toolchain=/usr/bin/gcc-4.6"]
 Index:
   Background: Skip
   External:
     File: .clangd.idx
 ```
 
+## 编译 old kernel
+
+1. 将 [linux-compile-commands](https://github.com/gniuk/linux-compile-commands) 中的 config 和 compile_commands.json 拷贝到 kernel 目录
+2. 执行命令生成 autogeneted，`LANGUAGE=en make V=1 CC=gcc-4.6 ARCH=i386 init`
+3. 执行 nvim 生成 .cache
