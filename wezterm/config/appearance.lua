@@ -38,10 +38,10 @@ return {
 	window_decorations = "RESIZE",
 	window_close_confirmation = "NeverPrompt",
 	window_padding = {
-		left = 20,
-		right = 20,
-		top = 20,
-		bottom = 5,
+		left = 8,
+		right = 8,
+		top = 8,
+		bottom = 4,
 	},
 	window_frame = {
 		active_titlebar_bg = "#090909",
