@@ -20,7 +20,7 @@ end
 -- stylua: ignore
 local keys = {
 	-- misc/useful --
-	{ key = "]",  mods = mod.MOD,       action = act.ActivateCopyMode },
+	{ key = "[",  mods = mod.MOD,       action = act.ActivateCopyMode },
 	{ key = "p",  mods = mod.MOD,       action = act.ActivateCommandPalette },
 	{ key = "d",  mods = mod.MOD,       action = act.DetachDomain("CurrentPaneDomain") },
 	{ key = "f",  mods = mod.SUPER,     action = act.Search({ CaseInSensitiveString = "" }) },
