@@ -17,7 +17,7 @@ sudo log stream | rg -v 'wezterm' | rg 'location|wireless|awdl|phone|rapport|sha
 3. Karabiner
 4. Shortcat
 5. Macs Fan Control
-6. Rectangle
+6. Loop, Rectangle
 7. iMazing
 8. MacZip
 9. iRightMouse Lite
