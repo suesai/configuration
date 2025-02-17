@@ -1,0 +1,73 @@
+[core]
+	editor = nvim
+	pager = delta
+	ignoreCase = false
+	excludesFile = ~/.config/git/global_gitignore
+
+[user]
+	email = suesaiup@qq.com
+	name = suesai
+
+[alias]
+	co = checkout
+	ci = commit
+	st = status
+	br = branch
+	lg = log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s - %Cblue%cn%Creset %Cgreen(%cd) %C(bold blue)%Creset' --abbrev-commit --date=format:'%Y-%m-%d %H:%M:%S'
+	type = cat-file -t
+	dump = cat-file -p
+
+[interactive]
+	diffFilter = delta --color-only --features=interactive
+
+[delta]
+	navigate = true
+	dark = true
+	line-numbers = true
+	side-by-side = true
+	paging = always
+	features = decorations
+	true-color = always
+
+[delta "interactive"]
+	keep-plus-minus-markers = false
+
+[delta "decorations"]
+	file-style = omit
+	hunk-header-style = file line-number syntax
+
+[merge]
+	conflictstyle = diff3
+
+[diff]
+	colorMoved = default
+	tool = delta
+
+[pull]
+	rebase = true
+
+[apply]
+	whitespace = fix
+
+[grep]
+	lineNumber = true
+
+[branch]
+	defaultBranch = main
+
+[color]
+	ui = true
+
+[rebase]
+	autoStash = true
+
+[fetch]
+	prune = true
+	output = compact
+
+[help]
+	autocorrect = prompt
+
+[push]
+	autoSetupRemote = true
+	autoSetupRemove = true
