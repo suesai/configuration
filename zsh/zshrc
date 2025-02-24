@@ -19,7 +19,7 @@ unsetopt SHARE_HISTORY
 unsetopt INC_APPEND_HISTORY
 
 # alais
-alias ll="eza --color=always --icons=always -ilbSh"
+alias ll="eza --color=always --icons=always --git -ilbSh"
 alias l="eza --color=always --icons=always"
 alias lt="eza --color=always --icons=always -T"
 alias proxyhp="export http_proxy=http://127.0.0.1:33210 https_proxy=http://127.0.0.1:33210 no_proxy=127.0.0.1,localhost"
