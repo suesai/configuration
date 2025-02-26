@@ -1,17 +1,54 @@
-export ZSH="$HOME/.oh-my-zsh"
+# path
+export RUSTUP_HOME="/opt/rustup"
+export CARGO_HOME="/opt/cargo"
+export GOROOT="/opt/go"
+export PATH="${CARGO_HOME}/bin:${GOROOT}/bin:${PATH}"
+
+# language
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LANGUAGE=en_US.UTF-8
+
+# man
+export MANPAGER="sh -c 'col -bx | bat -l man --style=plain --paging=always'"
+export MANROFFOPT="-c"
+
+# nvm
+export NVM_DIR="/opt/nvm"
+export NVM_NODEJS_ORG_MIRROR="http://nodejs.org/dist"
+
+# homebrew
+export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.ustc.edu.cn/brew.git"
+export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.ustc.edu.cn/homebrew-core.git"
+export HOMEBREW_API_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles/api"
+export HOMEBREW_API_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles/api"
+export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles/bottles"
+
+# rust
+export RUSTUP_DIST_SERVER="https://mirrors.tuna.tsinghua.edu.cn/rustup"
+export RUSTUP_UPDATE_ROOT="https://mirrors.tuna.tsinghua.edu.cn/rustup/rustup"
+
+export SYSTEMTAP_DIR="${XDG_CACHE_HOME}/systemtap"
+
+[[ "${TERM}" == "xterm" ]] && export TERM=xterm-256color
+
+export ZSH="${XDG_CONFIG_HOME}/oh-my-zsh"
+export ZSH_CUSTOM="${ZSH}/custom"
+export ZSHZ_DATA="${ZSH_CACHE_DIR}/z"
 
 ZSH_THEME="ss"
-
-HIST_STAMPS="%Y-%m-%d %H:%M:%S"
-
-plugins=(git extract z zsh-autosuggestions zsh-syntax-highlighting)
-
-source $ZSH/oh-my-zsh.sh
-source $HOME/.config/zsh/completion.zsh
 
 # every shell has its history
 SAVEHIST=40960
 HISTSIZE=40960
+HISTFILE="${ZSH_CACHE_DIR}/zsh_history"
+HIST_STAMPS="%Y-%m-%d %H:%M:%S"
+
+plugins=(git extract z zsh-autosuggestions zsh-syntax-highlighting)
+
+source "${ZSH}/oh-my-zsh.sh"
+source "${ZDOTDIR}/completion.zsh"
+
 setopt   EXTENDED_HISTORY
 setopt   INC_APPEND_HISTORY_TIME
 unsetopt APPEND_HISTORY
@@ -25,23 +62,6 @@ alias lt="eza --color=always --icons=always -T"
 alias proxyhp="export http_proxy=http://127.0.0.1:33210 https_proxy=http://127.0.0.1:33210 no_proxy=127.0.0.1,localhost"
 alias unproxyhp="unset http_proxy https_proxy no_proxy"
 alias -g -- --help='--help 2>&1 | bat -l help -pp'
-
-# export
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-export LANGUAGE=en_US.UTF-8
-export MANPAGER="sh -c 'col -bx | bat -l man --style=plain --paging=always'"
-export MANROFFOPT="-c"
-[[ "${TERM}" == "xterm" ]] && export TERM=xterm-256color
-# homebrew
-export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.ustc.edu.cn/brew.git"
-export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.ustc.edu.cn/homebrew-core.git"
-export HOMEBREW_API_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles/api"
-export HOMEBREW_API_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles/api"
-export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles/bottles"
-# rust
-export RUSTUP_DIST_SERVER=https://mirrors.tuna.tsinghua.edu.cn/rustup
-export RUSTUP_UPDATE_ROOT=https://mirrors.tuna.tsinghua.edu.cn/rustup/rustup
 
 # escape q or alt q to edit muliple line
 bindkey "^[q" push-line-or-edit
@@ -157,3 +177,7 @@ tailog() {
 hist() {
 	fc -lD -t '%Y-%m-%d %H:%M:%S' -1 0
 }
+
+[ -s "${NVM_DIR}/nvm.sh" ] && \. "${NVM_DIR}/nvm.sh"
+
+eval "$(thefuck --alias)"
