@@ -35,7 +35,7 @@ export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
 
 # zsh
-export ZSH="/opt/oh-my-zsh"
+export ZSH="/usr/share/oh-my-zsh"
 export ZSH_CUSTOM="${ZSH}/custom"
 export ZSHZ_DATA="${ZSH_CACHE_DIR}/z"
 
