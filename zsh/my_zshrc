@@ -37,12 +37,14 @@ export LANGUAGE=en_US.UTF-8
 # zsh
 export ZSH="/opt/oh-my-zsh"
 export ZSH_CUSTOM="${ZSH}/custom"
+export ZSHZ_DATA="${ZSH_CACHE_DIR}/z"
 
 ZSH_THEME="ss"
 
 # every shell has its history
 SAVEHIST=40960
 HISTSIZE=40960
+HISTFILE="${ZSH_CACHE_DIR}/zsh_history"
 HIST_STAMPS="%Y-%m-%d %H:%M:%S"
 
 plugins=(git extract z zsh-autosuggestions zsh-syntax-highlighting)
@@ -102,11 +104,11 @@ _fzf_comprun() {
 	shift
 
 	case "$command" in
-		vim|view|nvim|cat|bat)	fzf --preview 'if [ -f {} ]; then bat -n --color=always --line-range :500 {}; fi' "$@" ;;
-		export|unset)	fzf --preview "eval 'echo \${}'" "$@" ;;
-		cd|ls)		fzf --preview 'if [ -d {} ]; then eza --tree --color=always --icons=always {} | head -200; fi' "$@" ;;
-		ssh)		fzf --preview 'dig {}' "$@" ;;
-		*)		fzf "$@" ;;
+		vim|view|nvim|cat|bat) fzf --preview 'if [ -f {} ]; then bat -n --color=always --line-range :500 {}; fi' "$@" ;;
+		export|unset)          fzf --preview "eval 'echo \${}'" "$@" ;;
+		cd|ls)                 fzf --preview 'if [ -d {} ]; then eza --tree --color=always --icons=always {} | head -200; fi' "$@" ;;
+		ssh)                   fzf --preview 'dig {}' "$@" ;;
+		*)                     fzf "$@" ;;
 	esac
 }
 
