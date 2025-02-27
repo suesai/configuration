@@ -1,0 +1,2 @@
+userconfig=${HOME}/.config/npm/npmrc
+cache=${HOME}/.cache/npm
