@@ -1,1 +1,3 @@
-## 将config拷贝到~/.config/bat/下
+## 安装
+
+`mkdir ~/.config/bat && cp ./config ~/.config/bat/`
