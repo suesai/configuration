@@ -7,3 +7,4 @@ configuration files for commonly used software
 2. fish
 3. wezterm
 4. nvim
+5. tmux
