@@ -5,5 +5,5 @@
 
 ## 卸载
 
-· `rustup self uninstall`
-· `rm -rf ${CARGO_HOME} ${RUSTUP_HOME}`
+- `rustup self uninstall`
+- `rm -rf ${CARGO_HOME} ${RUSTUP_HOME}`
