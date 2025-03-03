@@ -244,7 +244,7 @@ local function restore_session(window)
 end
 
 
-local function mkdir_state_dir()
+local function make_state_dir()
 	local path = get_session_state_path()
 
 	local mkdir = function(dir)
@@ -269,7 +269,7 @@ M.setup = function()
 		restore_session(window)
 	end)
 
-	mkdir_state_dir()
+	make_state_dir()
 end
 
 
