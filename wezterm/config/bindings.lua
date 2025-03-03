@@ -23,7 +23,7 @@ local keys = {
 	{ key = "[",  mods = mod.MOD,       action = act.ActivateCopyMode },
 	{ key = "p",  mods = mod.MOD,       action = act.ActivateCommandPalette },
 	{ key = "d",  mods = mod.MOD,       action = act.DetachDomain("CurrentPaneDomain") },
-	{ key = "f",  mods = mod.SUPER,     action = act.Search({ CaseInSensitiveString = "" }) },
+	{ key = "f",  mods = mod.MOD,       action = act.Search({ CaseInSensitiveString = "" }) },
 
 	-- copy/paste --
 	{ key = "c",  mods = mod.SUPER,     action = act.CopyTo("ClipboardAndPrimarySelection") },

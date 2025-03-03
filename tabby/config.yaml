@@ -378,7 +378,7 @@ hotkeys:
   ctrl-c: []
   copy-current-path: []
   search:
-    - Alt-F
+    - Ctrl-Shift-F
   pane-focus-all: []
   restart-telnet-session: []
   restart-ssh-session: []
