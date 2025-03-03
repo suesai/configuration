@@ -1,7 +1,7 @@
-local wez = require("wezterm")
-local mux = wez.mux
-local os  = wez.target_triple
-local M   = {}
+local wez       = require("wezterm")
+local mux       = wez.mux
+local platform  = require("utils.platform")
+local M         = {}
 
 
 --- Saves data to a JSON file.
@@ -48,7 +48,11 @@ end
 
 -- Construct the file path based on the session id
 local function get_session_state_path()
-	return wez.home_dir .. "/.config/wezterm/session-manager/session_state_" .. mux.get_domain():name() .. ".json"
+	if platform.is_win then
+		return wez.home_dir .. "/AppData/Local/wezterm/session-manager/session_state_" .. mux.get_domain():name() .. ".json"
+	else
+		return wez.home_dir .. "/.local/share/wezterm/session-manager/session_state_"  .. mux.get_domain():name() .. ".json"
+	end
 end
 
 
@@ -111,10 +115,10 @@ end
 -- @param data table: The data structure containing the saved session state.
 local function recreate_session(_, domain_data)
 	local function extract_path_from_dir(dir)
-		if os == "x86_64-pc-windows-msvc" then
+		if platform.is_mac then
 			-- On Windows, transform "file:///C:/path/to/dir" to "C:/path/to/dir"
 			return dir:gsub("file:///", "")
-		elseif os == "x86_64-unknown-linux-gnu" then
+		elseif platform.is_linux then
 			-- On Linux, transform "file://{computer-name}/home/{user}/path/to/dir" to "/home/{user}/path/to/dir"
 			return dir:gsub("^.*(/home/)", "/home/")
 		else
@@ -136,12 +140,14 @@ local function recreate_session(_, domain_data)
 	local initial_pane = windows[1]:active_pane()
 	local foreground_process = initial_pane:get_foreground_process_name()
 	-- Check if the foreground process is a shell
-	if foreground_process:find("sh") or foreground_process:find("cmd.exe") or foreground_process:find("powershell.exe")
-			or foreground_process:find("pwsh.exe") or foreground_process:find("nu") then
-		-- Safe to close
-		initial_pane:send_text("exit\r")
-	else
-		wez.log_info("Active program detected. Skipping exit command for initial pane.")
+	if nil ~= foreground_process then
+		if foreground_process:find("sh") or foreground_process:find("cmd.exe") or foreground_process:find("powershell.exe")
+				or foreground_process:find("pwsh.exe") or foreground_process:find("nu") then
+			-- Safe to close
+			initial_pane:send_text("exit\r")
+		else
+			wez.log_info("Active program detected. Skipping exit command for initial pane.")
+		end
 	end
 
 	-- Recreate domain, windows, tabs and panes from the saved state
@@ -200,7 +206,6 @@ local function recreate_session(_, domain_data)
 		end
 	end
 
-
 	wez.log_info("Workspace recreated with new tabs and panes based on saved state.")
 	return true
 end
@@ -239,6 +244,23 @@ local function restore_session(window)
 end
 
 
+local function mkdir_state_dir()
+	local path = get_session_state_path()
+
+	local mkdir = function(dir)
+		local cmd
+		if platform.is_win then
+			cmd = 'if not exist "' .. dir .. '" mkdir "' .. dir .. '"'
+		else
+			cmd = 'mkdir -p "' .. dir .. '"'
+		end
+		os.execute(cmd)
+	end
+
+	mkdir(path:match("(.*[/])"))
+end
+
+
 M.setup = function()
 	wez.on("save_session", function(window)
 		save_session(window)
@@ -246,6 +268,8 @@ M.setup = function()
 	wez.on("restore_session", function(window)
 		restore_session(window)
 	end)
+
+	mkdir_state_dir()
 end
 
 

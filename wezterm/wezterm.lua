@@ -1,3 +1,5 @@
+package.path = "/etc/wezterm/?.lua;/etc/wezterm/?/init.lua"
+
 local Config = require("config")
 
 require("utils.backdrops")
