@@ -22,6 +22,12 @@ export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles/bott
 # systemtap
 export SYSTEMTAP_DIR="${XDG_CACHE_HOME}/systemtap"
 
+# nvidia
+export __GL_SHADER_DISK_CACHE_PATH="${XDG_CACHE_HOME}/nv"
+
+# gnupg
+export GNUPGHOME="${XDG_CONFIG_HOME}/gnupg"
+
 # path
 export PATH="${CARGO_HOME}/bin:${GOROOT}/bin:${PATH}"
 
