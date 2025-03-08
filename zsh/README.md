@@ -10,12 +10,12 @@
 
 ## 依赖
 
-· compiledb
-· eza
-· fd
-· fzf, fzf-preview.sh, fzf-tmux
-· lazygit
-· rg
-· tmux
-· tree-sitter
-· bat
+- compiledb
+- eza
+- fd
+- fzf, fzf-preview.sh, fzf-tmux
+- lazygit
+- rg
+- tmux
+- tree-sitter
+- bat
