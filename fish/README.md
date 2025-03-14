@@ -35,5 +35,10 @@
 
 ### 离线配置
 
-1. `cp -rf ~/.config/fish /home/$USER/.config`
+1. `cp -rf $HOME/.config/fish /home/$USER/.config`
 2. 修改 /home/$USER/.config/fish/fish_variables 三个全局变量 Z_DATA，Z_DATA_DIR，Z_EXCLUDE
+
+
+## 卸载
+
+1. `rm -rf $HOME/.cache/fish $HOME/.config/fish $HOME/.local/share/fish /opt/fish`
