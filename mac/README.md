@@ -58,3 +58,9 @@ sudo log stream | rg -v 'wezterm' | rg 'location|wireless|awdl|phone|rapport|sha
 
 1. [via浏览器插件](https://github.com/Daidai0912/x-via)
 2. [adblockfilters](https://github.com/217heidai/adblockfilters)
+
+
+## 国内镜像
+
+1. [Greasy Fork](https://gf.qytechs.cn/zh-CN)
+2. [github](https://github.moeyy.xyz)
