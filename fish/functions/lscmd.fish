@@ -7,6 +7,8 @@ function lscmd --description "List command by name"
 	set -l cmd $argv[1]
 
 	for path in $PATH
-		fd ".*$cmd.*" -t x -t f $path
+		if test -d $path
+			fd ".*$cmd.*" -t x -t f $path
+		end
 	end
 end
