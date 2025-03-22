@@ -6,12 +6,6 @@
 - nvm, node
 - rust
 - lua
-- gping
-- duf
-- dust
-- tldr
-- fuck
-- btop
 - eza
 - compiledb
 - fd
@@ -20,13 +14,20 @@
 - rg
 - tree-sitter
 - bat
+- gping
+- duf
+- dust
+- tldr
+- fuck
+- btop
 - yazi
 
 ## 娱乐
 
 - cowsay
-- cmatrix
+- lolcat
 - figlet
 - toilet
+- cmatrix
 - asciiquarium
 - aafire
