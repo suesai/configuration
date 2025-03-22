@@ -35,7 +35,7 @@ nvim
 
 ## Dependencies
 
-1. node (nvm install 22.11.0)
+1. node (nvm install 22.1.0)
 2. rust
 3. lua (5.1.5)
 4. go

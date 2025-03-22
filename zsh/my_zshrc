@@ -1,6 +1,31 @@
+# fish
+export FISH_HOME="/opt/fish"
+
+# gnupg
+export GNUPGHOME="${XDG_CONFIG_HOME}/gnupg"
+
 # go
 export GOROOT="/opt/go"
 export GOPATH="${HOME}/project/go"
+
+# homebrew
+export HOMEBREW_API_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/api"
+export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"
+export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git"
+export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git"
+
+# kitty
+export KITTY_HOME="/opt/kitty"
+
+# nvidia
+export __GL_SHADER_DISK_CACHE_PATH="${XDG_CACHE_HOME}/nv"
+
+# nvim
+export NVIM_HOME="/opt/nvim"
+
+# nvm
+export NODE_MIRROR="https://mirrors.tuna.tsinghua.edu.cn/nodejs-release/"
+export NVM_NODEJS_ORG_MIRROR="https://mirrors.tuna.tsinghua.edu.cn/nodejs-release/"
 
 # rust
 export CARGO_HOME="/opt/cargo"
@@ -8,37 +33,21 @@ export RUSTUP_HOME="/opt/rustup"
 export RUSTUP_DIST_SERVER="https://mirrors.tuna.tsinghua.edu.cn/rustup"
 export RUSTUP_UPDATE_ROOT="https://mirrors.tuna.tsinghua.edu.cn/rustup/rustup"
 
-# nvm
-export NVM_DIR="/opt/nvm"
-export NVM_NODEJS_ORG_MIRROR="http://nodejs.org/dist"
-
-# homebrew
-export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.ustc.edu.cn/brew.git"
-export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.ustc.edu.cn/homebrew-core.git"
-export HOMEBREW_API_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles/api"
-export HOMEBREW_API_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles/api"
-export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles/bottles"
-
 # systemtap
 export SYSTEMTAP_DIR="${XDG_CACHE_HOME}/systemtap"
 
-# nvidia
-export __GL_SHADER_DISK_CACHE_PATH="${XDG_CACHE_HOME}/nv"
-
-# gnupg
-export GNUPGHOME="${XDG_CONFIG_HOME}/gnupg"
-
 # path
-export PATH="${CARGO_HOME}/bin:${GOROOT}/bin:${PATH}"
+export PATH="${PATH}:${CARGO_HOME}/bin:${FISH_HOME}/bin:${GOROOT}/bin:${KITTY_HOME}/bin:${NVIM_HOME}/bin"
 
 # man
 export MANPAGER="sh -c 'col -bx | bat -l man --style=plain --paging=always'"
 export MANROFFOPT="-c"
+export MANPATH=":${FISH_HOME}/share/man:${KITTY_HOME}/share/man:${NVIM_HOME}/share/man"
 
 # language
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-export LANGUAGE=en_US.UTF-8
+export LC_ALL="en_US.UTF-8"
+export LANG="en_US.UTF-8"
+export LANGUAGE="en_US.UTF-8"
 
 # zsh
 export ZSH="/usr/share/oh-my-zsh"
@@ -46,6 +55,8 @@ export ZSH_CUSTOM="${ZSH}/custom"
 export ZSHZ_DATA="${ZSH_CACHE_DIR}/z"
 
 ZSH_THEME="ss"
+
+# zstyle ':omz:update' mode disabled
 
 # every shell has its history
 SAVEHIST=40960

@@ -1,0 +1,16 @@
+export CARGO_HOME="/opt/cargo"
+export FISH_HOME="/opt/fish"
+export GOROOT="/opt/go"
+export KITTY_HOME="/opt/kitty"
+export NVIM_HOME="/opt/nvim"
+export NVM_DIR="/opt/nvm"
+export RUSTUP_HOME="/opt/rustup"
+
+export XDG_CACHE_HOME="${HOME}/.cache"
+export XDG_CONFIG_HOME="${HOME}/.config"
+export XDG_DATA_HOME="${HOME}/.local/share"
+export XDG_STATE_HOME="${HOME}/.local/state"
+export XDG_CONFIG_DIRS="/etc/xdg"
+export XDG_DATA_DIRS="/usr/local/share:/usr/share:${FISH_HOME}/share:${KITTY_HOME}/share:${NVIM_HOME}/share"
+
+export PATH="${PATH}:${CARGO_HOME}/bin:${FISH_HOME}/bin:${GOROOT}/bin:${KITTY_HOME}/bin:${NVIM_HOME}/bin"

@@ -7,6 +7,7 @@
 5. `cp ./my_completion.zsh /etc/zsh/`
 6. `cp ./my_zshenv /etc/zsh && echo "\nsource /etc/zsh/my_zshenv" >>/etc/zsh/zshrc`
 7. `cp ./my_zshrc  /etc/zsh && echo "\nsource /etc/zsh/my_zshrc"  >>/etc/zsh/zshrc`
+8. `cp ./02-environment.sh /etc/profile.d/`
 
 ## 依赖
 
