@@ -24,6 +24,7 @@ export __GL_SHADER_DISK_CACHE_PATH="${XDG_CACHE_HOME}/nv"
 export NVIM_HOME="/opt/nvim"
 
 # nvm
+export NVM_DIR="/opt/nvm"
 export NODE_MIRROR="https://mirrors.tuna.tsinghua.edu.cn/nodejs-release/"
 export NVM_NODEJS_ORG_MIRROR="https://mirrors.tuna.tsinghua.edu.cn/nodejs-release/"
 
@@ -37,7 +38,9 @@ export RUSTUP_UPDATE_ROOT="https://mirrors.tuna.tsinghua.edu.cn/rustup/rustup"
 export SYSTEMTAP_DIR="${XDG_CACHE_HOME}/systemtap"
 
 # path
-export PATH="${PATH}:${CARGO_HOME}/bin:${FISH_HOME}/bin:${GOROOT}/bin:${KITTY_HOME}/bin:${NVIM_HOME}/bin"
+if [[ ":${PATH}:" != *":${CARGO_HOME}/bin:"* ]]; then
+	export PATH="${PATH}:${CARGO_HOME}/bin:${FISH_HOME}/bin:${GOROOT}/bin:${KITTY_HOME}/bin:${NVIM_HOME}/bin"
+fi
 
 # man
 export MANPAGER="sh -c 'col -bx | bat -l man --style=plain --paging=always'"
@@ -50,6 +53,7 @@ export LANG="en_US.UTF-8"
 export LANGUAGE="en_US.UTF-8"
 
 # zsh
+export EDITOR="nvim"
 export ZSH="/usr/share/oh-my-zsh"
 export ZSH_CUSTOM="${ZSH}/custom"
 export ZSHZ_DATA="${ZSH_CACHE_DIR}/z"
@@ -79,7 +83,7 @@ unsetopt INC_APPEND_HISTORY
 alias ll="eza --color=always --icons=always --git -ilbSh"
 alias l="eza --color=always --icons=always"
 alias lt="eza --color=always --icons=always -T"
-alias proxyhp="export http_proxy=http://127.0.0.1:33210 https_proxy=http://127.0.0.1:33210 no_proxy=127.0.0.1,localhost"
+alias proxyhp="export http_proxy=http://192.168.0.109:8800 https_proxy=http://192.168.0.109:8800 no_proxy=127.0.0.1,localhost"
 alias unproxyhp="unset http_proxy https_proxy no_proxy"
 alias -g -- --help='--help 2>&1 | bat -l help -pp'
 
@@ -199,5 +203,4 @@ hist() {
 }
 
 [ -s "${NVM_DIR}/nvm.sh" ] && \. "${NVM_DIR}/nvm.sh"
-
 hash thefuck &>/dev/null && eval "$(thefuck --alias)"

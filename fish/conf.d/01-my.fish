@@ -30,6 +30,7 @@ set -gx __GL_SHADER_DISK_CACHE_PATH "$XDG_CACHE_HOME/nv"
 set -gx NVIM_HOME                "/opt/nvim"
 
 # nvm
+set -gx NVM_DIR                  "/opt/nvm"
 set -gx NODE_MIRROR              "https://mirrors.tuna.tsinghua.edu.cn/nodejs-release/"
 set -gx NVM_NODEJS_ORG_MIRROR    "https://mirrors.tuna.tsinghua.edu.cn/nodejs-release/"
 
@@ -43,14 +44,17 @@ set -gx RUSTUP_UPDATE_ROOT       "https://mirrors.tuna.tsinghua.edu.cn/rustup/ru
 set -gx SYSTEMTAP_DIR            "$XDG_CACHE_HOME/systemtap"
 
 # path
-if not contains $CARGO_HOME $PATH
-	set -gx PATH             "$PATH:$CARGO_HOME/bin:$FISH_HOME/bin:$GOROOT/bin:$KITTY_HOME/bin:$NVIM_HOME/bin"
+if not contains $CARGO_HOME/bin $PATH
+	set -gx PATH             $PATH $CARGO_HOME/bin $FISH_HOME/bin $GOROOT/bin $KITTY_HOME/bin $NVIM_HOME/bin
 end
 
 # man
 set -gx MANPAGER                 "sh -c 'col -bx | bat -l man --style=plain --paging=always'"
 set -gx MANROFFOPT               "-c"
 set -gx MANPATH                  ":$FISH_HOME/share/man:$KITTY_HOME/share/man:$NVIM_HOME/share/man"
+
+# editor
+set -gx EDITOR                   "nvim"
 
 # language
 set -gx LC_ALL                   "en_US.UTF-8"

@@ -8,11 +8,12 @@
 6. `cmake --install .`
 7. `cp -rf ./functions /opt/fish/etc/fish`
 8. `echo /opt/fish/bin/fish >>/etc/shells`
+9. 参考 linux 的“环境变量”设置
 
 
 ## 插件
 
-- 如果想要将插件安装在 /opt/fish/etc/fish，需要确保环境变量 fisher_path 的值为 /opt/fish/etc/fish
+- 如果想要将插件安装在 /opt/fish/etc/plugins，需要确保环境变量 fisher_path 的值为 /opt/fish/etc/plugins
 - 具体插件可以查看 [awsm.fish](https://github.com/jorgebucaran/awsm.fish)
 
 1. fisher: `curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher`
@@ -33,7 +34,7 @@
 
 1. `tide configure --auto --style=Classic --prompt_colors='True color' --classic_prompt_color=Dark --show_time='24-hour format' --classic_prompt_separators=Angled --powerline_prompt_heads=Sharp --powerline_prompt_tails=Flat --powerline_prompt_style='Two lines, frame' --prompt_connection=Solid --powerline_right_prompt_frame=Yes --prompt_connection_andor_frame_color=Dark --prompt_spacing=Sparse --icons='Many icons' --transient=No`
 2. `set -U tide_context_always_display true`
-3. `set -U tide_left_prompt_items vi_mode os pwd git newline character`：vi_mode 用于显示 vi 模式，通过 `fish_vi_key_bindings` 开启；character 用于显示大于 1 的返回值。
+3. 可选：`set -U tide_left_prompt_items vi_mode os pwd git newline character`：vi_mode 用于显示 vi 模式，通过 `fish_vi_key_bindings` 开启；character 用于显示大于 1 的返回值。
 
 ### 配置 nvm
 
@@ -45,11 +46,6 @@
 
 1. `cp -rf $HOME/.config/fish /home/$USER/.config`
 2. 修改 /home/$USER/.config/fish/fish_variables 三个全局变量 Z_DATA，Z_DATA_DIR，Z_EXCLUDE
-
-
-## 配置 xdg
-
-1. `cp ./02-environment.sh /etc/profile.d/`
 
 
 ## 卸载
