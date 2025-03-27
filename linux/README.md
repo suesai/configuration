@@ -35,7 +35,7 @@
 
 # 环境变量
 
-1. `cp ./01-my.sh /etc/profile.d/`
+1. `cp ./01-my-environment.sh /etc/profile.d/`
 2. 将 `[ -s "${NVM_DIR}/nvm.sh" ] && \. "${NVM_DIR}/nvm.sh"`，`[ -s "${NVM_DIR}/bash_completion" ] && \. "${NVM_DIR}/bash_completion"` 和 `hash thefuck &>/dev/null && eval "$(thefuck --alias)"` 写入到 /etc/bash.bashrc，同时将 ~/.bashrc 中相同的设置删除
 3. `systemctl reboot`
 
