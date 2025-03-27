@@ -51,7 +51,6 @@ end
 # man
 set -gx MANPAGER                 "sh -c 'col -bx | bat -l man --style=plain --paging=always'"
 set -gx MANROFFOPT               "-c"
-set -gx MANPATH                  ":$FISH_HOME/share/man:$KITTY_HOME/share/man:$NVIM_HOME/share/man"
 
 # editor
 set -gx EDITOR                   "nvim"
