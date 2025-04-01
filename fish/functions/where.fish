@@ -62,5 +62,6 @@ function where --description "Lookup command description"
 
 	if test $found -eq 0
 		echo "$cmd not found"
+		return 1
 	end
 end
