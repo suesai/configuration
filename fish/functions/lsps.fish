@@ -1,8 +1,8 @@
 function lsps --description "List process details"
 	set -l pid
 	set -l thread
-	set -l other_args
 	set -l args
+	set -l other_args
 
 	while test (count $argv) -gt 0
 		switch $argv[1]
