@@ -25,14 +25,23 @@ function lsps --description "List process details"
 		set argv $argv[2..-1]
 	end
 
-	if test -n "$thread" -a -n "$pid"
-		set args -L -o pid,ppid,pgid,nlwp,lwp,euser,etime:12,time:12,rss:8,wchan:16,stat:5,command -p $pid
-	else if test -n "$thread"
-		set args -eL -o pid,ppid,pgid,nlwp,lwp,euser,etime:12,time:12,rss:8,wchan:16,stat:5,command
-	else if test -n "$pid"
-		set args -o pid,ppid,pgid,nlwp,euser,etime:12,time:12,rss:8,wchan:16,stat:5,command -p $pid
-	else
-		set args -e -o pid,ppid,pgid,nlwp,euser,etime:12,time:12,rss:8,wchan:16,stat:5,command
+	switch (uname -s)
+		case Linux
+			if test -n "$thread" -a -n "$pid"
+				set args -L -o pid,ppid,pgid,nlwp,lwp,euser,etime:12,time:12,rss:8,wchan:16,stat:5,command -p $pid
+			else if test -n "$thread"
+				set args -eL -o pid,ppid,pgid,nlwp,lwp,euser,etime:12,time:12,rss:8,wchan:16,stat:5,command
+			else if test -n "$pid"
+				set args -o pid,ppid,pgid,nlwp,euser,etime:12,time:12,rss:8,wchan:16,stat:5,command -p $pid
+			else
+				set args -e -o pid,ppid,pgid,nlwp,euser,etime:12,time:12,rss:8,wchan:16,stat:5,command
+			end
+		case Darwin
+			if test -n "$pid"
+				set args -o pid,ppid,pgid,user,etime,time,rss,wchan,stat,command -p $pid
+			else
+				set args -e -o pid,ppid,pgid,user,etime,time,rss,wchan,stat,command
+			end
 	end
 
 	set -l line
