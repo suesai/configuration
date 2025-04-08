@@ -42,6 +42,10 @@
 2. `set -U nvm_default_version v22.1.0`
 3. `set -U nvm_data /opt/nvm/versions/node && cp ~/.local/share/nvm/.index /opt/nvm/versions/node`
 
+### 配置 autopair
+
+1. 删除 conf.d/autopair.fish 中 autopair_left，autopair_right，autopair_pairs 中的和大括号相关的字符串
+
 ### 离线配置
 
 1. `cp -rf $HOME/.config/fish /home/$USER/.config`
