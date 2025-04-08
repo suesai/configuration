@@ -1,5 +1,5 @@
 # man
-set -gx MANPAGER                 "sh -c 'col -bx | bat -l man'"
+set -gx MANPAGER                 "sh -c 'col -bx | bat -l man --style plain --paging=always'"
 set -gx MANROFFOPT               "-c"
 
 # editor

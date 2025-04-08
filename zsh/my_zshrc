@@ -85,7 +85,7 @@ alias l="eza --color=always --icons=always"
 alias lt="eza --color=always --icons=always -T"
 alias proxyhp="export http_proxy=http://192.168.0.109:8800 https_proxy=http://192.168.0.109:8800 no_proxy=127.0.0.1,localhost"
 alias unproxyhp="unset http_proxy https_proxy no_proxy"
-alias -g -- --help='--help 2>&1 | bat -l help -pp'
+alias -g -- --help='--help 2>&1 | bat -l help --style=plain --paging=always'
 
 # escape q or alt q to edit muliple line
 bindkey "^[q" push-line-or-edit

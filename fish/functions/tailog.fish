@@ -8,5 +8,5 @@ function tailog --description "Tail -f for log file"
 		return 1
 	end
 
-	tail -F $argv[1] | bat -p -l log
+	tail -F $argv[1] | bat -pp -l log
 end
