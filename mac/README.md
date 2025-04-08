@@ -19,7 +19,7 @@ sudo log stream | rg -v 'wezterm' | rg 'location|wireless|awdl|phone|rapport|sha
 5. Macs Fan Control
 6. Loop, Rectangle
 7. iMazing
-8. MacZip
+8. The Unarchiver, MacZip
 9. iRightMouse Lite
 10. CCleaner
 11. IINA

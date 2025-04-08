@@ -21,6 +21,7 @@
 - fuck
 - btop
 - yazi
+- unar
 
 ## 娱乐
 
