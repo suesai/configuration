@@ -2,7 +2,7 @@
 	editor = nvim
 	pager = delta
 	ignoreCase = false
-	excludesFile = ~/.config/git/global_gitignore
+	excludesFile = /etc/gitignore
 
 [user]
 	email = suesaiup@qq.com
@@ -13,7 +13,7 @@
 	ci = commit
 	st = status
 	br = branch
-	lg = log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s - %Cblue%cn%Creset %Cgreen(%cd) %C(bold blue)%Creset' --abbrev-commit --date=format:'%Y-%m-%d %H:%M:%S'
+	lg = log --all --graph --pretty=format:'%C(green)%h%Creset -%C(cyan)%d%Creset %s - %C(blue)%cn%Creset (%cd)' --abbrev-commit --date=format:'%Y-%m-%d %H:%M:%S'
 	type = cat-file -t
 	dump = cat-file -p
 
