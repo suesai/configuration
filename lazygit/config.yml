@@ -1,0 +1,38 @@
+gui:
+  expandFocusedSidePanel: true
+  nerdFontsVersion: "3"
+  scrollHeight: 10
+  shortTimeFormat: "15:04:05"
+  timeFormat: "2006-01-02 15:04:05"
+  authorColors:
+    '*': '#b4befe'
+  theme:
+    activeBorderColor:
+      - '#a6e3a1'
+      - bold
+    cherryPickedCommitBgColor:
+      - '#45475a'
+    cherryPickedCommitFgColor:
+      - '#a6e3a1'
+    defaultFgColor:
+      - '#cdd6f4'
+    inactiveBorderColor:
+      - '#a6adc8'
+    optionsTextColor:
+      - '#89b4fa'
+    searchingActiveBorderColor:
+      - '#f9e2af'
+    selectedLineBgColor:
+      - '#313244'
+    unstagedChangesColor:
+      - '#f38ba8'
+
+git:
+  allBranchesLogCmds:
+    - git log --all --graph --color=always --pretty=format:'%C(green)%h%Creset -%C(#b294bb)%d%Creset %s - %C(#b4befe bold)%cn%Creset (%cd)' --abbrev-commit --date=format:'%Y-%m-%d %H:%M:%S'
+  branchLogCmd: "git log --all --graph --color=always --pretty=format:'%C(green)%h%Creset -%C(#b294bb)%d%Creset %s - %C(#b4befe bold)%cn%Creset (%cd)' --abbrev-commit --date=format:'%Y-%m-%d %H:%M:%S' {{branchName}} --"
+  log:
+    showWholeGraph: true
+  paging:
+    colorArg: always
+    pager: delta --dark --paging=never --side-by-side --line-numbers --file-style=omit --hunk-header-style="file line-number syntax" --true-color=always
