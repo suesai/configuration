@@ -1,0 +1,10 @@
+{
+	"registry-mirrors": [
+		"https://docker.mirrors.tuna.tsinghua.edu.cn"
+	],
+	"proxies": {
+		"http-proxy": "http://192.168.0.107:8800",
+		"https-proxy": "http://192.168.0.107:8800",
+		"no-proxy": "127.0.0.1/8"
+	}
+}
