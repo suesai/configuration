@@ -1,15 +1,18 @@
 ## 安装
 
-1. 下载 fish.tar.gz，解压后进入目录
-2. `aptitude gettext; pip3 install Sphinx; aptitude install python3-sphinx`
-3. `mkdir build; cd build`
-4. `cmake -DCMAKE_INSTALL_PREFIX=/opt/fish -DBUILD_DOCS=ON -DINSTALL_DOCS=ON -DWITH_GETTEXT=ON ..`
-5. `cmake --build .`
-6. `cmake --install .`
-7. `cp -rf ./functions /opt/fish/etc/fish`
-8. `echo /opt/fish/bin/fish >>/etc/shells`
-9. 参考 linux 的“环境变量”设置
-
+- MacOS:
+  1. `brew install fish`
+  2. 确保 /etc/shells 存在 fish 的路径
+- Linux:
+  1. 下载 fish.tar.gz，解压后进入目录
+  2. `aptitude gettext; pip3 install Sphinx; aptitude install python3-sphinx`
+  3. `mkdir build; cd build`
+  4. `cmake -DCMAKE_INSTALL_PREFIX=$FISH_HOME -DBUILD_DOCS=ON -DINSTALL_DOCS=ON -DWITH_GETTEXT=ON ..`
+  5. `cmake --build .`
+  6. `cmake --install .`
+  7. `cp -rf ./functions $FISH_HOME/etc/fish`
+  8. `echo $FISH_HOME/bin/fish >>/etc/shells`
+  9. 参考 linux 的“环境变量”设置
 
 ## 插件
 
@@ -17,7 +20,7 @@
 - 具体插件可以查看 [awsm.fish](https://github.com/jorgebucaran/awsm.fish)
 
 1. fisher: `curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher`
-2. z: `fisher install jethrokuan/z`
+2. z (replaced by zoxide): `fisher install jethrokuan/z`
 3. fzf.fish: `fisher install PatrickF1/fzf.fish`
 4. replay.fish: `fisher install jorgebucaran/replay.fish`
 5. autopair.fish: `fisher install jorgebucaran/autopair.fish`
@@ -40,7 +43,7 @@
 
 1. `set -U nvm_mirror https://mirrors.tuna.tsinghua.edu.cn/nodejs-release/`
 2. `set -U nvm_default_version v22.1.0`
-3. `set -U nvm_data /opt/nvm/versions/node && cp ~/.local/share/nvm/.index /opt/nvm/versions/node`
+3. `set -U nvm_data $NVM_DIR/versions/node && cp ~/.local/share/nvm/.index $NVM_DIR/versions/node`
 
 ### 配置 autopair
 
@@ -51,7 +54,6 @@
 1. `cp -rf $HOME/.config/fish /home/$USER/.config`
 2. 修改 /home/$USER/.config/fish/fish_variables 三个全局变量 Z_DATA，Z_DATA_DIR，Z_EXCLUDE
 
-
 ## 卸载
 
-1. `rm -rf $HOME/.cache/fish $HOME/.config/fish $HOME/.local/share/fish /opt/fish`
+1. `rm -rf $HOME/.config/fish $HOME/.cache/fish $HOME/.local/share/fish $FISH_HOME`

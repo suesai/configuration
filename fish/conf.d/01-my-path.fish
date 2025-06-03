@@ -22,7 +22,7 @@ switch (uname -s)
 
 		# path
 		if not contains $CARGO_HOME/bin $PATH
-			set -gx PATH             $PATH $CARGO_HOME/bin $FISH_HOME/bin $GOROOT/bin $KITTY_HOME/bin $NVIM_HOME/bin
+			set -gx PATH             $PATH $CARGO_HOME/bin $FISH_HOME/bin $GOROOT/bin $GOPATH/bin $KITTY_HOME/bin $NVIM_HOME/bin
 		end
 	case Darwin
 		# path
