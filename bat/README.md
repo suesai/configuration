@@ -1,3 +1,13 @@
 ## 安装
 
-`mkdir ~/.config/bat && cp ./config ~/.config/bat/`
+- MacOS: `brew install bat`
+- Linux: 从 github 上下载 musl 版本，并拷贝到 /usr/local/bin/
+
+## 配置
+
+- global:
+  1. `mkdir /etc/bat/`
+  2. `cp ./config /etc/bat/`
+- local:
+  1. `mkdir ~/.config/bat/`
+  2. `cp ./config ~/.config/bat/`
