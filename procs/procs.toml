@@ -1,0 +1,93 @@
+[[columns]]
+kind      = "Pid"
+align     = "Right"
+numeric_search = true
+style     = "BrightYellow|Yellow"
+
+[[columns]]
+kind      = "Ppid"
+align     = "Right"
+header    = "PPID"
+
+[[columns]]
+kind      = "Threads"
+align     = "Right"
+
+[[columns]]
+kind      = "User"
+max_width = 8
+style     = "BrightMagenta|Magenta"
+
+[[columns]]
+kind      = "Separator"
+style     = "White|BrightBlack"
+
+[[columns]]
+kind      = "UsageCpu"
+align     = "Right"
+style     = "ByPercentage"
+
+[[columns]]
+kind      = "CpuTime"
+align     = "Center"
+header    = "CPUTime"
+min_width = 10
+style     = "BrightCyan|Cyan"
+
+[[columns]]
+kind      = "UsageMem"
+align     = "Right"
+style     = "ByPercentage"
+
+[[columns]]
+kind      = "VmRss"
+align     = "Right"
+style     = "ByUnit"
+
+[[columns]]
+kind      = "VmSize"
+align     = "Right"
+style     = "ByUnit"
+
+[[columns]]
+kind      = "Separator"
+style     = "White|BrightBlack"
+
+[[columns]]
+kind      = "State"
+style     = "ByState"
+
+[[columns]]
+kind      = "Nice"
+align     = "Right"
+
+[[columns]]
+kind      = "Tty"
+style     = "BrightWhite|Black"
+
+[[columns]]
+kind      = "Wchan"
+max_width = 16
+
+[[columns]]
+kind      = "StartTime"
+style     = "BrightCyan|Cyan"
+
+[[columns]]
+kind      = "MultiSlot"
+align     = "Right"
+style     = "ByUnit"
+
+[[columns]]
+kind      = "Separator"
+style     = "White|BrightBlack"
+
+[[columns]]
+kind      = "Command"
+nonnumeric_search = true
+style     = "BrightWhite|Black"
+
+[style]
+header    = "White|BrightBlack"
+# tree      = "White|BrightBlack"
+unit      = "White|BrightBlack"
