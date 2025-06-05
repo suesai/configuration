@@ -9,7 +9,6 @@
 7. `cp ./my_zshrc  /etc/zsh && echo "\nsource /etc/zsh/my_zshrc"  >>/etc/zsh/zshrc`
 8. 参考 linux 的“环境变量”设置
 
-
 ## 依赖
 
 - compiledb
