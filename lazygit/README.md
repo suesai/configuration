@@ -11,4 +11,4 @@
 - local:
   - MacOS: `mkdir ~/Library/Application Support/lazygit/ && cp ./config.yml ~/Library/Application Support/lazygit/`
   - Linux: `mkdir ~/.config/lazygit/ && cp ./config.yml ~/.config/lazygit/`
-- 配色采用的是 catppuccin mocha green
+- 配色采用的是 Catppuccin Macchiato

@@ -13,7 +13,7 @@
 	ci = commit
 	st = status
 	br = branch
-	lg = log --all --graph --pretty=format:'%C(green)%h%Creset -%C(cyan)%d%Creset %s - %C(blue)%cn%Creset (%cd)' --abbrev-commit --date=format:'%Y-%m-%d %H:%M:%S'
+	lg = log --graph --pretty=format:'%C(green)%h%Creset -%C(cyan bold)%d%Creset %s - %C(blue)%cn%Creset %C(red)(%cd)%Creset' --abbrev-commit --date=format:'%Y-%m-%d %H:%M:%S'
 	type = cat-file -t
 	dump = cat-file -p
 
