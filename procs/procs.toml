@@ -63,6 +63,7 @@ align     = "Right"
 
 [[columns]]
 kind      = "Tty"
+nonnumeric_search = true
 style     = "BrightWhite|Black"
 
 [[columns]]
