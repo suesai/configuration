@@ -9,12 +9,13 @@
 
 ## 软件
 
+- AppCleaner
 - CCleaner (replaced by Raycast)
 - Easydict (replaced by Raycast)
 - FlyKey
 - IINA
 - iMazing
-- iRightMouse Lite
+- iRightMouse Lite (optional)
 - Karabiner (replaced by Raycast)
 - Loop, Rectangle (replaced by Raycast)
 - Macs Fan Control
