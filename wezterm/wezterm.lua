@@ -1,6 +1,6 @@
 package.path = "/etc/wezterm/?.lua;/etc/wezterm/?/init.lua"
 
-local Config = require("config")
+local config = require("config")
 
 require("utils.backdrops")
 	:set_files()
@@ -15,7 +15,7 @@ require("events.general").setup()
 
 require("session-manager.session-manager").setup()
 
-return Config:init()
+return config:init()
 	:append(require("config.appearance"))
 	:append(require("config.bindings"))
 	:append(require("config.domains"))
