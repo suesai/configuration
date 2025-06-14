@@ -66,6 +66,8 @@ local keys = {
 	-- panes: scroll pane
 	{ key = "PageUp",     mods = "NONE",        action = act.ScrollByPage(-0.75) },
 	{ key = "PageDown",   mods = "NONE",        action = act.ScrollByPage(0.75) },
+	{ key = "PageUp",     mods = mod.MOD,       action = act.ScrollToTop },
+	{ key = "PageDown",   mods = mod.MOD,       action = act.ScrollToBottom },
 
 	-- panes: resize
 	{ key = "LeftArrow",  mods = mod.MOD,       action = act.AdjustPaneSize({ "Left", 5 }) },
