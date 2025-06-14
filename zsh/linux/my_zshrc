@@ -81,7 +81,7 @@ unsetopt INC_APPEND_HISTORY
 
 # alais
 alias ll="eza --color=always --icons=always --git -ilbSh"
-alias l="eza --color=always --icons=always"
+alias ls="eza --color=always --icons=always"
 alias lt="eza --color=always --icons=always -T"
 alias proxyhp="export http_proxy=http://192.168.0.109:8800 https_proxy=http://192.168.0.109:8800 no_proxy=127.0.0.1,localhost"
 alias unproxyhp="unset http_proxy https_proxy no_proxy"
@@ -144,12 +144,12 @@ fzf-history-widget() {
 	local ret=$?
 
 	if [ -n "$selected" ]; then
-	num=$(awk '{print $1}' <<< "$selected")
-	if [[ "$num" =~ '^[1-9][0-9]*\*?$' ]]; then
-		zle vi-fetch-history -n ${num%\*}
-	else # selected is a custom query, not from history
-		LBUFFER="$selected"
-	fi
+		num=$(awk '{print $1}' <<< "$selected")
+		if [[ "$num" =~ '^[1-9][0-9]*\*?$' ]]; then
+			zle vi-fetch-history -n ${num%\*}
+		else # selected is a custom query, not from history
+			LBUFFER="$selected"
+		fi
 	fi
 
 	zle reset-prompt
@@ -195,7 +195,7 @@ tailog() {
 		return 22
 	fi
 
-	tail -F "${file}" | BAT_THEME=base16 bat -pp -l log
+	tail -F "${file}" | BAT_THEME="base16-256" bat -pp -l log
 }
 
 hist() {
