@@ -46,7 +46,7 @@
 ## 环境变量
 
 1. `cp ./01-my-environment.sh /etc/profile.d/`
-2. 将 `[ -s "${NVM_DIR}/nvm.sh" ] && \. "${NVM_DIR}/nvm.sh"`，`[ -s "${NVM_DIR}/bash_completion" ] && \. "${NVM_DIR}/bash_completion"` 和 `hash thefuck &>/dev/null && eval "$(thefuck --alias)"` 写入到 /etc/bash.bashrc，同时将 ~/.bashrc 中相同的设置删除
+2. 将 `[ -s "${NVM_DIR}/nvm.sh" ] && \. "${NVM_DIR}/nvm.sh"`，`[ -s "${CARGO_HOME}/env" ] && \. "${CARGO_HOME}/env"` 和 `hash thefuck &>/dev/null && eval "$(thefuck --alias)"` 写入到 /etc/bash.bashrc，同时将 ~/.bashrc 中相同的设置删除
 3. `systemctl reboot`
 
 ### 环境变量应用规则
