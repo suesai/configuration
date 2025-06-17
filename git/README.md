@@ -1,12 +1,12 @@
 ## 配置
 
-- global:
+- MacOS:
+  1. `mkdir ~/.config/git/`
+  2. `cp ./gitconfig ~/.config/git/config`
+  3. `cp ./gitignore ~/.config/git/`
+- Linux:
   1. `cp ./gitconfig /etc/`
   2. `cp ./gitignore /etc/`
-- local:
-  1. `mkdir ~/.config/git`
-  2. `cp ./gitconfig ~/.config/git`
-  3. `cp ./gitignore ~/.config/git`
 
 ## 依赖
 
@@ -14,4 +14,4 @@
 
 ## 备注
 
-1. 如果是 local 配置，那么需要修改 gitconfig 中的 excludesFile
+1. 如果是 MacOS 配置，那么需要修改 gitconfig 中的 excludesFile
