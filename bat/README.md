@@ -5,9 +5,9 @@
 
 ## 配置
 
-- global:
-  1. `mkdir /etc/bat/`
-  2. `cp ./config /etc/bat/`
-- local:
+- MacOS:
   1. `mkdir ~/.config/bat/`
   2. `cp ./config ~/.config/bat/`
+- Linux:
+  1. `mkdir /etc/bat/`
+  2. `cp ./config /etc/bat/`
