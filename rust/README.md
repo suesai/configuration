@@ -1,7 +1,12 @@
 ## 安装
 
-1. 确保 CARGO_HOME，RUSTUP_HOME 环境变量存在
+1. `mkdir -p ${CARGO_HOME} ${RUSTUP_HOME}`
 2. `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`
+
+## 配置
+
+- fish: 安装之后，会自动创建 ~/.config/fish/conf.d/rustup.fish；可以考虑将 rustup.fish 拷贝到 $FISH_HOME/etc/fish/conf.d/
+- zsh: 安装之后，会自动在 ~/.zshenv 追加 `. $CARGO_HOME/env`，删除该语句
 
 ## 卸载
 
