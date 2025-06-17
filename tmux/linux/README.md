@@ -1,4 +1,4 @@
-## 安装步骤
+## 配置
 
 1. `cp ./tmux.conf /etc/`
 2. `mkdir /usr/share/tpm && git clone https://github.com/tmux-plugins/tpm /usr/share/tpm/tpm`
