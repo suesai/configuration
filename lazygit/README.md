@@ -5,10 +5,5 @@
 
 ## 配置
 
-- global:
-  - `mkdir $(dirname $LG_CONFIG_FILE)`
-  - `cp ./config.yml $LG_CONFIG_FILE`
-- local:
-  - MacOS: `mkdir ~/Library/Application Support/lazygit/ && cp ./config.yml ~/Library/Application Support/lazygit/`
-  - Linux: `mkdir ~/.config/lazygit/ && cp ./config.yml ~/.config/lazygit/`
-- 配色采用的是 Catppuccin Macchiato
+1. `mkdir $(dirname $LG_CONFIG_FILE)`
+2. `cp ./config.yml $LG_CONFIG_FILE`
