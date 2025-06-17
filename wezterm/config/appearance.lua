@@ -41,7 +41,7 @@ return {
 		left = 8,
 		right = 8,
 		top = 8,
-		bottom = 4,
+		bottom = 8,
 	},
 	window_frame = {
 		active_titlebar_bg = "#090909",
