@@ -4,9 +4,9 @@
 
 ## 配置
 
-- global:
-  1. `mkdir /etc/uv/`
-  2. `cp ./uv.toml /etc/uv/`
-- local:
+- MacOS:
   1. `mkdir ~/.config/uv/`
   2. `cp ./uv.toml ~/.config/uv/`
+- Linux:
+  1. `mkdir /etc/uv/`
+  2. `cp ./uv.toml /etc/uv/`
