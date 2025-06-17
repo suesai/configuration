@@ -9,5 +9,6 @@
 
 ## 配置
 
-1. 确保 my-zoxide.fish 已经在 $FISH_HOME/etc/fish/conf.d/ 下
-2. `zoxide import --from=z $Z_DATA`
+1. fish: 确保 my-zoxide.fish 已经在 $FISH_HOME/etc/fish/conf.d/ 下
+2. zsh: 确保 zshrc 中有 zoxide init 语句
+3. `zoxide import --from=z $Z_DATA`
