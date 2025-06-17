@@ -13,4 +13,4 @@ export XDG_STATE_HOME="${HOME}/.local/state"
 export XDG_CONFIG_DIRS="/etc/xdg"
 export XDG_DATA_DIRS="/usr/local/share:/usr/share:${FISH_HOME}/share:${KITTY_HOME}/share:${NVIM_HOME}/share"
 
-export PATH="${PATH}:${CARGO_HOME}/bin:${FISH_HOME}/bin:${GOROOT}/bin:${KITTY_HOME}/bin:${NVIM_HOME}/bin"
+export PATH="${PATH}:${FISH_HOME}/bin:${GOROOT}/bin:${KITTY_HOME}/bin:${NVIM_HOME}/bin"
