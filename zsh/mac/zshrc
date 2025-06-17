@@ -11,11 +11,19 @@ export HOMEBREW_PIP_INDEX_URL="https://mirrors.tuna.tsinghua.edu.cn/pypi/web/sim
 
 # nvm
 export NODE_MIRROR="https://mirrors.tuna.tsinghua.edu.cn/nodejs-release/"
+export NODE_REPL_HISTORY="${HOME}/.cache/node/node_repl_history"
 export NVM_NODEJS_ORG_MIRROR="https://mirrors.tuna.tsinghua.edu.cn/nodejs-release/"
 
 # rust
+export CARGO_HOME="${HOME}/.local/share/cargo"
+export RUSTUP_HOME="${HOME}/.local/share/rustup"
 export RUSTUP_DIST_SERVER="https://mirrors.tuna.tsinghua.edu.cn/rustup"
 export RUSTUP_UPDATE_ROOT="https://mirrors.tuna.tsinghua.edu.cn/rustup/rustup"
+
+# path
+if [[ ":${PATH}:" != *":${GOPATH}/bin:"* ]]; then
+	export PATH="${PATH}:${GOPATH}/bin"
+fi
 
 # man
 export MANPAGER="sh -c 'col -bx | bat -l man --style=plain --paging=always'"
@@ -42,7 +50,7 @@ HISTSIZE=40960
 HISTFILE="${ZSH_CACHE_DIR}/zsh_history"
 HIST_STAMPS="%Y-%m-%d %H:%M:%S"
 
-plugins=(git extract z zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git extract zsh-autosuggestions zsh-syntax-highlighting)
 
 source "${ZSH}/oh-my-zsh.sh"
 source "${ZDOTDIR}/completion.zsh"
@@ -170,5 +178,7 @@ hist() {
 	fc -lD -t '%Y-%m-%d %H:%M:%S' -1 0
 }
 
+[ -s "${CARGO_HOME}/env" ] && \. "${CARGO_HOME}/env"
 [ -s "${NVM_DIR}/nvm.sh" ] && \. "${NVM_DIR}/nvm.sh"
 hash thefuck &>/dev/null && eval "$(thefuck --alias)"
+hash zoxide &>/dev/null && eval "$(zoxide init --cmd cd zsh)"
