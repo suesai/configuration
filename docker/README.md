@@ -7,17 +7,21 @@
 
 ### daemon
 
-- global: 将 daemon.json 追加到 /etc/docker/daemon.json
-- local:  将 daemon.json 追加到 ~/.config/docker/daemon.json
+- MacOS:
+  1. `mkdir ~/.config/docker/`
+  2. 将 daemon.json 追加到 ~/.config/docker/daemon.json
+- Linux:
+  1. `mkdir /etc/docker/`
+  2. 将 daemon.json 追加到 /etc/docker/daemon.json
 - 通过命令 `docker info` 来查看是否更换成功
 
 ### cli
 
-- global:
+- MacOS:
+  1. 将 config.json 追加到 ~/.docker/config.json
+- Linux:
   1. `mkdir $(dirname $DOCKER_CONFIG)`
   2. 将 config.json 追加到 $DOCKER_CONFIG/config.json
-- local:
-  1. 将 config.json 追加到 ~/.docker/config.json
 
 ### container
 
