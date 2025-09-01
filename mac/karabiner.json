@@ -4,51 +4,6 @@
             "complex_modifications": {
                 "rules": [
                     {
-                        "description": "F4 to Application Windows",
-                        "manipulators": [
-                            {
-                                "from": { "key_code": "f4" },
-                                "to": [
-                                    {
-                                        "key_code": "j",
-                                        "modifiers": ["control", "command"]
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "F5 to Left Desktop",
-                        "manipulators": [
-                            {
-                                "from": { "key_code": "f5" },
-                                "to": [
-                                    {
-                                        "key_code": "h",
-                                        "modifiers": ["control", "command"]
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "F6 to Right Desktop",
-                        "manipulators": [
-                            {
-                                "from": { "key_code": "f6" },
-                                "to": [
-                                    {
-                                        "key_code": "l",
-                                        "modifiers": ["control", "command"]
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
                         "description": "button4 => Cmd+[, button5 => Cmd+]",
                         "manipulators": [
                             {
@@ -118,16 +73,22 @@
                         "vendor_id": 9610
                     },
                     "ignore": false
-                }
-            ],
-            "fn_function_keys": [
-                {
-                    "from": { "key_code": "f4" },
-                    "to": [{ "key_code": "f4" }]
                 },
                 {
-                    "from": { "key_code": "f5" },
-                    "to": [{ "key_code": "f5" }]
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "product_id": 20592,
+                        "vendor_id": 10007
+                    },
+                    "ignore": true
+                },
+                {
+                    "identifiers": {
+                        "is_pointing_device": true,
+                        "product_id": 20592,
+                        "vendor_id": 10007
+                    },
+                    "ignore": false
                 }
             ],
             "name": "Default profile",
