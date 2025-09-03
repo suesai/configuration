@@ -1,3 +1,12 @@
+# xdg
+export XDG_CACHE_HOME="${HOME}/.cache"
+export XDG_CONFIG_HOME="${HOME}/.config"
+export XDG_DATA_HOME="${HOME}/.local/share"
+export XDG_STATE_HOME="${HOME}/.local/state"
+
+# docker
+export DOCKER_CONFIG="/etc/docker"
+
 # fish
 export FISH_HOME="/opt/fish"
 
@@ -8,14 +17,18 @@ export GNUPGHOME="${XDG_CONFIG_HOME}/gnupg"
 export GOROOT="/opt/go"
 export GOPATH="${HOME}/project/go"
 
-# homebrew
-export HOMEBREW_API_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/api"
-export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"
-export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git"
-export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git"
+# gdb
+export GDBHISTFILE="${XDG_STATE_HOME}/gdb/gdb_history"
 
 # kitty
 export KITTY_HOME="/opt/kitty"
+export KITTY_CONFIG_DIRECTORY="/etc/kitty"
+
+# lazygit
+export LG_CONFIG_FILE="/etc/lazygit/config.yml"
+
+# less
+export LESSHISTFILE="${XDG_STATE_HOME}/less/lesshst"
 
 # nvidia
 export __GL_SHADER_DISK_CACHE_PATH="${XDG_CACHE_HOME}/nv"
@@ -38,15 +51,18 @@ export RUSTUP_UPDATE_ROOT="https://mirrors.tuna.tsinghua.edu.cn/rustup/rustup"
 # systemtap
 export SYSTEMTAP_DIR="${XDG_CACHE_HOME}/systemtap"
 
+# yazi
+export YAZI_CONFIG_HOME="/etc/yazi"
+
 # path
-if [[ ":${PATH}:" != *":${FISH_HOME}/bin:"* ]]; then
-	export PATH="${PATH}:${FISH_HOME}/bin:${GOROOT}/bin:${KITTY_HOME}/bin:${NVIM_HOME}/bin"
+if [[ ":${PATH}:" != *":${CARGO_HOME}/bin:"* ]]; then
+	export PATH="${PATH}:${CARGO_HOME}/bin:${FISH_HOME}/bin:${GOROOT}/bin:${GOPATH}/bin:${KITTY_HOME}/bin:${NVIM_HOME}/bin"
 fi
 
 # man
 export MANPAGER="sh -c 'col -bx | bat -l man --style=plain --paging=always'"
 export MANROFFOPT="-c"
-export MANPATH=":${FISH_HOME}/share/man:${KITTY_HOME}/share/man:${NVIM_HOME}/share/man"
+export MANPATH=":${FISH_HOME}/share/man:${KITTY_HOME}/share/man:${NVIM_HOME}/share/man:${RUSTUP_HOME}/toolchains/stable-x86_64-unknown-linux-gnu/share/man"
 
 # language
 export LC_ALL="en_US.UTF-8"
@@ -84,8 +100,6 @@ unsetopt INC_APPEND_HISTORY
 alias ll="eza --color=always --icons=always --git -ilbSh"
 alias ls="eza --color=always --icons=always"
 alias lt="eza --color=always --icons=always -T"
-alias proxyhp="export http_proxy=http://192.168.0.109:8800 https_proxy=http://192.168.0.109:8800 no_proxy=127.0.0.1,localhost"
-alias unproxyhp="unset http_proxy https_proxy no_proxy"
 alias -g -- --help='--help 2>&1 | bat -l help --style=plain --paging=never'
 
 # escape q or alt q to edit muliple line
@@ -158,6 +172,35 @@ fzf-history-widget() {
 	return $ret
 }
 
+duf() {
+	command duf -output mountpoint,size,used,avail,usage,inodes,inodes_usage,type,filesystem -only local,network,fuse,binds,loops "$@"
+}
+
+hist() {
+	fc -lD -t '%Y-%m-%d %H:%M:%S' -1 0
+}
+
+lg() {
+	lazygit "$@"
+}
+
+lscmd() {
+	local cmd paths
+
+	cmd="$1"
+	if [[ -z "${cmd}" ]]; then
+		echo "usage: lscmd cmd"
+		return 22
+	fi
+
+	IFS=':' read -ra paths <<<"${PATH}"
+	for path in "${paths[@]}"; do
+		if [[ -d "${path}" ]]; then
+			fd ".*${cmd}.*" -t x -t f "${path}"
+		fi
+	done
+}
+
 lsps () {
 	local pid thread args other_args ps_out
 
@@ -188,6 +231,14 @@ lsps () {
 	tail -n +2 <<<"${ps_out}"
 }
 
+proxyhp() {
+	export http_proxy="http://127.0.0.1:7897" https_proxy="http://127.0.0.1:7897" ftp_proxy="http://127.0.0.1:7897" no_proxy="127.0.0.1,localhost"
+}
+
+unproxyhp() {
+	unset http_proxy https_proxy no_proxy
+}
+
 tailog() {
 	local file="$1"
 
@@ -199,8 +250,12 @@ tailog() {
 	tail -F "${file}" | BAT_THEME="base16-256" bat -p -l log
 }
 
-hist() {
-	fc -lD -t '%Y-%m-%d %H:%M:%S' -1 0
+y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+	rm -f -- "$tmp"
 }
 
 [ -s "${CARGO_HOME}/env" ] && \. "${CARGO_HOME}/env"

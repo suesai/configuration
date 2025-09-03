@@ -9,6 +9,9 @@ export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebr
 export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git"
 export HOMEBREW_PIP_INDEX_URL="https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple"
 
+# lazygit
+export LG_CONFIG_FILE="${HOME}/.config/lazygit/config.yml"
+
 # nvm
 export NODE_MIRROR="https://mirrors.tuna.tsinghua.edu.cn/nodejs-release/"
 export NODE_REPL_HISTORY="${HOME}/.cache/node/node_repl_history"
@@ -65,8 +68,6 @@ unsetopt INC_APPEND_HISTORY
 alias ll="eza --color=always --icons=always --git -ilbSh"
 alias ls="eza --color=always --icons=always"
 alias lt="eza --color=always --icons=always -T"
-alias proxyhp="export http_proxy=http://192.168.0.109:8800 https_proxy=http://192.168.0.109:8800 no_proxy=127.0.0.1,localhost"
-alias unproxyhp="unset http_proxy https_proxy no_proxy"
 alias -g -- --help='--help 2>&1 | bat -l help --style=plain --paging=never'
 
 # escape q or alt q to edit muliple line
@@ -139,6 +140,35 @@ fzf-history-widget() {
 	return $ret
 }
 
+duf() {
+	command duf -output mountpoint,size,used,avail,usage,inodes,inodes_usage,type,filesystem -only local,network,fuse,binds,loops "$@"
+}
+
+hist() {
+	fc -lD -t '%Y-%m-%d %H:%M:%S' -1 0
+}
+
+lg() {
+	lazygit "$@"
+}
+
+lscmd() {
+	local cmd paths
+
+	cmd="$1"
+	if [[ -z "${cmd}" ]]; then
+		echo "usage: lscmd cmd"
+		return 22
+	fi
+
+	IFS=':' read -ra paths <<<"${PATH}"
+	for path in "${paths[@]}"; do
+		if [[ -d "${path}" ]]; then
+			fd ".*${cmd}.*" -t x -t f "${path}"
+		fi
+	done
+}
+
 lsps () {
 	local pid args other_args ps_out
 
@@ -163,6 +193,14 @@ lsps () {
 	tail -n +2 <<<"${ps_out}"
 }
 
+proxyhp() {
+	export http_proxy="http://127.0.0.1:7897" https_proxy="http://127.0.0.1:7897" ftp_proxy="http://127.0.0.1:7897" no_proxy="127.0.0.1,localhost"
+}
+
+unproxyhp() {
+	unset http_proxy https_proxy no_proxy
+}
+
 tailog() {
 	local file="$1"
 
@@ -174,8 +212,12 @@ tailog() {
 	tail -F "${file}" | BAT_THEME="base16-256" bat -p -l log
 }
 
-hist() {
-	fc -lD -t '%Y-%m-%d %H:%M:%S' -1 0
+y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+	rm -f -- "$tmp"
 }
 
 [ -s "${CARGO_HOME}/env" ] && \. "${CARGO_HOME}/env"
