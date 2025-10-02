@@ -27,7 +27,7 @@
 6. puffer-fish: `fisher install nickeb96/puffer-fish`
 7. nvm.fish: `fisher install jorgebucaran/nvm.fish`
 8. base16-fish-shell: `fisher install FabioAntunes/base16-fish-shell`
-9. tide: `fisher install IlanCosman/tide@v6`
+9. tide (replaced by starship): `fisher install IlanCosman/tide@v6`
 
 ### 配置 base16-fish-shell
 

@@ -48,6 +48,9 @@ export RUSTUP_HOME="/opt/rustup"
 export RUSTUP_DIST_SERVER="https://mirrors.tuna.tsinghua.edu.cn/rustup"
 export RUSTUP_UPDATE_ROOT="https://mirrors.tuna.tsinghua.edu.cn/rustup/rustup"
 
+# starship
+export STARSHIP_CONFIG="/etc/starship.toml"
+
 # systemtap
 export SYSTEMTAP_DIR="${XDG_CACHE_HOME}/systemtap"
 
@@ -260,5 +263,6 @@ y() {
 
 [ -s "${CARGO_HOME}/env" ] && \. "${CARGO_HOME}/env"
 [ -s "${NVM_DIR}/nvm.sh" ] && \. "${NVM_DIR}/nvm.sh"
-hash thefuck &>/dev/null && eval "$(thefuck --alias)"
-hash zoxide &>/dev/null && eval "$(zoxide init --cmd cd zsh)"
+hash starship &>/dev/null && eval "$(starship init zsh)"
+hash thefuck  &>/dev/null && eval "$(thefuck --alias)"
+hash zoxide   &>/dev/null && eval "$(zoxide init --cmd cd zsh)"

@@ -222,5 +222,6 @@ y() {
 
 [ -s "${CARGO_HOME}/env" ] && \. "${CARGO_HOME}/env"
 [ -s "${NVM_DIR}/nvm.sh" ] && \. "${NVM_DIR}/nvm.sh"
-hash thefuck &>/dev/null && eval "$(thefuck --alias)"
-hash zoxide &>/dev/null && eval "$(zoxide init --cmd cd zsh)"
+hash starship &>/dev/null && eval "$(starship init zsh)"
+hash thefuck  &>/dev/null && eval "$(thefuck --alias)"
+hash zoxide   &>/dev/null && eval "$(zoxide init --cmd cd zsh)"
