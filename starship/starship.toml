@@ -131,9 +131,8 @@ read_only          = "🔒"
 read_only_style    = "fg:crust bg:mauve"
 style              = "fg:crust bg:mauve"
 format             = "[  $path ]($style)[$read_only]($read_only_style)"
-truncation_length  = 5
-truncate_to_repo   = true
-fish_style_pwd_dir_length = 1
+truncation_length  = 0
+truncate_to_repo   = false
 
 [git_branch]
 symbol             = ""
@@ -151,7 +150,7 @@ renamed            = "»$count"
 staged             = "+$count"
 stashed            = "\\$$count"
 untracked          = "?$count"
-format             = "[ $all_status$ahead_behind]($style)"
+format             = "[( $all_status$ahead_behind)]($style)"
 
 [git_commit]
 tag_symbol         = " " # "\uf412" "" ""
