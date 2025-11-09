@@ -28,7 +28,7 @@
 - testdisk
 - tldr
 - tree-sitter
-- unar
+- ouch, p7zip, unar
 - watchexec
 - yazi
 - zoxide
