@@ -12,17 +12,22 @@
 - AppCleaner
 - CCleaner (replaced by Raycast)
 - Easydict (replaced by Raycast)
-- FlyKey
+- FlyKey (optional)
 - IINA
 - iMazing
 - iRightMouse Lite (optional)
-- Karabiner (replaced by Raycast)
+- Karabiner
 - Loop, Rectangle (replaced by Raycast)
 - Macs Fan Control
 - Raycast
 - Shortcat
-- The Unarchiver, MacZip
-- Tickeys
+- ouch, p7zip, The Unarchiver, MacZip
+- Tickeys (optional)
+
+### Open at Login
+
+- Raycast
+- Shortcat
 
 ## Safari
 
