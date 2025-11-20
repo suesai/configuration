@@ -1,16 +1,34 @@
+require("bookmarks"):setup({
+	last_directory = {
+		enable  = true,
+		persist = true,
+		mode    = "dir"
+	},
+	persist = "all",
+	file_pick_mode = "parent",
+	notify = {
+		enable  = true,
+		timeout = 3,
+	},
+})
+
+require("full-border"):setup {
+	type = ui.Border.ROUNDED,
+}
+
+require("git"):setup {}
+
+require("starship"):setup {
+	config_file = "/etc/non_exist_starship.toml",
+}
+
 require("yaziline"):setup {
 	separator_style      = "angly",
 	select_symbol        = "",
 	yank_symbol          = "󰆐",
-	filename_max_length  = 24, -- trim when filename > 24
-	filename_trim_length = 6   -- trim 6 chars from both ends
+	filename_max_length  = 24,
+	filename_trim_length = 6,
 }
-
-require("starship"):setup {
-	config_file = "/etc/yazi/starship.toml",
-}
-
-require("git"):setup {}
 
 Status:children_add(function()
 	local h = cx.active.current.hovered
@@ -25,12 +43,3 @@ Status:children_add(function()
 		ui.Span(" "),
 	}
 end, 500, Status.RIGHT)
-
-require("yamb"):setup {
-	cli = "fzf",
-}
-
-require("full-border"):setup {
-	-- Available values: ui.Border.PLAIN, ui.Border.ROUNDED
-	type = ui.Border.ROUNDED,
-}

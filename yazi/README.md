@@ -28,3 +28,5 @@
 ## 依赖
 
 1. ouch, p7zip
+2. starship
+3. zoxide
