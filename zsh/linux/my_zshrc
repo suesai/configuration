@@ -22,7 +22,7 @@ export GDBHISTFILE="${XDG_STATE_HOME}/gdb/gdb_history"
 
 # kitty
 export KITTY_HOME="/opt/kitty"
-export KITTY_CONFIG_DIRECTORY="/etc/kitty"
+export KITTY_CONFIG_DIRECTORY="${KITTY_HOME}/config"
 
 # lazygit
 export LG_CONFIG_FILE="/etc/lazygit/config.yml"
@@ -92,6 +92,7 @@ plugins=(git extract zsh-autosuggestions zsh-syntax-highlighting)
 
 source "${ZSH}/oh-my-zsh.sh"
 source "/etc/zsh/my_completion.zsh"
+source "/etc/zsh/my_tmux.zsh"
 
 setopt   EXTENDED_HISTORY
 setopt   INC_APPEND_HISTORY_TIME
