@@ -20,17 +20,17 @@ desc = "Go git root directory"
 # [[mgr.prepend_keymap]]
 # on   = "y"
 # run  = [ 'shell -- echo "$@" | xclip -i -selection clipboard -t text/uri-list', "yank" ]
-# desc = "copy yanked path to system clipboard on x11"
+# desc = "Copy yanked path to system clipboard on x11"
 
 # [[mgr.prepend_keymap]]
 # on   = "y"
 # run  = [ 'shell -- for path in "$@"; do echo "file://$path"; done | wl-copy -t text/uri-list', "yank" ]
-# desc = "copy yanked path to system clipboard on wayland"
+# desc = "Copy yanked path to system clipboard on wayland"
 
 [[mgr.prepend_keymap]]
-on  = "y"
+on   = "y"
 run  = [ 'shell -- for path in "$@"; do echo "$path"; done | pbcopy', "yank" ]
-desc = "copy yanked path to system clipboard on macos"
+desc = "Copy yanked path to system clipboard on macos"
 
 [[mgr.prepend_keymap]]
 on   = ["C"]
