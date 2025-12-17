@@ -9,6 +9,7 @@
 
 ## 软件
 
+- 先安装 fish，再安装 kitty，再安装其他软件
 - AppCleaner
 - CCleaner (replaced by Raycast)
 - Easydict (replaced by Raycast)

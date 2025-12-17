@@ -1,5 +1,9 @@
-set -gx HOMEBREW_API_DOMAIN      https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/api
-set -gx HOMEBREW_BOTTLE_DOMAIN   https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
-set -gx HOMEBREW_BREW_GIT_REMOTE https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git
-set -gx HOMEBREW_CORE_GIT_REMOTE https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git
-set -gx HOMEBREW_PIP_INDEX_URL   https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple
+switch (uname -s)
+	case Darwin
+		eval (/opt/homebrew/bin/brew shellenv)
+		set -gx HOMEBREW_API_DOMAIN      https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/api
+		set -gx HOMEBREW_BOTTLE_DOMAIN   https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
+		set -gx HOMEBREW_BREW_GIT_REMOTE https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git
+		set -gx HOMEBREW_CORE_GIT_REMOTE https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git
+		set -gx HOMEBREW_PIP_INDEX_URL   https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple
+end

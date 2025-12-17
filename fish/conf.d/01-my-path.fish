@@ -25,12 +25,19 @@ switch (uname -s)
 			set -gx PATH             $PATH $CARGO_HOME/bin $FISH_HOME/bin $GOROOT/bin $GOPATH/bin $KITTY_HOME/bin $NVIM_HOME/bin
 		end
 	case Darwin
+		# go
+		set -gx GOPATH                   $HOME/project/go
+
+		# rust
+		set -gx CARGO_HOME               $HOME/.local/share/cargo
+		set -gx RUSTUP_HOME              $HOME/.local/share/rustup
+
 		# path
-		if not contains /opt/homebrew/bin $PATH
-			set -gx PATH             $PATH /opt/homebrew/bin
+		if not contains $GOPATH/bin $PATH
+			set -gx PATH             $PATH $GOPATH/bin
 		end
 	case CYGWIN* MINGW* MSYS*
-		echo "Running on Windows"
+		echo "Running on Windows!"
 	case '*'
-		echo "Unknown OS"
+		echo "Unknown OS!"
 end
