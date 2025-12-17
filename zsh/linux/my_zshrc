@@ -10,15 +10,15 @@ export DOCKER_CONFIG="/etc/docker"
 # fish
 export FISH_HOME="/opt/fish"
 
+# gdb
+export GDBHISTFILE="${XDG_STATE_HOME}/gdb/gdb_history"
+
 # gnupg
 export GNUPGHOME="${XDG_CONFIG_HOME}/gnupg"
 
 # go
 export GOROOT="/opt/go"
 export GOPATH="${HOME}/project/go"
-
-# gdb
-export GDBHISTFILE="${XDG_STATE_HOME}/gdb/gdb_history"
 
 # kitty
 export KITTY_HOME="/opt/kitty"
