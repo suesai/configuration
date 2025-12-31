@@ -3,213 +3,53 @@
 "$schema" = "https://yazi-rs.github.io/schemas/yazi.json"
 
 [mgr]
-linemode         = "size"
-mouse_events     = ["click", "scroll"]
-ratio            = [1, 3, 4]
-scrolloff        = 5
-show_hidden      = false
-show_symlink     = true
-sort_by          = "alphabetical"
-sort_dir_first   = true
-sort_reverse     = false
-sort_sensitive   = false
-sort_translit    = false
-title_format     = "Yazi: {cwd}"
-
-[preview]
-cache_dir        = ""
-image_filter     = "triangle"
-image_quality    = 75
-max_height       = 900
-max_width        = 600
-tab_size         = 2
-ueberzug_offset  = [0, 0, 0, 0]
-ueberzug_scale   = 1
+linemode           = "size"
+mouse_events       = [ "click", "scroll" ]
+ratio              = [ 1, 3, 4 ]
+scrolloff          = 5
+show_hidden        = false
+show_symlink       = true
+sort_by            = "alphabetical"
+sort_dir_first     = true
+sort_reverse       = false
+sort_sensitive     = false
+sort_translit      = false
+title_format       = "Yazi: {cwd}"
 
 [opener]
-edit    = [
-	{ run = '${EDITOR:-vi} "$@"',                                     for = "unix",    desc = "$EDITOR",         block  = true },
-	{ run = 'code %*',                                                for = "windows", desc = "code",            orphan = true },
-	{ run = 'code -w %*',                                             for = "windows", desc = "code (block)",    block  = true },
+extract            = [
+	{ run  = 'ouch d -y "$@"', for = "unix",      desc = "Extract here with ouch" },
+	{ run  = 'ouch d -y %*',   for = "windows",   desc = "Extract here with ouch" },
 ]
-extract = [
-	# { run = 'ya pub extract --list "$@"',                             for = "unix",    desc = "Extract here" },
-	# { run = 'ya pub extract --list %*',                               for = "windows", desc = "Extract here" },
-	{ run = 'ouch d -y "$@"',                                         for = "unix",    desc = "Extract here with ouch" },
-	{ run = 'ouch d -y %*',                                           for = "windows", desc = "Extract here with ouch" },
-]
-open    = [
-	{ run = 'xdg-open "$1"',                                          for = "linux",   desc = "Open" },
-	{ run = 'open "$@"',                                              for = "macos",   desc = "Open" },
-	{ run = 'start "" "%1"',                                          for = "windows", desc = "Open",            orphan = true },
-]
-play    = [
-	{ run = 'mpv --force-window "$@"',                                for = "unix",                              orphan = true },
-	{ run = 'mpv --force-window %*',                                  for = "windows",                           orphan = true },
-	{ run = '''mediainfo "$1"; echo "Press enter to exit"; read _''', for = "unix",    desc = "Show media info", block  = true },
-]
-reveal  = [
-	{ run = 'xdg-open "$(dirname "$1")"',                             for = "linux",   desc = "Reveal" },
-	{ run = 'open -R "$1"',                                           for = "macos",   desc = "Reveal" },
-	{ run = 'explorer /select,"%1"',                                  for = "windows", desc = "Reveal",          orphan = true },
-	{ run = '''exiftool "$1"; echo "Press enter to exit"; read _''',  for = "unix",    desc = "Show EXIF",       block  = true },
-]
-
-[open]
-rules   = [
-	# Folder
-	{ name = "*/",                                      use = ["edit", "open", "reveal"] },
-	# Text
-	{ mime = "text/*",                                  use = ["edit", "reveal"] },
-	# Image
-	{ mime = "image/*",                                 use = ["open", "reveal"] },
-	# Media
-	{ mime = "{audio,video}/*",                         use = ["play", "reveal"] },
-	# Archive
-	{ mime = "application/{,g}zip",                     use = ["extract", "reveal"] },
-	{ mime = "application/{tar,bzip*,7z*,xz,rar}",      use = ["extract", "reveal"] },
-	# JSON
-	{ mime = "application/{json,ndjson}",               use = ["edit", "reveal"] },
-	{ mime = "*/javascript",                            use = ["edit", "reveal"] },
-	# Empty file
-	{ mime = "inode/empty",                             use = ["edit", "reveal"] },
-	# Fallback
-	{ name = "*",                                       use = ["edit", "open", "reveal"] },
-]
-
-[tasks]
-bizarre_retry    = 5
-image_alloc      = 536870912 # 512MB
-image_bound      = [0, 0]
-macro_workers    = 25
-micro_workers    = 10
-suppress_preload = false
 
 [plugin]
-fetchers         = [
-	{ id = "mime", name = "*",                          run = "mime", if = "!mime", prio = "high" }
+prepend_fetchers   = [
+	{ id   = "git",            url = "*",         run = "git" },
+	{ id   = "git",            url = "*/",        run = "git" }
 ]
-prepend_fetchers = [
-	{ id = "git",  name = "*",                          run = "git" },
-	{ id = "git",  name = "*/",                         run = "git" }
-]
-preloaders       = [
-	# Image
-	{ mime = "image/{avif,hei?,jxl,svg+xml}",           run = "magick" },
-	{ mime = "image/*",                                 run = "image" },
-	# Video
-	{ mime = "video/*",                                 run = "video" },
-	# PDF
-	{ mime = "application/pdf",                         run = "pdf" },
-	# Font
-	{ mime = "font/*",                                  run = "font" },
-	{ mime = "application/vnd.ms-opentype",             run = "font" },
-]
-previewers       = [
-	{ name = "*/",                                      run = "folder", sync = true },
-	# Code
-	{ mime = "text/*",                                  run = "code" },
-	{ mime = "*/{xml,javascript,x-wine-extension-ini}", run = "code" },
-	# JSON
-	{ mime = "application/{json,x-ndjson}",             run = "json" },
-	# Image
-	{ mime = "image/{avif,hei?,jxl,svg+xml}",           run = "magick" },
-	{ mime = "image/*",                                 run = "image" },
-	# Video
-	{ mime = "video/*",                                 run = "video" },
-	# PDF
-	{ mime = "application/pdf",                         run = "pdf" },
-	# Archive
-	# { mime = "application/{,g}zip",                     run = "archive" },
-	# { mime = "application/x-{tar,bzip*,7z-compressed,xz,rar,iso9660-image}", run = "archive" },
-	# Font
-	{ mime = "font/*",                                  run = "font" },
-	{ mime = "application/vnd.ms-opentype",             run = "font" },
-	# Empty file
-	{ mime = "inode/x-empty",                           run = "empty" },
-	# Fallback
-	{ name = "*",                                       run = "file" },
+prepend_preloaders = [
+	# Replace magick, image, video with mediainfo
+	{ mime = "{audio,video,image}/*",             run = "mediainfo" },
+	{ mime = "application/subrip",                run = "mediainfo" },
+	# Adobe Illustrator, Adobe Photoshop is image/adobe.photoshop, already handled above
+	{ mime = "application/postscript",            run = "mediainfo" },
 ]
 prepend_previewers = [
 	# Archive previewer
-	{ mime = "application/*zip",                        run = "ouch" },
-	{ mime = "application/x-tar",                       run = "ouch" },
-	{ mime = "application/x-bzip2",                     run = "ouch" },
-	{ mime = "application/x-7z-compressed",             run = "ouch" },
-	{ mime = "application/x-rar",                       run = "ouch" },
-	{ mime = "application/vnd.rar",                     run = "ouch" },
-	{ mime = "application/x-xz",                        run = "ouch" },
-	{ mime = "application/xz",                          run = "ouch" },
-	{ mime = "application/x-zstd",                      run = "ouch" },
-	{ mime = "application/zstd",                        run = "ouch" },
-	{ mime = "application/java-archive",                run = "ouch" },
+	{ mime = "application/{*zip,bzip2,x-bzip2}",  run = "ouch --archive-icon='🗄️ ' --show-file-icons" },
+	{ mime = "application/java-archive",          run = "ouch --archive-icon='🗄️ ' --show-file-icons" },
+	{ mime = "application/vnd.rar",               run = "ouch --archive-icon='🗄️ ' --show-file-icons" },
+	{ mime = "application/{7z*,x-7z-compressed}", run = "ouch --archive-icon='🗄️ ' --show-file-icons" },
+	{ mime = "application/{rar,x-rar}",           run = "ouch --archive-icon='🗄️ ' --show-file-icons" },
+	{ mime = "application/{tar,x-tar}",           run = "ouch --archive-icon='🗄️ ' --show-file-icons" },
+	{ mime = "application/{xz,x-xz}",             run = "ouch --archive-icon='🗄️ ' --show-file-icons" },
+	{ mime = "application/{zstd,x-zstd}",         run = "ouch --archive-icon='🗄️ ' --show-file-icons" },
+	# Replace magick, image, video with mediainfo
+	{ mime = "{audio,video,image}/*",             run = "mediainfo" },
+	{ mime = "application/subrip",                run = "mediainfo" },
+	# Adobe Illustrator, Adobe Photoshop is image/adobe.photoshop, already handled above
+	{ mime = "application/postscript",            run = "mediainfo" },
 ]
 
-[input]
-cursor_blink     = false
-
-# cd
-cd_title         = "Change directory:"
-cd_origin        = "top-center"
-cd_offset        = [0, 2, 50, 3]
-
-# create
-create_title     = ["Create:", "Create (dir):"]
-create_origin    = "top-center"
-create_offset    = [0, 2, 50, 3]
-
-# rename
-rename_title     = "Rename:"
-rename_origin    = "hovered"
-rename_offset    = [0, 1, 50, 3]
-
-# trash
-trash_title      = "Move {n} selected file{s} to trash? (y/N)"
-trash_origin     = "top-center"
-trash_offset     = [0, 2, 50, 3]
-
-# delete
-delete_title     = "Delete {n} selected file{s} permanently? (y/N)"
-delete_origin    = "top-center"
-delete_offset    = [0, 2, 50, 3]
-
-# filter
-filter_title     = "Filter:"
-filter_origin    = "top-center"
-filter_offset    = [0, 2, 50, 3]
-
-# find
-find_title       = ["Find next:", "Find previous:"]
-find_origin      = "top-center"
-find_offset      = [0, 2, 50, 3]
-
-# search
-search_title     = "Search via {n}:"
-search_origin    = "top-center"
-search_offset    = [0, 2, 50, 3]
-
-# shell
-shell_title      = ["Shell:", "Shell (block):"]
-shell_origin     = "top-center"
-shell_offset     = [0, 2, 50, 3]
-
-# overwrite
-overwrite_title  = "Overwrite an existing file? (y/N)"
-overwrite_origin = "top-center"
-overwrite_offset = [0, 2, 50, 3]
-
-# quit
-quit_title       = "{n} task{s} running, sure to quit? (y/N)"
-quit_origin      = "top-center"
-quit_offset      = [0, 2, 50, 3]
-
-[pick]
-open_title       = "Open with:"
-open_origin      = "hovered"
-open_offset      = [0, 1, 50, 7]
-
-[which]
-sort_by          = "none"
-sort_sensitive   = false
-sort_reverse     = false
-sort_translit    = false
+[tasks]
+image_alloc        = 1073741824
