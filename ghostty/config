@@ -1,0 +1,94 @@
+# --- Typography ---
+font-family = IntoneMono NFM
+font-size = 14
+
+# --- Theme and Colors ---
+theme = Tomorrow Night
+
+# --- Window and Appearance ---
+background-blur-radius = 30
+macos-titlebar-style = tabs
+window-padding-x = 4
+window-padding-y = 4
+window-padding-balance = true
+window-save-state = always
+window-theme = auto
+window-new-tab-position = current
+
+# --- Cursor ---
+adjust-cursor-height = -10%
+adjust-cursor-thickness = 150%
+
+# --- Misc ---
+auto-update-channel = stable
+confirm-close-surface = true
+macos-option-as-alt = true
+shell-integration-features = no-cursor,path,title,sudo,ssh-terminfo,ssh-env
+
+# --- Mouse ---
+mouse-hide-while-typing = true
+
+# --- Notifications ---
+notify-on-command-finish = unfocused
+notify-on-command-finish-action = bell,notify
+notify-on-command-finish-after = 10s
+
+# --- Quick Terminal ---
+quick-terminal-position = center
+quick-terminal-screen = mouse
+quick-terminal-autohide = true
+quick-terminal-animation-duration = 0.15
+quick-terminal-size = 70%,70%
+
+# --- Security ---
+clipboard-paste-protection = true
+clipboard-paste-bracketed-safe = true
+
+# Keybindings
+keybind = clear
+
+keybind = super+n=new_window
+keybind = super+q=quit
+keybind = super+w=close_surface
+keybind = super+t=new_tab
+keybind = ctrl+tab=next_tab
+keybind = ctrl+shift+tab=previous_tab
+keybind = ctrl+shift+f=start_search
+keybind = ctrl+shift+e=end_search
+
+keybind = super+physical:one=goto_tab:1
+keybind = super+physical:two=goto_tab:2
+keybind = super+physical:three=goto_tab:3
+keybind = super+physical:four=goto_tab:4
+keybind = super+physical:five=goto_tab:5
+keybind = super+physical:six=goto_tab:6
+keybind = super+physical:seven=goto_tab:7
+keybind = super+physical:eight=goto_tab:8
+keybind = super+physical:nine=goto_tab:9
+
+keybind = ctrl+shift+|=new_split:right
+keybind = ctrl+shift+-=new_split:down
+keybind = ctrl+shift+m=toggle_split_zoom
+keybind = ctrl+shift+h=goto_split:left
+keybind = ctrl+shift+l=goto_split:right
+keybind = ctrl+shift+k=goto_split:top
+keybind = ctrl+shift+j=goto_split:bottom
+keybind = ctrl+shift+left=resize_split:left,10
+keybind = ctrl+shift+right=resize_split:right,10
+keybind = ctrl+shift+up=resize_split:up,10
+keybind = ctrl+shift+down=resize_split:down,10
+
+keybind = ctrl+home=scroll_to_top
+keybind = ctrl+end=scroll_to_bottom
+keybind = page_up=scroll_page_up
+keybind = page_down=scroll_page_down
+
+keybind = super+v=paste_from_clipboard
+keybind = super+c=copy_to_clipboard
+keybind = super+a=select_all
+
+keybind = ctrl+shift+z=jump_to_prompt:-1
+keybind = ctrl+shift+x=jump_to_prompt:1
+
+keybind = ctrl+shift+p=toggle_command_palette
+keybind = global:ctrl+shift+'=toggle_quick_terminal
