@@ -29,11 +29,9 @@
   4. autopair.fish: `fisher install jorgebucaran/autopair.fish`
   5. nvm.fish: `fisher install jorgebucaran/nvm.fish`
   6. puffer-fish: `fisher install nickeb96/puffer-fish`
-  7. base16-fish-shell: `fisher install FabioAntunes/base16-fish-shell`
 - Linux:
-  1. 一共安装了 6 个插件：fzf, reply, autopair, nvm, puffer-fish, base16-fish-shell
-  2. 前 5 个插件的安装方法：从 github 下载后，解压到 $FISH_HOME/etc/fish 下
-  3. base16-fish-shell 的安装方法：从 github 下载解压后，将 functions/{__base16_fish_shell_color_test.fish,__base16_fish_shell_create_vimrc_background.fish,__base16_fish_shell_set_background.fish,__put_template.fish,__put_template_custom.fish,__put_template_var.fish,base16-tomorrow-night.fish} 拷贝到 $FISH_HOME/etc/fish/functions 下
+  1. 一共安装了 5 个插件：fzf, reply, autopair, nvm, puffer-fish
+  2. 插件的安装方法：从 github 下载后，解压到 $FISH_HOME/etc/fish 下
 
 ### 配置 nvm
 
