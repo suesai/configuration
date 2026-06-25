@@ -7,7 +7,7 @@
 
 - MacOS/Linux:
   1. `mkdir ~/.claude/`
-  2. `cp settings.json ~/.claude/`
+  2. `cp settings.json statusline.py ~/.claude/`
 
 ## 插件
 
