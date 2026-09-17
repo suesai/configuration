@@ -1,6 +1,6 @@
 function lscmd --description "List command by name"
 	if test (count $argv) -ne 1
-		echo "Usage: lscmd command"
+		echo "Usage: lscmd command" >&2
 		return 1
 	end
 

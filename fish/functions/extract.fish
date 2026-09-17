@@ -1,13 +1,13 @@
 function extract --description "Extract various archive file"
 	if test (count $argv) -ne 1
-		echo "Usage: extract file"
+		echo "Usage: extract file" >&2
 		return 1
 	end
 
 	set -l file $argv[1]
 
 	if test ! -f $file then
-		echo "$file does not exist"
+		echo "$file does not exist" >&2
 		return 1
 	end
 
@@ -73,7 +73,7 @@ function extract --description "Extract various archive file"
 		case '*.7z'
 			7z x $file
 		case '*'
-			echo "Unsupported archive file type: $file"
+			echo "Unsupported archive file type: $file" >&2
 			return 1
 	end
 end

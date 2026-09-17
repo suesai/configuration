@@ -193,7 +193,7 @@ lscmd() {
 
 	cmd="$1"
 	if [[ -z "${cmd}" ]]; then
-		echo "usage: lscmd cmd"
+		echo "usage: lscmd cmd" >&2
 		return 22
 	fi
 
@@ -247,7 +247,7 @@ tailog() {
 	local file="$1"
 
 	if [[ ! -e "${file}" ]]; then
-		echo "usage: tailog file"
+		echo "usage: tailog file" >&2
 		return 22
 	fi
 

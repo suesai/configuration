@@ -10,11 +10,11 @@ function lsps --description "List process details"
 				set thread '1'
 			case '-p'
 				if test (count $argv) -lt 2
-					echo "lsps usage: pid must be followed by -p"
+					echo "lsps usage: pid must be followed by -p" >&2
 					return 1
 				end
 				if string match -qvr '^\d*$' -- $argv[2]
-					echo "lsps usage: pid must be number"
+					echo "lsps usage: pid must be number" >&2
 					return 1
 				end
 				set pid  $argv[2]

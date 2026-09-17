@@ -1,6 +1,6 @@
 function where --description "Lookup command description"
 	if test (count $argv) -ne 1
-		echo "Usage: where command"
+		echo "Usage: where command" >&2
 		return 1
 	end
 
@@ -61,7 +61,7 @@ function where --description "Lookup command description"
 	end
 
 	if test $found -eq 0
-		echo "$cmd not found"
+		echo "$cmd not found" >&2
 		return 1
 	end
 end

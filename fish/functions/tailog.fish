@@ -1,10 +1,10 @@
 function tailog --description "Tail -f for log file"
 	if test (count $argv) -ne 1
-		echo "usage: tailog file"
+		echo "usage: tailog file" >&2
 		return 1
 	end
 	if not test -f $argv[1]
-		echo "usage: tailog file"
+		echo "usage: tailog file" >&2
 		return 1
 	end
 
