@@ -8,6 +8,10 @@
 - MacOS/Linux:
   1. `mkdir ~/.claude/`
   2. `cp settings.json statusline.py ~/.claude/`
+- Windows:
+  1. `mkdir ~/.claude`
+  2. `cp settings_win.json ~/.claude/settings.json`
+  3. `cp statusline_win.py ~/.claude/statusline.py`
 
 ## 插件
 
