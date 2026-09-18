@@ -3,5 +3,8 @@
 ._*
 .vscode
 build
+.build
 compile_commands.json
 .cache
+.clang-format
+.clangd
