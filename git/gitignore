@@ -2,6 +2,9 @@
 .DS_Store
 ._*
 .vscode
-/build
+build
+.build
 compile_commands.json
 .cache
+.clang-format
+.clangd
