@@ -2,6 +2,6 @@
 .DS_Store
 ._*
 .vscode
-/build
+build
 compile_commands.json
 .cache
