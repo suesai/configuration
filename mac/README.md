@@ -20,10 +20,13 @@
 - Karabiner
 - Loop, Rectangle (replaced by Raycast)
 - Macs Fan Control
+- Motrix
 - Raycast
 - Shortcat
+- Stay
 - ouch, p7zip, The Unarchiver, MacZip
 - Tickeys (optional)
+- Topit
 
 ### Open at Login
 

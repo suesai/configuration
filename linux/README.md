@@ -10,26 +10,31 @@
 - croc
 - duf
 - dust
-- exa, eza
+- eza, exa
 - fd
+- fish
 - fuck
 - fzf
+- ghostty, kitty, wezterm
+- git-delta
 - go
 - hex-patch, hexyl, hevi
 - lazygit
 - lua
 - nping, gping
 - nvm, node
+- ouch, p7zip, unar
 - procs
 - pueue
 - rg
 - rust
 - scc
 - socat
+- starship
 - testdisk
 - tldr
+- tmux
 - tree-sitter
-- ouch, p7zip, unar
 - watchexec
 - yazi
 - zoxide
