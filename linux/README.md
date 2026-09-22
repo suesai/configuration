@@ -26,6 +26,7 @@
 - ouch, p7zip, unar
 - procs
 - pueue
+- pwndbg
 - rg
 - rust
 - scc
