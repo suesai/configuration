@@ -21,7 +21,7 @@
 - hex-patch, hexyl, hevi
 - lazygit
 - lua
-- nping, gping
+- gping, nping
 - nvm, node
 - ouch, p7zip, unar
 - procs
