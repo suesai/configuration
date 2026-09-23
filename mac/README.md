@@ -10,9 +10,8 @@
 ## 软件
 
 - 先安装 fish，再安装 kitty，再安装其他软件
-- AppCleaner
+- Clash Verge
 - CCleaner (replaced by Raycast)
-- Easydict (replaced by Raycast)
 - FlyKey (optional)
 - IINA
 - iMazing
@@ -21,12 +20,11 @@
 - Loop, Rectangle (replaced by Raycast)
 - Macs Fan Control
 - Motrix
-- Raycast
+- Raycast: AppCleaner, Easydict, Pin (and their extensions)
 - Shortcat
 - Stay
 - ouch, p7zip, The Unarchiver, MacZip
 - Tickeys (optional)
-- Topit
 
 ### Open at Login
 
