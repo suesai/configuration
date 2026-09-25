@@ -16,7 +16,7 @@
 - fuck
 - fzf
 - ghostty, kitty, wezterm
-- git-delta
+- git-delta, git-lfs
 - go
 - hex-patch, hexyl, hevi
 - lazygit
