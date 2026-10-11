@@ -53,6 +53,12 @@
     - [adguard filters lite](https://raw.githubusercontent.com/217heidai/adblockfilters/main/rules/adblockfilterslite.txt)
 - Vimari
 
+## System
+
+- app 设置为中文
+  - 地图：`defaults write com.apple.Maps AppleLanguages '("zh-CN")'`
+  - 字典：系统设置中添加 Dictionary
+
 ## 备注
 
 - [adblockfilters](https://github.com/217heidai/adblockfilters)

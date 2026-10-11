@@ -15,7 +15,3 @@
 ## 配置
 
 - `mkdir $GOPATH`
-- MacOS:
-  1. 通过 `go env GOROOT` 查看路径，并修改该路径下的 go.evn 中的 GOPROXY
-- Linux:
-  1. 修改 $GOROOT/go.env 中的 GOPROXY 为 "https://goproxy.cn,direct"

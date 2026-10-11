@@ -1,6 +1,6 @@
 FROM alpine:latest
 
-ENV GOPROXY=https://goproxy.cn,direct
+ENV GOPROXY=https://goproxy.tuna.tsinghua.edu.cn,https://goproxy.cn,direct
 ENV NODE_MIRROR=https://mirrors.tuna.tsinghua.edu.cn/nodejs-release/
 ENV NVM_NODEJS_ORG_MIRROR=https://mirrors.tuna.tsinghua.edu.cn/nodejs-release/
 ENV RUSTUP_DIST_SERVER=https://mirrors.tuna.tsinghua.edu.cn/rustup

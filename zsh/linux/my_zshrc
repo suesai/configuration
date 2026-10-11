@@ -19,6 +19,7 @@ export GNUPGHOME="${XDG_CONFIG_HOME}/gnupg"
 # go
 export GOROOT="/opt/go"
 export GOPATH="${HOME}/project/go"
+export GOPROXY="https://goproxy.tuna.tsinghua.edu.cn,https://goproxy.cn,direct"
 
 # kitty
 export KITTY_HOME="/opt/kitty"
@@ -86,7 +87,7 @@ ZSH_THEME="ss"
 SAVEHIST=40960
 HISTSIZE=40960
 HISTFILE="${ZSH_CACHE_DIR}/zsh_history"
-HIST_STAMPS="%Y-%m-%d %H:%M:%S"
+HIST_STAMPS="[%Y-%m-%d %H:%M:%S]"
 
 plugins=(git extract zsh-autosuggestions zsh-syntax-highlighting)
 
@@ -181,7 +182,7 @@ duf() {
 }
 
 hist() {
-	fc -lD -t '%Y-%m-%d %H:%M:%S' -1 0
+	fc -lD -t '[%Y-%m-%d %H:%M:%S]' -1 0 | bat
 }
 
 lg() {

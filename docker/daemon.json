@@ -1,6 +1,9 @@
 {
 	"registry-mirrors": [
-		"https://docker.mirrors.tuna.tsinghua.edu.cn"
+		"https://docker.mirrors.tuna.tsinghua.edu.cn",
+		"https://docker.m.daocloud.io",
+		"https://docker.1ms.run",
+		"https://docker.xuanyuan.me"
 	],
 	"proxies": {
 		"http-proxy": "http://192.168.0.107:8800",
