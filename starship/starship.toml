@@ -27,9 +27,9 @@ $docker_context\
 $fill\
 [](fg:peach)\
 $status\
-[](fg:red bg:peach)\
+[](fg:duration bg:peach)\
 $cmd_duration\
-[](fg:pink bg:red)\
+[](fg:pink bg:duration)\
 $username\
 $hostname\
 [](fg:rosewater bg:pink)\
@@ -43,35 +43,36 @@ right_format       = """
 [─╯](fg:surface2 bold)\
 """
 command_timeout    = 1000
-palette            = "catppuccin_mocha"
+palette            = "tomorrow_night_mist"
 
-[palettes.catppuccin_mocha]
-rosewater          = "#f5e0dc"
-flamingo           = "#f2cdcd"
-pink               = "#f5c2e7"
-mauve              = "#cba6f7"
-red                = "#f38ba8"
-maroon             = "#eba0ac"
-peach              = "#fab387"
-yellow             = "#f9e2af"
-green              = "#a6e3a1"
-teal               = "#94e2d5"
-sky                = "#89dceb"
-sapphire           = "#74c7ec"
-blue               = "#89b4fa"
-lavender           = "#b4befe"
-text               = "#cdd6f4"
-subtext1           = "#bac2de"
-subtext0           = "#a6adc8"
-overlay2           = "#9399b2"
-overlay1           = "#7f849c"
-overlay0           = "#6c7086"
-surface2           = "#585b70"
-surface1           = "#45475a"
-surface0           = "#313244"
-base               = "#1e1e2e"
-mantle             = "#181825"
-crust              = "#11111b"
+[palettes.tomorrow_night_mist]
+rosewater          = "#9fa9ae"
+flamingo           = "#7fa5c6"
+pink               = "#8399b0"
+mauve              = "#a084b8"
+red                = "#c47570"
+maroon             = "#82a878"
+peach              = "#c47570"
+yellow             = "#c9ad62"
+green              = "#82a878"
+teal               = "#69a9a1"
+sky                = "#91acb6"
+sapphire           = "#879fb4"
+blue               = "#dce6ee"
+lavender           = "#e4dbe8"
+duration           = "#bd8b52"
+text               = "#d1d4d2"
+subtext1           = "#d2d5d3"
+subtext0           = "#b9bdbb"
+overlay2           = "#8e9290"
+overlay1           = "#777b79"
+overlay0           = "#606462"
+surface2           = "#494f55"
+surface1           = "#363b40"
+surface0           = "#23272b"
+base               = "#1d1f21"
+mantle             = "#181a1c"
+crust              = "#1b1e20"
 
 [os]
 style              = "fg:crust bg:flamingo"
@@ -128,24 +129,24 @@ Void               = "\uf32e" # "" ""
 Windows            = "\uf17a" # ""
 
 [directory]
-read_only          = "🔒"
+read_only          = ""
 read_only_style    = "fg:crust bg:mauve"
 style              = "fg:crust bg:mauve"
-format             = "[  $path ]($style)[$read_only]($read_only_style)"
+format             = "[  $path ]($style)[$read_only]($read_only_style)"
 truncation_length  = 0
 truncate_to_repo   = false
 
 [git_branch]
-symbol             = ""
+symbol             = "󰊢"
 style              = "fg:crust bg:maroon"
 format             = "[ $symbol $branch]($style)"
 
 [git_status]
 style              = "fg:crust bg:maroon"
-ahead              = "⇡$count"
-behind             = "⇣$count"
+ahead              = "$count"
+behind             = "$count"
 conflicted         = "=$count"
-deleted            = "✘$count"
+deleted            = "$count"
 modified           = "!$count"
 renamed            = "»$count"
 staged             = "+$count"
@@ -154,7 +155,7 @@ untracked          = "?$count"
 format             = "[( $all_status$ahead_behind)]($style)"
 
 [git_commit]
-tag_symbol         = " " # "\uf412" "" ""
+tag_symbol         = "󰓹 "
 style              = "fg:crust bg:maroon"
 format             = "[ ($tag )$hash]($style)"
 commit_hash_length = 8
@@ -207,7 +208,7 @@ style              = "fg:crust bg:yellow"
 format             = "[ $symbol( $version)]($style)"
 
 [conda]
-symbol             = ""
+symbol             = ""
 style              = "fg:crust bg:teal"
 format             = "[ $symbol $environment]($style)"
 ignore_base        = false
@@ -223,14 +224,14 @@ style              = "surface2 bold"
 
 [status]
 map_symbol         = false
-symbol             = " ✘" # "\u2717" "\uf467" "\uebde" "" "✘"
-success_symbol     = ""        # "✔"
+symbol             = " "
+success_symbol     = ""
 style              = "fg:crust bg:peach"
-format             = "[$symbol $status( \uf0a2 $signal_number-$signal_name) ]($style)" # "\uf0a2" "" "\ueaa2"
+format             = "[$symbol $status( \uf0a2 $signal_number-$signal_name) ]($style)"
 disabled           = false
 
 [cmd_duration]
-style              = "fg:crust bg:red"
+style              = "fg:crust bg:duration"
 format             = "[  $duration ]($style)"
 show_milliseconds  = true
 disabled           = false
@@ -238,7 +239,7 @@ disabled           = false
 [username]
 style_root         = "fg:crust bg:pink bold"
 style_user         = "fg:crust bg:pink"
-format             = "[ $user]($style)"
+format             = "[  $user]($style)"
 show_always        = true
 
 [hostname]
@@ -250,8 +251,8 @@ disabled           = false
 
 [time]
 style              = "fg:crust bg:rosewater"
-format             = "[  $time ]($style)"
-disabled           = false # set to "false", if you want to see the time
+format             = "[ 󰥔 $time ]($style)"
+disabled           = false
 
 [character]
 success_symbol            = "[❯](fg:green bold)"
