@@ -339,7 +339,7 @@ Mac:
             "commands": [ "workbench.action.previousEditor" ]
         },
         {
-            "before":   [ "<leader>", "t", "f" ],
+            "before":   [ "<leader>", "t", "h" ],
             "commands": [ "workbench.action.terminal.toggleTerminal" ]
         },
         {
