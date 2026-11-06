@@ -268,6 +268,7 @@ Mac:
         "<C-/>": true,
     },
     "vim.highlightedyank.enable": true,
+    "vim.visualstar": true,
     "vim.hlsearch": true,
     "vim.incsearch": true,
     "vim.insertModeKeyBindingsNonRecursive": [
@@ -387,12 +388,36 @@ Mac:
             "commands": [ "editor.action.marker.prevInFiles" ]
         },
         {
-            "before":   [ "]", "c" ],
+            "before":   [ "]", "g" ],
             "commands": [ "workbench.action.editor.nextChange" ]
         },
         {
-            "before":   [ "[", "c" ],
+            "before":   [ "[", "g" ],
             "commands": [ "workbench.action.editor.previousChange" ]
+        },
+        {
+            "before":   [ "]", "e" ],
+            "commands": [ "workbench.action.navigateForwardInEditLocations" ]
+        },
+        {
+            "before":   [ "[", "e" ],
+            "commands": [ "workbench.action.navigateBackInEditLocations" ]
+        },
+        {
+            "before":   [ "]", "f" ],
+            "after":    [ "]", "]" ]
+        },
+        {
+            "before":   [ "[", "f" ],
+            "after":    [ "[", "[" ]
+        },
+        {
+            "before":   [ "]", "F" ],
+            "after":    [ "/", "^", "}", "<enter>" ]
+        },
+        {
+            "before":   [ "[", "F" ],
+            "after":    [ "?", "^", "}", "<enter>" ]
         },
         {
             "before":   [ "<Esc>" ],
@@ -419,16 +444,20 @@ Mac:
             "commands": [ "workbench.action.toggleSidebarVisibility" ]
         },
         {
-            "before":   [ "\"", "\"" ],
-            "commands": [ "workbench.action.navigateToLastEditLocation" ]
-        },
-        {
-            "before":   ["/"],
+            "before":   [ "/" ],
             "after":    [ "<leader>", "<leader>", "s" ]
         },
         {
-            "before":   ["<leader>", "/"],
-            "commands": ["editor.action.commentLine"]
+            "before":   [ "<leader>", "/" ],
+            "commands": [ "editor.action.commentLine" ]
+        },
+        {
+            "before":   [ "g", "z", "d" ],
+            "after":    [ "<plugds>" ]
+        },
+        {
+            "before":   [ "g", "z", "r" ],
+            "after":    [ "<plugcs>" ]
         }
     ],
     "vim.scroll": 0,
@@ -449,7 +478,6 @@ Mac:
         },
         {
             "before":   [ "%" ],
-            // "commands": ["editor.action.jumpToBracket", "editor.action.smartSelect.grow"],
             "commands": [ "editor.action.selectToBracket" ]
         },
         {
@@ -459,6 +487,10 @@ Mac:
         {
             "before":   ["<leader>", "/"],
             "commands": ["editor.action.commentLine"]
+        },
+        {
+            "before":   [ "g", "z", "a" ],
+            "after":    [ "S" ]
         }
     ],
 
