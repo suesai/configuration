@@ -258,241 +258,241 @@ Mac:
 	// "update.enableWindowsBackgroundUpdates": false,
 	// "update.mode": "none",
 
-    "vim.leader": "<space>",
-    "vim.camelCaseMotion.enable": true,
-    "vim.easymotion": true,
-    "vim.flash.enable": true,
-    "vim.foldfix": true,
-    "vim.handleKeys": {
-        // "<C-p>": false,
-        "<C-/>": true,
-    },
-    "vim.highlightedyank.enable": true,
-    "vim.visualstar": true,
-    "vim.hlsearch": true,
-    "vim.incsearch": true,
-    "vim.insertModeKeyBindingsNonRecursive": [
-        {
-            "before":   [ "<C-k>" ],
-            "commands": [ "editor.action.triggerParameterHints" ],
-        },
-    ],
-    "vim.mouseSelectionGoesIntoVisualMode": false,
-    "vim.normalModeKeyBindingsNonRecursive": [
-        {
-            "before":   [ "K" ],
-            "commands": [ "editor.action.showHover" ]
-        },
-        {
-            "before":   [ "%" ],
-            "commands": [ "editor.action.jumpToBracket" ]
-        },
-        {
-            "before":   [ "<leader>", "f", "f" ],
-            "commands": [ "workbench.action.quickOpen" ]
-        },
-        {
-            "before":   [ "<leader>", "f", "w" ],
-            "commands": [ "workbench.action.findInFiles" ]
-        },
-        {
-            "before":   [ "<leader>", "f", "/" ],
-            "commands": ["actions.find"]
-        },
-        {
-            "before":   [ "<leader>", "l", "R" ],
-            "commands": [ "references-view.findReferences" ]
-        },
-        {
-            "before":   [ "<C-h>" ],
-            "commands": [ "workbench.action.focusLeftGroup" ]
-        },
-        {
-            "before":   [ "<C-l>" ],
-            "commands": [ "workbench.action.focusRightGroup" ]
-        },
-        {
-            "before":   [ "<C-k>" ],
-            "commands": [ "workbench.action.focusAboveGroup" ]
-        },
-        {
-            "before":   [ "<C-j>" ],
-            "commands": [ "workbench.action.focusBelowGroup" ]
-        },
-        {
-            "before":   [ "<leader>", "|" ],
-            "commands": [ "workbench.action.splitEditorToRightGroup" ]
-        },
-        {
-            "before":   [ "<leader>", "-" ],
-            "commands": [ "workbench.action.splitEditorToAboveGroup" ]
-        },
-        {
-            "before":   [ "<leader>", "c" ],
-            "commands": [ "workbench.action.closeActiveEditor" ]
-        },
-        {
-            "before":   [ "L" ],
-            "commands": [ "workbench.action.nextEditor" ]
-        },
-        {
-            "before":   [ "H" ],
-            "commands": [ "workbench.action.previousEditor" ]
-        },
-        {
-            "before":   [ "<leader>", "t", "h" ],
-            "commands": [ "workbench.action.terminal.toggleTerminal" ]
-        },
-        {
-            "before":   [ "g", "d" ],
-            "commands": [ "editor.action.revealDefinition" ]
-        },
-        {
-            "before":   [ "g", "D" ],
-            "commands": [ "editor.action.revealDeclaration" ]
-        },
-        {
-            "before":   [ "g", "I" ],
-            "commands": [ "editor.action.goToImplementation" ]
-        },
-        {
-            "before":   [ "g", "y" ],
-            "commands": [ "editor.action.goToTypeDefinition" ]
-        },
-        {
-            "before":   [ "<leader>", "l", "r" ],
-            "commands": [ "editor.action.rename" ]
-        },
-        {
-            "before":   [ "<leader>", "g", "g" ],
-            "commands": [ "workbench.view.scm" ]
-        },
-        {
-            "before":   [ "f", "<enter>" ],
-            "commands": [ "highlightwords.addHighlight" ]
-        },
-        {
-            "before":   [ "<leader>", "m", "m" ],
-            "commands": [ "bookmarks.toggle" ]
-        },
-        {
-            "before":   [ "<leader>", "m", "b" ],
-            "commands": [ "bookmarks.listFromAllFiles" ]
-        },
-        {
-            "before":   [ "]", "d" ],
-            "commands": [ "editor.action.marker.nextInFiles" ]
-        },
-        {
-            "before":   [ "[", "d" ],
-            "commands": [ "editor.action.marker.prevInFiles" ]
-        },
-        {
-            "before":   [ "]", "g" ],
-            "commands": [ "workbench.action.editor.nextChange" ]
-        },
-        {
-            "before":   [ "[", "g" ],
-            "commands": [ "workbench.action.editor.previousChange" ]
-        },
-        {
-            "before":   [ "]", "e" ],
-            "commands": [ "workbench.action.navigateForwardInEditLocations" ]
-        },
-        {
-            "before":   [ "[", "e" ],
-            "commands": [ "workbench.action.navigateBackInEditLocations" ]
-        },
-        {
-            "before":   [ "]", "f" ],
-            "after":    [ "]", "]" ]
-        },
-        {
-            "before":   [ "[", "f" ],
-            "after":    [ "[", "[" ]
-        },
-        {
-            "before":   [ "]", "F" ],
-            "after":    [ "/", "^", "}", "<enter>" ]
-        },
-        {
-            "before":   [ "[", "F" ],
-            "after":    [ "?", "^", "}", "<enter>" ]
-        },
-        {
-            "before":   [ "<Esc>" ],
-            "commands": [ ":nohl", "<Esc>" ]
-        },
-        {
-            "before":   [ "<C-o>" ],
-            "commands": [ "workbench.action.navigateBack" ]
-        },
-        {
-            "before":   [ "<C-i>" ],
-            "commands": [ "workbench.action.navigateForward" ]
-        },
-        {
-            "before":   [ "<C-left>" ],
-            "commands": [ "workbench.action.toggleEditorWidths" ]
-        },
-        {
-            "before":   [ "<C-right>" ],
-            "commands": [ "workbench.action.toggleEditorWidths" ]
-        },
-        {
-            "before":   [ "<leader>", "e" ],
-            "commands": [ "workbench.action.toggleSidebarVisibility" ]
-        },
-        {
-            "before":   [ "/" ],
-            "after":    [ "<leader>", "<leader>", "s" ]
-        },
-        {
-            "before":   [ "<leader>", "/" ],
-            "commands": [ "editor.action.commentLine" ]
-        },
-        {
-            "before":   [ "g", "z", "d" ],
-            "after":    [ "<plugds>" ]
-        },
-        {
-            "before":   [ "g", "z", "r" ],
-            "after":    [ "<plugcs>" ]
-        }
-    ],
-    "vim.scroll": 0,
-    "vim.showcmd": true,
-    "vim.showMarksInGutter": true,
-    "vim.surround": true,
-    "vim.useCtrlKeys": true,
-    "vim.useSystemClipboard": true,
-    "vim.vimrc.enable": false,
-    "vim.visualModeKeyBindingsNonRecursive": [
-        {
-            "before":   [ "<leader>", "f", "w" ],
-            "commands": [ "workbench.action.findInFiles" ]
-        },
-        {
-            "before":   [ "<leader>", "f", "/" ],
-            "commands": [ "actions.find" ]
-        },
-        {
-            "before":   [ "%" ],
-            "commands": [ "editor.action.selectToBracket" ]
-        },
-        {
-            "before":   [ "<leader>", "l", "R" ],
-            "commands": [ "references-view.findReferences" ]
-        },
-        {
-            "before":   ["<leader>", "/"],
-            "commands": ["editor.action.commentLine"]
-        },
-        {
-            "before":   [ "g", "z", "a" ],
-            "after":    [ "S" ]
-        }
-    ],
+	"vim.leader": "<space>",
+	"vim.camelCaseMotion.enable": true,
+	"vim.easymotion": true,
+	"vim.flash.enable": true,
+	"vim.foldfix": true,
+	"vim.handleKeys": {
+		// "<C-p>": false,
+		"<C-/>": true,
+	},
+	"vim.highlightedyank.enable": true,
+	"vim.visualstar": true,
+	"vim.hlsearch": true,
+	"vim.incsearch": true,
+	"vim.insertModeKeyBindingsNonRecursive": [
+		{
+			"before":   [ "<C-k>" ],
+			"commands": [ "editor.action.triggerParameterHints" ],
+		},
+	],
+	"vim.mouseSelectionGoesIntoVisualMode": false,
+	"vim.normalModeKeyBindingsNonRecursive": [
+		{
+			"before":   [ "K" ],
+			"commands": [ "editor.action.showHover" ]
+		},
+		{
+			"before":   [ "%" ],
+			"commands": [ "editor.action.jumpToBracket" ]
+		},
+		{
+			"before":   [ "<leader>", "f", "f" ],
+			"commands": [ "workbench.action.quickOpen" ]
+		},
+		{
+			"before":   [ "<leader>", "f", "w" ],
+			"commands": [ "workbench.action.findInFiles" ]
+		},
+		{
+			"before":   [ "<leader>", "f", "/" ],
+			"commands": ["actions.find"]
+		},
+		{
+			"before":   [ "<leader>", "l", "R" ],
+			"commands": [ "references-view.findReferences" ]
+		},
+		{
+			"before":   [ "<C-h>" ],
+			"commands": [ "workbench.action.focusLeftGroup" ]
+		},
+		{
+			"before":   [ "<C-l>" ],
+			"commands": [ "workbench.action.focusRightGroup" ]
+		},
+		{
+			"before":   [ "<C-k>" ],
+			"commands": [ "workbench.action.focusAboveGroup" ]
+		},
+		{
+			"before":   [ "<C-j>" ],
+			"commands": [ "workbench.action.focusBelowGroup" ]
+		},
+		{
+			"before":   [ "<leader>", "|" ],
+			"commands": [ "workbench.action.splitEditorToRightGroup" ]
+		},
+		{
+			"before":   [ "<leader>", "-" ],
+			"commands": [ "workbench.action.splitEditorToAboveGroup" ]
+		},
+		{
+			"before":   [ "<leader>", "c" ],
+			"commands": [ "workbench.action.closeActiveEditor" ]
+		},
+		{
+			"before":   [ "L" ],
+			"commands": [ "workbench.action.nextEditor" ]
+		},
+		{
+			"before":   [ "H" ],
+			"commands": [ "workbench.action.previousEditor" ]
+		},
+		{
+			"before":   [ "<leader>", "t", "h" ],
+			"commands": [ "workbench.action.terminal.toggleTerminal" ]
+		},
+		{
+			"before":   [ "g", "d" ],
+			"commands": [ "editor.action.revealDefinition" ]
+		},
+		{
+			"before":   [ "g", "D" ],
+			"commands": [ "editor.action.revealDeclaration" ]
+		},
+		{
+			"before":   [ "g", "I" ],
+			"commands": [ "editor.action.goToImplementation" ]
+		},
+		{
+			"before":   [ "g", "y" ],
+			"commands": [ "editor.action.goToTypeDefinition" ]
+		},
+		{
+			"before":   [ "<leader>", "l", "r" ],
+			"commands": [ "editor.action.rename" ]
+		},
+		{
+			"before":   [ "<leader>", "g", "g" ],
+			"commands": [ "workbench.view.scm" ]
+		},
+		{
+			"before":   [ "f", "<enter>" ],
+			"commands": [ "highlightwords.addHighlight" ]
+		},
+		{
+			"before":   [ "<leader>", "m", "m" ],
+			"commands": [ "bookmarks.toggle" ]
+		},
+		{
+			"before":   [ "<leader>", "m", "b" ],
+			"commands": [ "bookmarks.listFromAllFiles" ]
+		},
+		{
+			"before":   [ "]", "d" ],
+			"commands": [ "editor.action.marker.nextInFiles" ]
+		},
+		{
+			"before":   [ "[", "d" ],
+			"commands": [ "editor.action.marker.prevInFiles" ]
+		},
+		{
+			"before":   [ "]", "g" ],
+			"commands": [ "workbench.action.editor.nextChange" ]
+		},
+		{
+			"before":   [ "[", "g" ],
+			"commands": [ "workbench.action.editor.previousChange" ]
+		},
+		{
+			"before":   [ "]", "e" ],
+			"commands": [ "workbench.action.navigateForwardInEditLocations" ]
+		},
+		{
+			"before":   [ "[", "e" ],
+			"commands": [ "workbench.action.navigateBackInEditLocations" ]
+		},
+		{
+			"before":   [ "]", "f" ],
+			"after":    [ "]", "]" ]
+		},
+		{
+			"before":   [ "[", "f" ],
+			"after":    [ "[", "[" ]
+		},
+		{
+			"before":   [ "]", "F" ],
+			"after":    [ "/", "^", "}", "<enter>" ]
+		},
+		{
+			"before":   [ "[", "F" ],
+			"after":    [ "?", "^", "}", "<enter>" ]
+		},
+		{
+			"before":   [ "<Esc>" ],
+			"commands": [ ":nohl", "<Esc>" ]
+		},
+		{
+			"before":   [ "<C-o>" ],
+			"commands": [ "workbench.action.navigateBack" ]
+		},
+		{
+			"before":   [ "<C-i>" ],
+			"commands": [ "workbench.action.navigateForward" ]
+		},
+		{
+			"before":   [ "<C-left>" ],
+			"commands": [ "workbench.action.toggleEditorWidths" ]
+		},
+		{
+			"before":   [ "<C-right>" ],
+			"commands": [ "workbench.action.toggleEditorWidths" ]
+		},
+		{
+			"before":   [ "<leader>", "e" ],
+			"commands": [ "workbench.action.toggleSidebarVisibility" ]
+		},
+		{
+			"before":   [ "/" ],
+			"after":    [ "<leader>", "<leader>", "s" ]
+		},
+		{
+			"before":   [ "<leader>", "/" ],
+			"commands": [ "editor.action.commentLine" ]
+		},
+		{
+			"before":   [ "g", "z", "d" ],
+			"after":    [ "<plugds>" ]
+		},
+		{
+			"before":   [ "g", "z", "r" ],
+			"after":    [ "<plugcs>" ]
+		}
+	],
+	"vim.scroll": 0,
+	"vim.showcmd": true,
+	"vim.showMarksInGutter": true,
+	"vim.surround": true,
+	"vim.useCtrlKeys": true,
+	"vim.useSystemClipboard": true,
+	"vim.vimrc.enable": false,
+	"vim.visualModeKeyBindingsNonRecursive": [
+		{
+			"before":   [ "<leader>", "f", "w" ],
+			"commands": [ "workbench.action.findInFiles" ]
+		},
+		{
+			"before":   [ "<leader>", "f", "/" ],
+			"commands": [ "actions.find" ]
+		},
+		{
+			"before":   [ "%" ],
+			"commands": [ "editor.action.selectToBracket" ]
+		},
+		{
+			"before":   [ "<leader>", "l", "R" ],
+			"commands": [ "references-view.findReferences" ]
+		},
+		{
+			"before":   ["<leader>", "/"],
+			"commands": ["editor.action.commentLine"]
+		},
+		{
+			"before":   [ "g", "z", "a" ],
+			"after":    [ "S" ]
+		}
+	],
 
 	"window.commandCenter": false,
 }
