@@ -368,6 +368,10 @@ Mac:
 			"commands": [ "workbench.view.scm" ]
 		},
 		{
+			"before":   [ "<leader>", "g", "r" ],
+			"commands": [ "git.revertSelectedRanges" ]
+		},
+		{
 			"before":   [ "f", "<enter>" ],
 			"commands": [ "highlightwords.addHighlight" ]
 		},
