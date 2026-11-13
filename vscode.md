@@ -388,12 +388,12 @@ Mac:
 			"commands": [ "workbench.action.focusBelowGroup" ]
 		},
 		{
-			"before":   [ "<C-o>" ],
-			"commands": [ "workbench.action.navigateBack" ]
-		},
-		{
 			"before":   [ "<C-i>" ],
 			"commands": [ "workbench.action.navigateForward" ]
+		},
+		{
+			"before":   [ "<C-o>" ],
+			"commands": [ "workbench.action.navigateBack" ]
 		},
 		{
 			"before":   [ "<C-left>" ],
@@ -483,6 +483,14 @@ Mac:
 		{
 			"before":   [ "g", "z", "a" ],
 			"after":    [ "S" ]
+		},
+		{
+			"before":   [ "<C-i>" ],
+			"commands": [ "workbench.action.navigateForward" ]
+		},
+		{
+			"before":   [ "<C-o>" ],
+			"commands": [ "workbench.action.navigateBack" ]
 		},
 		{
 			"before":   ["<leader>", "/"],
