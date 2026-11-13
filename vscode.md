@@ -281,7 +281,7 @@ Mac:
 	"vim.normalModeKeyBindingsNonRecursive": [
 		{
 			"before":   [ "<Esc>" ],
-			"commands": [ ":nohl", "<Esc>" ]
+			"commands": [ ":nohl", "closeFindWidget", "<Esc>" ]
 		},
 		{
 			"before":   [ "/" ],
@@ -450,6 +450,10 @@ Mac:
 		{
 			"before":   [ "<leader>", "l", "R" ],
 			"commands": [ "references-view.findReferences" ]
+		},
+		{
+			"before":   [ "<leader>", "l", "s" ],
+			"commands": [ "outline.focus" ]
 		},
 		{
 			"before":   [ "<leader>", "m", "m" ],
