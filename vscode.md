@@ -292,6 +292,14 @@ Mac:
 			"commands": [ "editor.action.jumpToBracket" ]
 		},
 		{
+			"before":   [ "]", "b" ],
+			"commands": [ "workbench.action.nextEditor" ]
+		},
+		{
+			"before":   [ "[", "b" ],
+			"commands": [ "workbench.action.previousEditor" ]
+		},
+		{
 			"before":   [ "]", "d" ],
 			"commands": [ "editor.action.marker.nextInFiles" ]
 		},
@@ -488,10 +496,6 @@ Mac:
 	"vim.useSystemClipboard": true,
 	"vim.vimrc.enable": false,
 	"vim.visualModeKeyBindingsNonRecursive": [
-		{
-			"before":   [ "%" ],
-			"commands": [ "editor.action.selectToBracket" ]
-		},
 		{
 			"before":   [ "H" ],
 			"commands": [ "editor.action.outdentLines" ]
