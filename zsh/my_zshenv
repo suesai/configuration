@@ -1,0 +1,15 @@
+export ZSH_CACHE_DIR="${HOME}/.cache/zsh"
+
+if [[ ! -d "${ZSH_CACHE_DIR}" ]]; then
+	command mkdir -p "${ZSH_CACHE_DIR}" 2>/dev/null
+fi
+
+case "$OSTYPE" in
+	darwin*)
+		export ZDOTDIR="${HOME}/.config/zsh"
+		export SHELL_SESSIONS_DISABLE=1
+		;;
+	linux*)
+		skip_global_compinit=1
+		;;
+esac

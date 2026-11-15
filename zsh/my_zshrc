@@ -1,0 +1,7 @@
+typeset -g ZSH_CONFIG_DIR="${${(%):-%x}:A:h}"
+
+for config_file in "${ZSH_CONFIG_DIR}"/conf.d/*.zsh(N); do
+	source "$config_file"
+done
+
+unset config_file
