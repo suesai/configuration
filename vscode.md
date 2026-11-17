@@ -138,9 +138,11 @@ Mac:
 
 	"editor.acceptSuggestionOnEnter": "off",
 	"editor.bracketPairColorization.enabled": true,
+	"editor.copyWithSyntaxHighlighting": false,
 	"editor.cursorSmoothCaretAnimation": "off",
 	"editor.detectIndentation": false,
 	"editor.dragAndDrop": false,
+	"editor.editContext": false,
 	"editor.formatOnType": false,
 	"editor.fontFamily": "'IntoneMono Nerd Font Mono'",
 	"editor.fontLigatures": false,
@@ -155,15 +157,15 @@ Mac:
 	"editor.snippetSuggestions": "top",
 	"editor.suggest.snippetsPreventQuickSuggestions": false,
 	"editor.tabSize": 8,
-	"editor.unicodeHighlight.nonBasicASCII": false,
 
 	// "extensions.autoCheckUpdates": false,
 	// "extensions.autoUpdate": false,
 	"extensions.experimental.affinity": {
 		"vscodevim.vim": 1
 	},
-	// "extensions.ignoreRecommendations": true,
+	"extensions.ignoreRecommendations": true,
 
+	"files.autoGuessEncoding": true,
 	"files.defaultLanguage": "c",
 	"files.encoding": "utf8",
 	"files.eol": "\n",
@@ -174,7 +176,9 @@ Mac:
 		"**/target/**": true
 	},
 
+	"git.autofetch": true,
 	"git.ignoreMissingGitWarning": true,
+	"gitlens.keymap": "none",
 	"gitlens.hovers.currentLine.over": "line",
 
 	"highlightwords.box": {
@@ -207,7 +211,7 @@ Mac:
 
 	"multiCommand.commands": [
 		{
-			"command": "multiCommand.multiEscape",
+			"command": "multiCommand.escape",
 			"sequence": [
 				"cancelRenameInput",
 				"closeFindWidget",
@@ -216,7 +220,7 @@ Mac:
 				"extension.vim_escape",
 				"hideSuggestWidget",
 				"notifications.clearAll",
-				"workbench.action.focusFirstEditorGroup"
+				"workbench.action.focusActiveEditorGroup"
 			]
 		}
 	],
@@ -239,6 +243,7 @@ Mac:
 
 	"search.collapseResults": "auto",
 	"search.searchOnType": false,
+	"search.seedWithNearestWord": false,
 
 	"shellcheck.disableVersionCheck": false,
 	"shellcheck.exclude": [
@@ -285,7 +290,7 @@ Mac:
 		},
 		{
 			"before":   [ "/" ],
-			"after":    [ "<leader>", "<leader>", "s" ]
+			"after":    [ "<leader>", "<leader>", "/" ]
 		},
 		{
 			"before":   [ "%" ],
@@ -354,10 +359,6 @@ Mac:
 		{
 			"before":   [ "f", "<enter>" ],
 			"commands": [ "highlightwords.addHighlight" ]
-		},
-		{
-			"before":   [ "g", "_" ],
-			"after":    [ "$" ]
 		},
 		{
 			"before":   [ "g", "d" ],
@@ -436,6 +437,12 @@ Mac:
 			"commands": [ "workbench.action.toggleSidebarVisibility" ]
 		},
 		{
+			"before":   [ "<leader>", "f", "c" ],
+			"after":    [ "v", "i", "w" ],
+			"commands": [ { "command": "workbench.action.findInFiles", "args": { "triggerSearch": true } } ],
+			"silent":   true
+		},
+		{
 			"before":   [ "<leader>", "f", "f" ],
 			"commands": [ "workbench.action.quickOpen" ]
 		},
@@ -468,6 +475,10 @@ Mac:
 			"commands": [ "outline.focus" ]
 		},
 		{
+			"before":   [ "<leader>", "l", "G" ],
+			"commands": [ "workbench.action.showAllSymbols" ]
+		},
+		{
 			"before":   [ "<leader>", "m", "m" ],
 			"commands": [ "bookmarks.toggle" ]
 		},
@@ -486,6 +497,36 @@ Mac:
 		{
 			"before":   [ "<leader>", "w" ],
 			"commands": [ "workbench.action.files.save" ]
+		},
+		{ "before": [ "<leader>", "<leader>", "s" ],                            "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "2", "s" ],                       "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "2", "f" ],                       "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "2", "F" ],                       "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "2", "t" ],                       "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "2", "T" ],                       "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "f" ],                            "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "F" ],                            "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "t" ],                            "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "T" ],                            "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "w" ],                            "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "l" ],                            "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "h" ],                            "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "e" ],                            "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "b" ],                            "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "g", "e" ],                       "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "j" ],                            "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "k" ],                            "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "<leader>", "b", "d", "2", "t" ], "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "<leader>", "b", "d", "t" ],      "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "<leader>", "b", "d", "w" ],      "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "<leader>", "b", "d", "e" ],      "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "<leader>", "b", "d", "j", "k" ], "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "<leader>", "j" ],                "commands": [] }
+	],
+	"vim.operatorPendingModeKeyBindingsNonRecursive": [
+		{
+			"before":   [ "g", "_" ],
+			"after":    [ "$" ]
 		}
 	],
 	"vim.scroll": 0,
@@ -535,7 +576,31 @@ Mac:
 		{
 			"before":   [ "<leader>", "l", "R" ],
 			"commands": [ "references-view.findReferences" ]
-		}
+		},
+		{ "before": [ "<leader>", "<leader>", "s" ],                            "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "2", "s" ],                       "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "2", "f" ],                       "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "2", "F" ],                       "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "2", "t" ],                       "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "2", "T" ],                       "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "f" ],                            "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "F" ],                            "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "t" ],                            "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "T" ],                            "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "w" ],                            "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "l" ],                            "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "h" ],                            "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "e" ],                            "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "b" ],                            "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "g", "e" ],                       "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "j" ],                            "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "k" ],                            "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "<leader>", "b", "d", "2", "t" ], "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "<leader>", "b", "d", "t" ],      "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "<leader>", "b", "d", "w" ],      "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "<leader>", "b", "d", "e" ],      "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "<leader>", "b", "d", "j", "k" ], "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "<leader>", "j" ],                "commands": [] }
 	],
 
 	"window.commandCenter": false,
@@ -548,11 +613,29 @@ Mac:
 // Place your key bindings in this file to override the defaults
 [
 	{
+		"key":     "escape",
+		"command": "search.action.focusSearchList",
+		"when":    "searchInputBoxFocus"
+	},
+	{
+		"key":     "space o",
+		"command": "workbench.action.focusActiveEditorGroup",
+		"when":    "!textInputFocus && !inputFocus && !terminalFocus"
+	},
+	{
 		"key":     "ctrl+oem_plus",
 		"command": "-workbench.action.zoomIn"
 	},
 	{
 		"key":     "ctrl+oem_minus",
+		"command": "-workbench.action.zoomOut"
+	},
+	{
+		"key":     "ctrl+shift+oem_plus",
+		"command": "-workbench.action.zoomIn"
+	},
+	{
+		"key":     "ctrl+shift+oem_minus",
 		"command": "-workbench.action.zoomOut"
 	},
 	{
@@ -564,15 +647,7 @@ Mac:
 		"command": "-workbench.action.zoomIn"
 	},
 	{
-		"key":     "ctrl+shift+oem_plus",
-		"command": "-workbench.action.zoomIn"
-	},
-	{
 		"key":     "ctrl+numpad_subtract",
-		"command": "-workbench.action.zoomOut"
-	},
-	{
-		"key":     "ctrl+shift+oem_minus",
 		"command": "-workbench.action.zoomOut"
 	},
 	{
@@ -584,33 +659,52 @@ Mac:
 		"command": "highlightwords.removeAllHighlights"
 	},
 	{
+		"key":     "ctrl+shift+r",
+		"command": "references-view.tree.focus",
+	},
+	{
+		"key":     "ctrl+shift+r",
+		"command": "-editor.action.refactor"
+	},
+	{
+		"key":     "ctrl+shift+r",
+		"command": "-rerunSearchEditorSearch"
+	},
+	{
+		"key":     "ctrl+shift+r",
+		"command": "-workbench.action.quickOpenNavigatePreviousInRecentFilesPicker"
+	},
+	{
+		"key":     "ctrl+shift+r ctrl+i",
+		"command": "-editor.action.codeAction"
+	},
+	{
+		"key":     "ctrl+shift+r ctrl+e",
+		"command": "-editor.action.codeAction"
+	},
+	{
 		"key":     "alt+j",
 		"command": "vim.remap",
-		"when":     "editorTextFocus && vim.active && vim.mode == 'Normal'",
-		"args":     { "commands": [ { "command": "editor.action.moveLinesDownAction" } ] }
+		"when":    "editorTextFocus && vim.active && vim.mode == 'Normal'",
+		"args":    { "commands": [ { "command": "editor.action.moveLinesDownAction" } ] }
 	},
 	{
 		"key":     "alt+k",
 		"command": "vim.remap",
-		"when":     "editorTextFocus && vim.active && vim.mode == 'Normal'",
-		"args":     { "commands": [ { "command": "editor.action.moveLinesUpAction" } ] }
+		"when":    "editorTextFocus && vim.active && vim.mode == 'Normal'",
+		"args":    { "commands": [ { "command": "editor.action.moveLinesUpAction" } ] }
 	},
 	{
 		"key":     "alt+j",
 		"command": "vim.remap",
-		"when":     "editorTextFocus && vim.active && (vim.mode == 'Visual' || vim.mode == 'VisualLine' || vim.mode == 'VisualBlock')",
-		"args":     { "commands": [ { "command": "editor.action.moveLinesDownAction" } ] }
+		"when":    "editorTextFocus && vim.active && (vim.mode == 'Visual' || vim.mode == 'VisualLine' || vim.mode == 'VisualBlock')",
+		"args":    { "commands": [ { "command": "editor.action.moveLinesDownAction" } ] }
 	},
 	{
 		"key":     "alt+k",
 		"command": "vim.remap",
-		"when":     "editorTextFocus && vim.active && (vim.mode == 'Visual' || vim.mode == 'VisualLine' || vim.mode == 'VisualBlock')",
-		"args":     { "commands": [ { "command": "editor.action.moveLinesUpAction" } ] }
-	},
-	{
-		"key":     "space o",
-		"command": "workbench.action.focusActiveEditorGroup",
-		"when":     "!textInputFocus && !inputFocus && !terminalFocus"
+		"when":    "editorTextFocus && vim.active && (vim.mode == 'Visual' || vim.mode == 'VisualLine' || vim.mode == 'VisualBlock')",
+		"args":    { "commands": [ { "command": "editor.action.moveLinesUpAction" } ] }
 	}
 ]
 ```
