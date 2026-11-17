@@ -118,6 +118,8 @@ Mac:
 
 ## settings.json
 
+如果在 Windows 上使用，需要保证 head.exe 和 global.exe 在系统 PATH 中。
+
 ```json
 {
 	"breadcrumbs.enabled": true,
@@ -125,12 +127,14 @@ Mac:
 	"C_Cpp.autocomplete": "default",
 	"C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: Google, IndentWidth: 8, TabWidth: 8, UseTab: ForIndentation, AllowShortIfStatementsOnASingleLine: true, ColumnLimit: 128 }",
 	"C_Cpp.clang_format_sortIncludes": false,
-	"C_Cpp.default.compilerPath": "/usr/bin/clang",
 	"C_Cpp.default.intelliSenseMode": "linux-clang-x64",
 	"C_Cpp.errorSquiggles": "enabled",
 	"C_Cpp.intelliSenseEngineFallback": "enabled",
 	"C_Cpp.intelliSenseEngine": "default",
 	"C_Cpp.suggestSnippets": false,
+
+	"chat.titleBar.openInAgentsWindow.enabled": false,
+	"chat.titleBar.signIn.enabled": false,
 
 	"clang-format.fallbackStyle": "Google",
 
@@ -159,7 +163,7 @@ Mac:
 	"editor.tabSize": 8,
 
 	// "extensions.autoCheckUpdates": false,
-	// "extensions.autoUpdate": false,
+	// "extensions.autoUpdate": "off",
 	"extensions.experimental.affinity": {
 		"vscodevim.vim": 1
 	},
@@ -180,6 +184,9 @@ Mac:
 	"git.ignoreMissingGitWarning": true,
 	"gitlens.keymap": "none",
 	"gitlens.hovers.currentLine.over": "line",
+
+	"gnuGlobal.globalExecutable": "C:\\global\\bin\\global.exe",
+	"gnuGlobal.gtagsExecutable": "C:\\global\\bin\\gtags.exe",
 
 	"highlightwords.box": {
 		"light": true,
@@ -232,6 +239,7 @@ Mac:
 	"python.analysis.typeCheckingMode": "basic",
 
 	"remote.SSH.connectTimeout": 60,
+	"remote.SSH.path": "C:\\Program Files\\Git\\usr\\bin\\ssh.exe",
 	"remote.SSH.remotePlatform": {
 		"rlk": "linux"
 	},
@@ -246,6 +254,7 @@ Mac:
 	"search.seedWithNearestWord": false,
 
 	"shellcheck.disableVersionCheck": false,
+	"shellcheck.executablePath": "C:\\Program Files\\utils\\shellcheck.exe",
 	"shellcheck.exclude": [
 		"SC2016",
 		"SC1091"
@@ -433,8 +442,20 @@ Mac:
 			"commands": [ "workbench.action.closeActiveEditor" ]
 		},
 		{
+			"before":   [ "<leader>", "C" ],
+			"commands": [ "workbench.action.revertAndCloseActiveEditor" ]
+		},
+		{
 			"before":   [ "<leader>", "e" ],
 			"commands": [ "workbench.action.toggleSidebarVisibility" ]
+		},
+		{
+			"before":   [ "<leader>", "f", "/" ],
+			"commands": ["actions.find"]
+		},
+		{
+			"before":   [ "<leader>", "f", "'" ],
+			"commands": [ ":marks" ]
 		},
 		{
 			"before":   [ "<leader>", "f", "c" ],
@@ -447,12 +468,20 @@ Mac:
 			"commands": [ "workbench.action.quickOpen" ]
 		},
 		{
-			"before":   [ "<leader>", "f", "w" ],
-			"commands": [ "workbench.action.findInFiles" ]
+			"before":   [ "<leader>", "f", "k" ],
+			"commands": [ "workbench.action.showCommands" ]
 		},
 		{
-			"before":   [ "<leader>", "f", "/" ],
-			"commands": ["actions.find"]
+			"before":   [ "<leader>", "f", "n" ],
+			"commands": [ "notifications.showList" ]
+		},
+		{
+			"before":   [ "<leader>", "f", "r" ],
+			"commands": [ ":reg" ]
+		},
+		{
+			"before":   [ "<leader>", "f", "w" ],
+			"commands": [ "workbench.action.findInFiles" ]
 		},
 		{
 			"before":   [ "<leader>", "g", "g" ],
@@ -472,6 +501,10 @@ Mac:
 		},
 		{
 			"before":   [ "<leader>", "l", "s" ],
+			"commands": [ "workbench.action.gotoSymbol" ]
+		},
+		{
+			"before":   [ "<leader>", "l", "S" ],
 			"commands": [ "outline.focus" ]
 		},
 		{
@@ -487,12 +520,32 @@ Mac:
 			"commands": [ "bookmarks.listFromAllFiles" ]
 		},
 		{
+			"before":   [ "<leader>", "n" ],
+			"commands": [ "workbench.action.files.newUntitledFile" ]
+		},
+		{
 			"before":   [ "<leader>", "o" ],
 			"commands": [ "workbench.view.explorer" ]
 		},
 		{
+			"before":   [ "<leader>", "s", "f" ],
+			"commands": [ "editor.action.startFindReplaceAction" ]
+		},
+		{
+			"before":   [ "<leader>", "s", "s" ],
+			"commands": [ "workbench.action.replaceInFiles" ]
+		},
+		{
 			"before":   [ "<leader>", "t", "h" ],
 			"commands": [ "workbench.action.terminal.toggleTerminal" ]
+		},
+		{
+			"before":   [ "<leader>", "u", "D" ],
+			"commands": [ "notifications.clearAll" ]
+		},
+		{
+			"before":   [ "<leader>", "u", "w" ],
+			"commands": [ "editor.action.toggleWordWrap" ]
 		},
 		{
 			"before":   [ "<leader>", "w" ],
@@ -604,6 +657,9 @@ Mac:
 	],
 
 	"window.commandCenter": false,
+	"workbench.colorTheme": "Dark Modern",
+	"workbench.layoutControl.enabled": false,
+	"workbench.secondarySideBar.defaultVisibility": "hidden"
 }
 ```
 
