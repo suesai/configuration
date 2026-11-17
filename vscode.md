@@ -118,7 +118,7 @@ Mac:
 
 ## settings.json
 
-如果在 Windows 上使用，需要保证 head.exe 和 global.exe 在系统 PATH 中。
+如果在 Windows 上使用，需要保证 head.exe（C:\Program Files\Git\usr\bin）和 global.exe（C:\global\bin）在系统 PATH 中。
 
 ```json
 {
@@ -185,8 +185,8 @@ Mac:
 	"gitlens.keymap": "none",
 	"gitlens.hovers.currentLine.over": "line",
 
-	"gnuGlobal.globalExecutable": "C:\\global\\bin\\global.exe",
-	"gnuGlobal.gtagsExecutable": "C:\\global\\bin\\gtags.exe",
+	// "gnuGlobal.globalExecutable": "C:\\global\\bin\\global.exe",
+	// "gnuGlobal.gtagsExecutable": "C:\\global\\bin\\gtags.exe",
 
 	"highlightwords.box": {
 		"light": true,
@@ -239,7 +239,7 @@ Mac:
 	"python.analysis.typeCheckingMode": "basic",
 
 	"remote.SSH.connectTimeout": 60,
-	"remote.SSH.path": "C:\\Program Files\\Git\\usr\\bin\\ssh.exe",
+	// "remote.SSH.path": "C:\\Program Files\\Git\\usr\\bin\\ssh.exe",
 	"remote.SSH.remotePlatform": {
 		"rlk": "linux"
 	},
@@ -254,7 +254,7 @@ Mac:
 	"search.seedWithNearestWord": false,
 
 	"shellcheck.disableVersionCheck": false,
-	"shellcheck.executablePath": "C:\\Program Files\\utils\\shellcheck.exe",
+	// "shellcheck.executablePath": "C:\\Program Files\\utils\\shellcheck.exe",
 	"shellcheck.exclude": [
 		"SC2016",
 		"SC1091"
@@ -368,6 +368,10 @@ Mac:
 		{
 			"before":   [ "f", "<enter>" ],
 			"commands": [ "highlightwords.addHighlight" ]
+		},
+		{
+			"before":   [ "f", "<BS>" ],
+			"commands": [ "highlightwords.removeHighlight" ]
 		},
 		{
 			"before":   [ "g", "d" ],
@@ -510,14 +514,6 @@ Mac:
 		{
 			"before":   [ "<leader>", "l", "G" ],
 			"commands": [ "workbench.action.showAllSymbols" ]
-		},
-		{
-			"before":   [ "<leader>", "m", "m" ],
-			"commands": [ "bookmarks.toggle" ]
-		},
-		{
-			"before":   [ "<leader>", "m", "b" ],
-			"commands": [ "bookmarks.listFromAllFiles" ]
 		},
 		{
 			"before":   [ "<leader>", "n" ],
@@ -672,6 +668,11 @@ Mac:
 		"key":     "escape",
 		"command": "search.action.focusSearchList",
 		"when":    "searchInputBoxFocus"
+	},
+	{
+		"key":     "escape",
+		"command": "workbench.scm.action.focusNextResourceGroup",
+		"when":    "textInputFocus && scmRepository && !editorTextFocus && !suggestWidgetVisible && !editorHoverVisible && !inlineSuggestionVisible"
 	},
 	{
 		"key":     "space o",
