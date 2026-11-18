@@ -118,7 +118,7 @@ Mac:
 
 ## settings.json
 
-如果在 Windows 上使用，需要保证 head.exe（C:\Program Files\Git\usr\bin）和 global.exe（C:\global\bin）在系统 PATH 中。
+如果在 Windows 上使用，需要保证 head.exe（C:\Program Files\Git\usr\bin）和 gtags.exe（C:\global\bin）在系统 PATH 中。
 
 ```json
 {
@@ -516,6 +516,18 @@ Mac:
 			"commands": [ "workbench.action.showAllSymbols" ]
 		},
 		{
+			"before":   [ "<leader>", "l", "w" ],
+			"commands": [ "C_Cpp.SwitchHeaderSource" ]
+		},
+		{
+			"before":   [ "<leader>", "l", "D" ],
+			"commands": [ "workbench.action.problems.focus" ]
+		},
+		{
+			"before":   [ "<leader>", "l", "f" ],
+			"commands": [ "editor.action.formatDocument" ]
+		},
+		{
 			"before":   [ "<leader>", "n" ],
 			"commands": [ "workbench.action.files.newUntitledFile" ]
 		},
@@ -547,30 +559,102 @@ Mac:
 			"before":   [ "<leader>", "w" ],
 			"commands": [ "workbench.action.files.save" ]
 		},
-		{ "before": [ "<leader>", "<leader>", "s" ],                            "commands": [] },
-		{ "before": [ "<leader>", "<leader>", "2", "s" ],                       "commands": [] },
-		{ "before": [ "<leader>", "<leader>", "2", "f" ],                       "commands": [] },
-		{ "before": [ "<leader>", "<leader>", "2", "F" ],                       "commands": [] },
-		{ "before": [ "<leader>", "<leader>", "2", "t" ],                       "commands": [] },
-		{ "before": [ "<leader>", "<leader>", "2", "T" ],                       "commands": [] },
-		{ "before": [ "<leader>", "<leader>", "f" ],                            "commands": [] },
-		{ "before": [ "<leader>", "<leader>", "F" ],                            "commands": [] },
-		{ "before": [ "<leader>", "<leader>", "t" ],                            "commands": [] },
-		{ "before": [ "<leader>", "<leader>", "T" ],                            "commands": [] },
-		{ "before": [ "<leader>", "<leader>", "w" ],                            "commands": [] },
-		{ "before": [ "<leader>", "<leader>", "l" ],                            "commands": [] },
-		{ "before": [ "<leader>", "<leader>", "h" ],                            "commands": [] },
-		{ "before": [ "<leader>", "<leader>", "e" ],                            "commands": [] },
-		{ "before": [ "<leader>", "<leader>", "b" ],                            "commands": [] },
-		{ "before": [ "<leader>", "<leader>", "g", "e" ],                       "commands": [] },
-		{ "before": [ "<leader>", "<leader>", "j" ],                            "commands": [] },
-		{ "before": [ "<leader>", "<leader>", "k" ],                            "commands": [] },
-		{ "before": [ "<leader>", "<leader>", "<leader>", "b", "d", "2", "t" ], "commands": [] },
-		{ "before": [ "<leader>", "<leader>", "<leader>", "b", "d", "t" ],      "commands": [] },
-		{ "before": [ "<leader>", "<leader>", "<leader>", "b", "d", "w" ],      "commands": [] },
-		{ "before": [ "<leader>", "<leader>", "<leader>", "b", "d", "e" ],      "commands": [] },
-		{ "before": [ "<leader>", "<leader>", "<leader>", "b", "d", "j", "k" ], "commands": [] },
-		{ "before": [ "<leader>", "<leader>", "<leader>", "j" ],                "commands": [] }
+		{
+			"before":   [ "<leader>", "<leader>", "s" ],
+			"commands": []
+		},
+		{
+			"before":   [ "<leader>", "<leader>", "2", "s" ],
+			"commands": []
+		},
+		{
+			"before":   [ "<leader>", "<leader>", "2", "f" ],
+			"commands": []
+		},
+		{
+			"before":   [ "<leader>", "<leader>", "2", "F" ],
+			"commands": []
+		},
+		{
+			"before":   [ "<leader>", "<leader>", "2", "t" ],
+			"commands": []
+		},
+		{
+			"before":   [ "<leader>", "<leader>", "2", "T" ],
+			"commands": []
+		},
+		{
+			"before":   [ "<leader>", "<leader>", "f" ],
+			"commands": []
+		},
+		{
+			"before":   [ "<leader>", "<leader>", "F" ],
+			"commands": []
+		},
+		{
+			"before":   [ "<leader>", "<leader>", "t" ],
+			"commands": []
+		},
+		{
+			"before":   [ "<leader>", "<leader>", "T" ],
+			"commands": []
+		},
+		{
+			"before":   [ "<leader>", "<leader>", "w" ],
+			"commands": []
+		},
+		{
+			"before":   [ "<leader>", "<leader>", "l" ],
+			"commands": []
+		},
+		{
+			"before":   [ "<leader>", "<leader>", "h" ],
+			"commands": []
+		},
+		{
+			"before":   [ "<leader>", "<leader>", "e" ],
+			"commands": []
+		},
+		{
+			"before":   [ "<leader>", "<leader>", "b" ],
+			"commands": []
+		},
+		{
+			"before":   [ "<leader>", "<leader>", "g", "e" ],
+			"commands": []
+		},
+		{
+			"before":   [ "<leader>", "<leader>", "j" ],
+			"commands": []
+		},
+		{
+			"before":   [ "<leader>", "<leader>", "k" ],
+			"commands": []
+		},
+		{
+			"before":   [ "<leader>", "<leader>", "<leader>", "b", "d", "2", "t" ],
+			"commands": []
+		},
+		{
+			"before":   [ "<leader>", "<leader>", "<leader>", "b", "d", "t" ],
+			"commands": []
+		},
+		{
+			"before":   [ "<leader>", "<leader>", "<leader>", "b", "d", "w" ],
+			"commands": []
+		},
+		{
+			"before":   [ "<leader>", "<leader>", "<leader>", "b", "d", "e" ],
+			"commands": []
+		},
+		{
+			"before":   [ "<leader>", "<leader>", "<leader>", "b", "d", "j", "k" ],
+			"commands": []
+		},
+		{
+			"before":   [ "<leader>", "<leader>", "<leader>", "j" ],
+			"commands": []
+		}
 	],
 	"vim.operatorPendingModeKeyBindingsNonRecursive": [
 		{
@@ -626,30 +710,102 @@ Mac:
 			"before":   [ "<leader>", "l", "R" ],
 			"commands": [ "references-view.findReferences" ]
 		},
-		{ "before": [ "<leader>", "<leader>", "s" ],                            "commands": [] },
-		{ "before": [ "<leader>", "<leader>", "2", "s" ],                       "commands": [] },
-		{ "before": [ "<leader>", "<leader>", "2", "f" ],                       "commands": [] },
-		{ "before": [ "<leader>", "<leader>", "2", "F" ],                       "commands": [] },
-		{ "before": [ "<leader>", "<leader>", "2", "t" ],                       "commands": [] },
-		{ "before": [ "<leader>", "<leader>", "2", "T" ],                       "commands": [] },
-		{ "before": [ "<leader>", "<leader>", "f" ],                            "commands": [] },
-		{ "before": [ "<leader>", "<leader>", "F" ],                            "commands": [] },
-		{ "before": [ "<leader>", "<leader>", "t" ],                            "commands": [] },
-		{ "before": [ "<leader>", "<leader>", "T" ],                            "commands": [] },
-		{ "before": [ "<leader>", "<leader>", "w" ],                            "commands": [] },
-		{ "before": [ "<leader>", "<leader>", "l" ],                            "commands": [] },
-		{ "before": [ "<leader>", "<leader>", "h" ],                            "commands": [] },
-		{ "before": [ "<leader>", "<leader>", "e" ],                            "commands": [] },
-		{ "before": [ "<leader>", "<leader>", "b" ],                            "commands": [] },
-		{ "before": [ "<leader>", "<leader>", "g", "e" ],                       "commands": [] },
-		{ "before": [ "<leader>", "<leader>", "j" ],                            "commands": [] },
-		{ "before": [ "<leader>", "<leader>", "k" ],                            "commands": [] },
-		{ "before": [ "<leader>", "<leader>", "<leader>", "b", "d", "2", "t" ], "commands": [] },
-		{ "before": [ "<leader>", "<leader>", "<leader>", "b", "d", "t" ],      "commands": [] },
-		{ "before": [ "<leader>", "<leader>", "<leader>", "b", "d", "w" ],      "commands": [] },
-		{ "before": [ "<leader>", "<leader>", "<leader>", "b", "d", "e" ],      "commands": [] },
-		{ "before": [ "<leader>", "<leader>", "<leader>", "b", "d", "j", "k" ], "commands": [] },
-		{ "before": [ "<leader>", "<leader>", "<leader>", "j" ],                "commands": [] }
+		{
+			"before":   [ "<leader>", "<leader>", "s" ],
+			"commands": []
+		},
+		{
+			"before":   [ "<leader>", "<leader>", "2", "s" ],
+			"commands": []
+		},
+		{
+			"before":   [ "<leader>", "<leader>", "2", "f" ],
+			"commands": []
+		},
+		{
+			"before":   [ "<leader>", "<leader>", "2", "F" ],
+			"commands": []
+		},
+		{
+			"before":   [ "<leader>", "<leader>", "2", "t" ],
+			"commands": []
+		},
+		{
+			"before":   [ "<leader>", "<leader>", "2", "T" ],
+			"commands": []
+		},
+		{
+			"before":   [ "<leader>", "<leader>", "f" ],
+			"commands": []
+		},
+		{
+			"before":   [ "<leader>", "<leader>", "F" ],
+			"commands": []
+		},
+		{
+			"before":   [ "<leader>", "<leader>", "t" ],
+			"commands": []
+		},
+		{
+			"before":   [ "<leader>", "<leader>", "T" ],
+			"commands": []
+		},
+		{
+			"before":   [ "<leader>", "<leader>", "w" ],
+			"commands": []
+		},
+		{
+			"before":   [ "<leader>", "<leader>", "l" ],
+			"commands": []
+		},
+		{
+			"before":   [ "<leader>", "<leader>", "h" ],
+			"commands": []
+		},
+		{
+			"before":   [ "<leader>", "<leader>", "e" ],
+			"commands": []
+		},
+		{
+			"before":   [ "<leader>", "<leader>", "b" ],
+			"commands": []
+		},
+		{
+			"before":   [ "<leader>", "<leader>", "g", "e" ],
+			"commands": []
+		},
+		{
+			"before":   [ "<leader>", "<leader>", "j" ],
+			"commands": []
+		},
+		{
+			"before":   [ "<leader>", "<leader>", "k" ],
+			"commands": []
+		},
+		{
+			"before":   [ "<leader>", "<leader>", "<leader>", "b", "d", "2", "t" ],
+			"commands": []
+		},
+		{
+			"before":   [ "<leader>", "<leader>", "<leader>", "b", "d", "t" ],
+			"commands": []
+		},
+		{
+			"before":   [ "<leader>", "<leader>", "<leader>", "b", "d", "w" ],
+			"commands": []
+		},
+		{
+			"before":   [ "<leader>", "<leader>", "<leader>", "b", "d", "e" ],
+			"commands": []
+		},
+		{
+			"before":   [ "<leader>", "<leader>", "<leader>", "b", "d", "j", "k" ],
+			"commands": []
+		},
+		{
+			"before":   [ "<leader>", "<leader>", "<leader>", "j" ],
+			"commands": []
+		}
 	],
 
 	"window.commandCenter": false,
@@ -673,6 +829,16 @@ Mac:
 		"key":     "escape",
 		"command": "workbench.scm.action.focusNextResourceGroup",
 		"when":    "textInputFocus && scmRepository && !editorTextFocus && !suggestWidgetVisible && !editorHoverVisible && !inlineSuggestionVisible"
+	},
+	{
+		"key":     "escape",
+		"command": "problems.action.focusProblemsFromFilter",
+		"when":    "problemsFilterFocus"
+	},
+	{
+		"key":     "escape",
+		"command": "workbench.action.focusPanel",
+		"when":    "outputFilterFocus"
 	},
 	{
 		"key":     "space o",
