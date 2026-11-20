@@ -118,7 +118,7 @@ Mac:
 
 ## settings.json
 
-如果在 Windows 上使用，需要保证 head.exe（C:\Program Files\Git\usr\bin）和 gtags.exe（C:\global\bin）在系统 PATH 中。
+如果在 Windows 上使用 global，需要保证 head.exe（C:\Program Files\Git\usr\bin）和 gtags.exe（C:\global\bin）在系统 PATH 中。
 
 ```json
 {
@@ -274,6 +274,8 @@ Mac:
 
 	"vim.leader": "<space>",
 	"vim.camelCaseMotion.enable": true,
+	"vim.cursorStylePerMode.insert": "line",
+	"vim.cursorStylePerMode.normal": "block",
 	"vim.easymotion": true,
 	"vim.flash.enable": true,
 	"vim.foldfix": true,
@@ -287,15 +289,94 @@ Mac:
 	"vim.incsearch": true,
 	"vim.insertModeKeyBindingsNonRecursive": [
 		{
+			"before":   [ "<Esc>" ],
+			"after":    [ "<Esc>" ],
+			"commands": [ ":nohl", "closeFindWidget", "hideSuggestWidget", "closeReferenceSearch", "closeMarkersNavigation", "editor.action.hideHover", "notifications.hideToasts" ],
+			"silent":   true
+		},
+		{
 			"before":   [ "<C-k>" ],
 			"commands": [ "editor.action.triggerParameterHints" ]
-		}
+		},
+		{ "before": ["<C-v>"],                   "commands": [],                                                                     "silent": true },
+		{ "before": ["<C-v>", "<Esc>"],          "commands": [{ "command": "localVim.insertControlChar", "args": { "code": 27  } }], "silent": true },
+		{ "before": ["<C-v>", "<C-[>"],          "commands": [{ "command": "localVim.insertControlChar", "args": { "code": 27  } }], "silent": true },
+		{ "before": ["<C-v>", "<BS>"],           "commands": [{ "command": "localVim.insertControlChar", "args": { "code": 8   } }], "silent": true },
+		{ "before": ["<C-v>", "<Del>"],          "commands": [{ "command": "localVim.insertControlChar", "args": { "code": 127 } }], "silent": true },
+		{ "before": ["<C-v>", "<C-a>"],          "commands": [{ "command": "localVim.insertControlChar", "args": { "code": 1   } }], "silent": true },
+		{ "before": ["<C-v>", "<C-b>"],          "commands": [{ "command": "localVim.insertControlChar", "args": { "code": 2   } }], "silent": true },
+		{ "before": ["<C-v>", "<C-c>"],          "commands": [{ "command": "localVim.insertControlChar", "args": { "code": 3   } }], "silent": true },
+		{ "before": ["<C-v>", "<C-d>"],          "commands": [{ "command": "localVim.insertControlChar", "args": { "code": 4   } }], "silent": true },
+		{ "before": ["<C-v>", "<C-e>"],          "commands": [{ "command": "localVim.insertControlChar", "args": { "code": 5   } }], "silent": true },
+		{ "before": ["<C-v>", "<C-f>"],          "commands": [{ "command": "localVim.insertControlChar", "args": { "code": 6   } }], "silent": true },
+		{ "before": ["<C-v>", "<C-g>"],          "commands": [{ "command": "localVim.insertControlChar", "args": { "code": 7   } }], "silent": true },
+		{ "before": ["<C-v>", "<C-i>"],          "commands": [{ "command": "localVim.insertControlChar", "args": { "code": 9   } }], "silent": true },
+		{ "before": ["<C-v>", "<C-j>"],          "commands": [{ "command": "localVim.insertControlChar", "args": { "code": 10  } }], "silent": true },
+		{ "before": ["<C-v>", "<C-k>"],          "commands": [{ "command": "localVim.insertControlChar", "args": { "code": 11  } }], "silent": true },
+		{ "before": ["<C-v>", "<C-l>"],          "commands": [{ "command": "localVim.insertControlChar", "args": { "code": 12  } }], "silent": true },
+		{ "before": ["<C-v>", "<C-m>"],          "commands": [{ "command": "localVim.insertControlChar", "args": { "code": 13  } }], "silent": true },
+		{ "before": ["<C-v>", "<C-n>"],          "commands": [{ "command": "localVim.insertControlChar", "args": { "code": 14  } }], "silent": true },
+		{ "before": ["<C-v>", "<C-o>"],          "commands": [{ "command": "localVim.insertControlChar", "args": { "code": 15  } }], "silent": true },
+		{ "before": ["<C-v>", "<C-p>"],          "commands": [{ "command": "localVim.insertControlChar", "args": { "code": 16  } }], "silent": true },
+		{ "before": ["<C-v>", "<C-q>"],          "commands": [{ "command": "localVim.insertControlChar", "args": { "code": 17  } }], "silent": true },
+		{ "before": ["<C-v>", "<C-r>"],          "commands": [{ "command": "localVim.insertControlChar", "args": { "code": 18  } }], "silent": true },
+		{ "before": ["<C-v>", "<C-s>"],          "commands": [{ "command": "localVim.insertControlChar", "args": { "code": 19  } }], "silent": true },
+		{ "before": ["<C-v>", "<C-t>"],          "commands": [{ "command": "localVim.insertControlChar", "args": { "code": 20  } }], "silent": true },
+		{ "before": ["<C-v>", "<C-u>"],          "commands": [{ "command": "localVim.insertControlChar", "args": { "code": 21  } }], "silent": true },
+		{ "before": ["<C-v>", "<C-v>"],          "commands": [{ "command": "localVim.insertControlChar", "args": { "code": 22  } }], "silent": true },
+		{ "before": ["<C-v>", "<C-w>"],          "commands": [{ "command": "localVim.insertControlChar", "args": { "code": 23  } }], "silent": true },
+		{ "before": ["<C-v>", "<C-x>"],          "commands": [{ "command": "localVim.insertControlChar", "args": { "code": 24  } }], "silent": true },
+		{ "before": ["<C-v>", "<C-y>"],          "commands": [{ "command": "localVim.insertControlChar", "args": { "code": 25  } }], "silent": true },
+		{ "before": ["<C-v>", "<C-z>"],          "commands": [{ "command": "localVim.insertControlChar", "args": { "code": 26  } }], "silent": true },
+		{ "before": ["<C-v>", "<C-]>"],          "commands": [{ "command": "localVim.insertControlChar", "args": { "code": 29  } }], "silent": true },
+		{ "before": ["<C-v>", "<C-^>"],          "commands": [{ "command": "localVim.insertControlChar", "args": { "code": 30  } }], "silent": true },
+		{ "before": ["<C-v>", "<C-6>"],          "commands": [{ "command": "localVim.insertControlChar", "args": { "code": 30  } }], "silent": true },
+		{ "before": ["<C-v>", "<C-shift+2>"],    "commands": [{ "command": "localVim.insertControlChar", "args": { "code": 0   } }], "silent": true },
+	],
+	"vim.commandLineModeKeyBindingsNonRecursive": [
+		{ "before": ["<C-v>"],                   "commands": [],         "silent": true },
+		{ "before": ["<C-v>", "<Esc>"],          "after":    ["^", "["], "silent": true },
+		{ "before": ["<C-v>", "<C-[>"],          "after":    ["^", "["], "silent": true },
+		{ "before": ["<C-v>", "<BS>"],           "after":    ["^", "H"], "silent": true },
+		{ "before": ["<C-v>", "<C-h>"],          "after":    ["^", "H"], "silent": true },
+		{ "before": ["<C-v>", "<Del>"],          "after":    ["^", "?"], "silent": true },
+		{ "before": ["<C-v>", "<C-a>"],          "after":    ["^", "A"], "silent": true },
+		{ "before": ["<C-v>", "<C-b>"],          "after":    ["^", "B"], "silent": true },
+		{ "before": ["<C-v>", "<C-c>"],          "after":    ["^", "C"], "silent": true },
+		{ "before": ["<C-v>", "<C-d>"],          "after":    ["^", "D"], "silent": true },
+		{ "before": ["<C-v>", "<C-e>"],          "after":    ["^", "E"], "silent": true },
+		{ "before": ["<C-v>", "<C-f>"],          "after":    ["^", "F"], "silent": true },
+		{ "before": ["<C-v>", "<C-g>"],          "after":    ["^", "G"], "silent": true },
+		{ "before": ["<C-v>", "<C-i>"],          "after":    ["^", "I"], "silent": true },
+		{ "before": ["<C-v>", "<C-j>"],          "after":    ["^", "J"], "silent": true },
+		{ "before": ["<C-v>", "<C-k>"],          "after":    ["^", "K"], "silent": true },
+		{ "before": ["<C-v>", "<C-l>"],          "after":    ["^", "L"], "silent": true },
+		{ "before": ["<C-v>", "<C-m>"],          "after":    ["^", "M"], "silent": true },
+		{ "before": ["<C-v>", "<C-n>"],          "after":    ["^", "N"], "silent": true },
+		{ "before": ["<C-v>", "<C-o>"],          "after":    ["^", "O"], "silent": true },
+		{ "before": ["<C-v>", "<C-p>"],          "after":    ["^", "P"], "silent": true },
+		{ "before": ["<C-v>", "<C-q>"],          "after":    ["^", "Q"], "silent": true },
+		{ "before": ["<C-v>", "<C-r>"],          "after":    ["^", "R"], "silent": true },
+		{ "before": ["<C-v>", "<C-s>"],          "after":    ["^", "S"], "silent": true },
+		{ "before": ["<C-v>", "<C-t>"],          "after":    ["^", "T"], "silent": true },
+		{ "before": ["<C-v>", "<C-u>"],          "after":    ["^", "U"], "silent": true },
+		{ "before": ["<C-v>", "<C-v>"],          "after":    ["^", "V"], "silent": true },
+		{ "before": ["<C-v>", "<C-w>"],          "after":    ["^", "W"], "silent": true },
+		{ "before": ["<C-v>", "<C-x>"],          "after":    ["^", "X"], "silent": true },
+		{ "before": ["<C-v>", "<C-y>"],          "after":    ["^", "Y"], "silent": true },
+		{ "before": ["<C-v>", "<C-z>"],          "after":    ["^", "Z"], "silent": true },
+		{ "before": ["<C-v>", "<C-]>"],          "after":    ["^", "]"], "silent": true },
+		{ "before": ["<C-v>", "<C-^>"],          "after":    ["^", "^"], "silent": true },
+		{ "before": ["<C-v>", "<C-6>"],          "after":    ["^", "^"], "silent": true },
+		{ "before": ["<C-v>", "<C-shift+2>"],    "after":    ["^", "@"], "silent": true },
 	],
 	"vim.mouseSelectionGoesIntoVisualMode": false,
 	"vim.normalModeKeyBindingsNonRecursive": [
 		{
 			"before":   [ "<Esc>" ],
-			"commands": [ ":nohl", "closeFindWidget", "<Esc>" ]
+			"after":    [ "<Esc>" ],
+			"commands": [ ":nohl", "closeFindWidget", "hideSuggestWidget", "editor.action.hideHover", "notifications.hideToasts" ],
+			"silent":   true
 		},
 		{
 			"before":   [ "/" ],
@@ -315,11 +396,19 @@ Mac:
 		},
 		{
 			"before":   [ "]", "d" ],
-			"commands": [ "editor.action.marker.nextInFiles" ]
+			"commands": [ "localVim.nextDiagnostic" ]
 		},
 		{
 			"before":   [ "[", "d" ],
-			"commands": [ "editor.action.marker.prevInFiles" ]
+			"commands": [ "localVim.prevDiagnostic" ]
+		},
+		{
+			"before":   [ "]", "e" ],
+			"commands": [ "localVim.nextError" ]
+		},
+		{
+			"before":   [ "[", "e" ],
+			"commands": [ "localVim.prevError" ]
 		},
 		{
 			"before":   [ "]", "g" ],
@@ -330,11 +419,11 @@ Mac:
 			"commands": [ "workbench.action.editor.previousChange" ]
 		},
 		{
-			"before":   [ "]", "e" ],
+			"before":   [ "]", "." ],
 			"commands": [ "workbench.action.navigateForwardInEditLocations" ]
 		},
 		{
-			"before":   [ "[", "e" ],
+			"before":   [ "[", "." ],
 			"commands": [ "workbench.action.navigateBackInEditLocations" ]
 		},
 		{
@@ -352,6 +441,14 @@ Mac:
 		{
 			"before":   [ "[", "F" ],
 			"after":    [ "?", "^", "}", "<enter>" ]
+		},
+		{
+			"before":   [ "j" ],
+			"after":    [ "g", "j" ]
+		},
+		{
+			"before":   [ "k" ],
+			"after":    [ "g", "k" ]
 		},
 		{
 			"before":   [ "K" ],
@@ -374,6 +471,11 @@ Mac:
 			"commands": [ "highlightwords.removeHighlight" ]
 		},
 		{
+			"before":   [ "g", "_" ],
+			"after":    [ "$" ],
+			"commands": [ "localVim.lastNonBlank" ]
+		},
+		{
 			"before":   [ "g", "d" ],
 			"commands": [ "editor.action.revealDefinition" ]
 		},
@@ -382,12 +484,20 @@ Mac:
 			"commands": [ "editor.action.revealDeclaration" ]
 		},
 		{
+			"before":   [ "g", "i" ],
+			"commands": [ "localVim.goToLastInsert" ]
+		},
+		{
 			"before":   [ "g", "I" ],
 			"commands": [ "editor.action.goToImplementation" ]
 		},
 		{
 			"before":   [ "g", "y" ],
 			"commands": [ "editor.action.goToTypeDefinition" ]
+		},
+		{
+			"before":   [ "g", "w" ],
+			"after":    [ "=" ]
 		},
 		{
 			"before":   [ "g", "z", "d" ],
@@ -465,7 +575,6 @@ Mac:
 			"before":   [ "<leader>", "f", "c" ],
 			"after":    [ "v", "i", "w" ],
 			"commands": [ { "command": "workbench.action.findInFiles", "args": { "triggerSearch": true } } ],
-			"silent":   true
 		},
 		{
 			"before":   [ "<leader>", "f", "f" ],
@@ -533,7 +642,7 @@ Mac:
 		},
 		{
 			"before":   [ "<leader>", "o" ],
-			"commands": [ "workbench.view.explorer" ]
+			"commands": [ "workbench.action.focusSideBar" ]
 		},
 		{
 			"before":   [ "<leader>", "s", "f" ],
@@ -559,102 +668,30 @@ Mac:
 			"before":   [ "<leader>", "w" ],
 			"commands": [ "workbench.action.files.save" ]
 		},
-		{
-			"before":   [ "<leader>", "<leader>", "s" ],
-			"commands": []
-		},
-		{
-			"before":   [ "<leader>", "<leader>", "2", "s" ],
-			"commands": []
-		},
-		{
-			"before":   [ "<leader>", "<leader>", "2", "f" ],
-			"commands": []
-		},
-		{
-			"before":   [ "<leader>", "<leader>", "2", "F" ],
-			"commands": []
-		},
-		{
-			"before":   [ "<leader>", "<leader>", "2", "t" ],
-			"commands": []
-		},
-		{
-			"before":   [ "<leader>", "<leader>", "2", "T" ],
-			"commands": []
-		},
-		{
-			"before":   [ "<leader>", "<leader>", "f" ],
-			"commands": []
-		},
-		{
-			"before":   [ "<leader>", "<leader>", "F" ],
-			"commands": []
-		},
-		{
-			"before":   [ "<leader>", "<leader>", "t" ],
-			"commands": []
-		},
-		{
-			"before":   [ "<leader>", "<leader>", "T" ],
-			"commands": []
-		},
-		{
-			"before":   [ "<leader>", "<leader>", "w" ],
-			"commands": []
-		},
-		{
-			"before":   [ "<leader>", "<leader>", "l" ],
-			"commands": []
-		},
-		{
-			"before":   [ "<leader>", "<leader>", "h" ],
-			"commands": []
-		},
-		{
-			"before":   [ "<leader>", "<leader>", "e" ],
-			"commands": []
-		},
-		{
-			"before":   [ "<leader>", "<leader>", "b" ],
-			"commands": []
-		},
-		{
-			"before":   [ "<leader>", "<leader>", "g", "e" ],
-			"commands": []
-		},
-		{
-			"before":   [ "<leader>", "<leader>", "j" ],
-			"commands": []
-		},
-		{
-			"before":   [ "<leader>", "<leader>", "k" ],
-			"commands": []
-		},
-		{
-			"before":   [ "<leader>", "<leader>", "<leader>", "b", "d", "2", "t" ],
-			"commands": []
-		},
-		{
-			"before":   [ "<leader>", "<leader>", "<leader>", "b", "d", "t" ],
-			"commands": []
-		},
-		{
-			"before":   [ "<leader>", "<leader>", "<leader>", "b", "d", "w" ],
-			"commands": []
-		},
-		{
-			"before":   [ "<leader>", "<leader>", "<leader>", "b", "d", "e" ],
-			"commands": []
-		},
-		{
-			"before":   [ "<leader>", "<leader>", "<leader>", "b", "d", "j", "k" ],
-			"commands": []
-		},
-		{
-			"before":   [ "<leader>", "<leader>", "<leader>", "j" ],
-			"commands": []
-		}
+		{ "before": [ "<leader>", "<leader>", "s" ],                            "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "2", "s" ],                       "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "2", "f" ],                       "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "2", "F" ],                       "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "2", "t" ],                       "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "2", "T" ],                       "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "f" ],                            "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "F" ],                            "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "t" ],                            "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "T" ],                            "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "w" ],                            "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "l" ],                            "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "h" ],                            "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "e" ],                            "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "b" ],                            "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "g", "e" ],                       "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "j" ],                            "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "k" ],                            "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "<leader>", "b", "d", "2", "t" ], "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "<leader>", "b", "d", "t" ],      "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "<leader>", "b", "d", "w" ],      "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "<leader>", "b", "d", "e" ],      "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "<leader>", "b", "d", "j", "k" ], "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "<leader>", "j" ],                "commands": [] }
 	],
 	"vim.operatorPendingModeKeyBindingsNonRecursive": [
 		{
@@ -671,6 +708,20 @@ Mac:
 	"vim.vimrc.enable": false,
 	"vim.visualModeKeyBindingsNonRecursive": [
 		{
+			"before":   [ "<Esc>" ],
+			"after":    [ "<Esc>" ],
+			"commands": [ ":nohl", "closeFindWidget", "hideSuggestWidget", "closeReferenceSearch", "closeMarkersNavigation", "editor.action.hideHover", "notifications.hideToasts" ],
+			"silent":   true
+		},
+		{
+			"before":   [ "j" ],
+			"after":    [ "g", "j" ]
+		},
+		{
+			"before":   [ "k" ],
+			"after":    [ "g", "k" ]
+		},
+		{
 			"before":   [ "H" ],
 			"commands": [ "editor.action.outdentLines" ]
 		},
@@ -680,7 +731,11 @@ Mac:
 		},
 		{
 			"before":   [ "g", "_" ],
-			"after":    [ "$", "h" ]
+			"commands": [ "localVim.lastNonBlank" ]
+		},
+		{
+			"before":   [ "g", "w" ],
+			"after":    [ "=" ]
 		},
 		{
 			"before":   [ "g", "z", "a" ],
@@ -710,102 +765,30 @@ Mac:
 			"before":   [ "<leader>", "l", "R" ],
 			"commands": [ "references-view.findReferences" ]
 		},
-		{
-			"before":   [ "<leader>", "<leader>", "s" ],
-			"commands": []
-		},
-		{
-			"before":   [ "<leader>", "<leader>", "2", "s" ],
-			"commands": []
-		},
-		{
-			"before":   [ "<leader>", "<leader>", "2", "f" ],
-			"commands": []
-		},
-		{
-			"before":   [ "<leader>", "<leader>", "2", "F" ],
-			"commands": []
-		},
-		{
-			"before":   [ "<leader>", "<leader>", "2", "t" ],
-			"commands": []
-		},
-		{
-			"before":   [ "<leader>", "<leader>", "2", "T" ],
-			"commands": []
-		},
-		{
-			"before":   [ "<leader>", "<leader>", "f" ],
-			"commands": []
-		},
-		{
-			"before":   [ "<leader>", "<leader>", "F" ],
-			"commands": []
-		},
-		{
-			"before":   [ "<leader>", "<leader>", "t" ],
-			"commands": []
-		},
-		{
-			"before":   [ "<leader>", "<leader>", "T" ],
-			"commands": []
-		},
-		{
-			"before":   [ "<leader>", "<leader>", "w" ],
-			"commands": []
-		},
-		{
-			"before":   [ "<leader>", "<leader>", "l" ],
-			"commands": []
-		},
-		{
-			"before":   [ "<leader>", "<leader>", "h" ],
-			"commands": []
-		},
-		{
-			"before":   [ "<leader>", "<leader>", "e" ],
-			"commands": []
-		},
-		{
-			"before":   [ "<leader>", "<leader>", "b" ],
-			"commands": []
-		},
-		{
-			"before":   [ "<leader>", "<leader>", "g", "e" ],
-			"commands": []
-		},
-		{
-			"before":   [ "<leader>", "<leader>", "j" ],
-			"commands": []
-		},
-		{
-			"before":   [ "<leader>", "<leader>", "k" ],
-			"commands": []
-		},
-		{
-			"before":   [ "<leader>", "<leader>", "<leader>", "b", "d", "2", "t" ],
-			"commands": []
-		},
-		{
-			"before":   [ "<leader>", "<leader>", "<leader>", "b", "d", "t" ],
-			"commands": []
-		},
-		{
-			"before":   [ "<leader>", "<leader>", "<leader>", "b", "d", "w" ],
-			"commands": []
-		},
-		{
-			"before":   [ "<leader>", "<leader>", "<leader>", "b", "d", "e" ],
-			"commands": []
-		},
-		{
-			"before":   [ "<leader>", "<leader>", "<leader>", "b", "d", "j", "k" ],
-			"commands": []
-		},
-		{
-			"before":   [ "<leader>", "<leader>", "<leader>", "j" ],
-			"commands": []
-		}
+		{ "before": [ "<leader>", "<leader>", "s" ],                            "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "2", "s" ],                       "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "2", "f" ],                       "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "2", "F" ],                       "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "2", "t" ],                       "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "2", "T" ],                       "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "f" ],                            "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "F" ],                            "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "t" ],                            "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "T" ],                            "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "w" ],                            "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "l" ],                            "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "h" ],                            "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "e" ],                            "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "b" ],                            "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "g", "e" ],                       "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "j" ],                            "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "k" ],                            "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "<leader>", "b", "d", "2", "t" ], "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "<leader>", "b", "d", "t" ],      "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "<leader>", "b", "d", "w" ],      "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "<leader>", "b", "d", "e" ],      "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "<leader>", "b", "d", "j", "k" ], "commands": [] },
+		{ "before": [ "<leader>", "<leader>", "<leader>", "j" ],                "commands": [] }
 	],
 
 	"window.commandCenter": false,
@@ -822,8 +805,21 @@ Mac:
 [
 	{
 		"key":     "escape",
-		"command": "search.action.focusSearchList",
-		"when":    "searchInputBoxFocus"
+		"command": "runCommands",
+		"when":    "searchInputBoxFocus",
+		"args":    { "commands": [ "search.action.focusSearchList", "list.focusFirst" ] }
+	},
+	{
+		"key":     "escape",
+		"command": "runCommands",
+		"when":    "focusedView == 'workbench.panel.markers.view' && !problemsFilterFocus",
+		"args":    { "commands": [ "workbench.action.closePanel", "workbench.action.focusActiveEditorGroup" ] }
+	},
+	{
+		"key":     "escape",
+		"command": "runCommands",
+		"when":    "resourceScheme == 'output' && !outputFilterFocus",
+		"args":    { "commands": [ "workbench.action.closePanel", "workbench.action.focusActiveEditorGroup" ] }
 	},
 	{
 		"key":     "escape",
@@ -841,9 +837,55 @@ Mac:
 		"when":    "outputFilterFocus"
 	},
 	{
+		"key":     "enter",
+		"command": "runCommands",
+		"when":    "searchInputBoxFocus",
+		"args":    { "commands": [ "search.action.focusSearchList", "list.focusFirst" ] }
+	},
+	{
+		"key":     "space e",
+		"command": "runCommands",
+		"when":    "sideBarFocus && !textInputFocus && !searchInputBoxFocus && !replaceInputBoxFocus && (activeViewlet == 'workbench.view.explorer' || activeViewlet == 'workbench.view.search' || activeViewlet == 'workbench.view.scm' || activeViewlet == 'references-view')",
+		"args":    { "commands": [ "workbench.action.closeSidebar", "workbench.action.focusActiveEditorGroup" ] }
+	},
+	{
+		"key":     "space e",
+		"command": "runCommands",
+		"when":    "focusedView == 'workbench.panel.markers.view' || resourceScheme == 'output'",
+		"args":    { "commands": [ "workbench.action.closePanel", "workbench.action.focusActiveEditorGroup" ] }
+	},
+	{
 		"key":     "space o",
 		"command": "workbench.action.focusActiveEditorGroup",
-		"when":    "!textInputFocus && !inputFocus && !terminalFocus"
+		"when":    "!textInputFocus && !inputFocus && !terminalFocus && !searchInputBoxFocus && !replaceInputBoxFocus"
+	},
+	{
+		"key":     "ctrl+f1",
+		"command": "highlightwords.addHighlight"
+	},
+	{
+		"key":     "ctrl+shift+f1",
+		"command": "highlightwords.removeAllHighlights"
+	},
+	{
+		"key":     "ctrl+n",
+		"command": "workbench.action.quickOpenSelectNext",
+		"when":    "inQuickOpen"
+	},
+	{
+		"key":     "ctrl+p",
+		"command": "workbench.action.quickOpenSelectPrevious",
+		"when":    "inQuickOpen"
+	},
+	{
+		"key":     "ctrl+n",
+		"command": "list.focusDown",
+		"when":    "listFocus && !inputFocus"
+	},
+	{
+		"key":     "ctrl+p",
+		"command": "list.focusUp",
+		"when":    "listFocus && !inputFocus"
 	},
 	{
 		"key":     "ctrl+oem_plus",
@@ -872,14 +914,6 @@ Mac:
 	{
 		"key":     "ctrl+numpad_subtract",
 		"command": "-workbench.action.zoomOut"
-	},
-	{
-		"key":     "ctrl+f1",
-		"command": "highlightwords.addHighlight"
-	},
-	{
-		"key":     "ctrl+shift+f1",
-		"command": "highlightwords.removeAllHighlights"
 	},
 	{
 		"key":     "ctrl+shift+r",
