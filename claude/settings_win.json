@@ -12,7 +12,7 @@
   "statusLine": {
     "type": "command",
     "command": "py -3 ~/.claude/statusline.py"
-  }，
+  },
   "permissions": {
     "defaultMode": "default",
     "allow": [
