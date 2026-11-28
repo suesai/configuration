@@ -9,28 +9,50 @@
     "CLAUDE_CODE_SUBAGENT_MODEL": "deepseek-v4-flash",
     "CLAUDE_CODE_EFFORT_LEVEL": "medium"
   },
+  "permissions": {
+    "allow": [
+      "Read",
+      "Edit",
+      "Glob",
+      "TodoWrite",
+      "Skill",
+      "WebFetch",
+      "Bash(npm test)",
+      "Bash(npm run *)",
+      "Bash(grep *)",
+      "Bash(git status *)",
+      "Bash(git diff *)",
+      "Bash(git log *)",
+      "Bash(git show *)",
+      "Bash(git ls-files *)",
+      "Bash(git reflog *)",
+      "Bash(git branch)",
+      "Bash(git tag)"
+    ],
+    "deny": [
+      "Bash(rm -rf *)",
+      "Bash(rm -r *)",
+      "Bash(git branch *)",
+      "Bash(git tag *)",
+      "Bash(git checkout *)",
+      "Bash(git restore *)",
+      "Bash(git reset *)",
+      "Bash(git rebase *)",
+      "Bash(git revert *)",
+      "Bash(git commit *)",
+      "Bash(git push *)",
+      "Bash(git pull *)",
+      "Bash(git merge *)"
+    ],
+    "ask": [
+      "Bash(rm *)",
+      "Bash(npm install *)",
+      "Bash(npm publish *)"
+    ],
+    "defaultMode": "auto"
+  },
   "statusLine": {
     "type": "command",
     "command": "py -3 ~/.claude/statusline.py"
-  },
-  "permissions": {
-    "defaultMode": "default",
-    "allow": [
-      "Read", "Edit", "Glob", "TodoWrite", "Skill", "WebFetch",
-      "Bash(npm test)", "Bash(npm run *)", "Bash(grep *)",
-      "Bash(git status *)", "Bash(git diff *)", "Bash(git log *)",
-      "Bash(git show *)", "Bash(git ls-files *)", "Bash(git reflog *)",
-      "Bash(git branch)", "Bash(git tag)"
-    ],
-    "ask": [
-        "Bash(rm *)", "Bash(npm install *)", "Bash(npm publish *)"
-    ],
-    "deny": [
-      "Bash(rm -rf *)", "Bash(rm -r *)",
-      "Bash(git branch *)", "Bash(git tag *)", "Bash(git checkout *)",
-      "Bash(git restore *)", "Bash(git reset *)", "Bash(git rebase *)",
-      "Bash(git revert *)", "Bash(git commit *)", "Bash(git push *)",
-      "Bash(git pull *)", "Bash(git merge *)"
-    ]
   }
 }
