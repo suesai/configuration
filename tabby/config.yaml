@@ -1,8 +1,7 @@
 version: 8
 hotkeys:
   toggle-window: []
-  paste:
-    - Ctrl-Shift-V
+  paste: []
   home: []
   end: []
   previous-word: []
