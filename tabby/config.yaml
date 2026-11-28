@@ -91,23 +91,23 @@ hotkeys:
   search:
     - Ctrl-Shift-F
   tab-1:
-    - Ctrl-1
+    - Ctrl-Shift-1
   tab-2:
-    - Ctrl-2
+    - Ctrl-Shift-2
   tab-3:
-    - Ctrl-3
+    - Ctrl-Shift-3
   tab-4:
-    - Ctrl-4
+    - Ctrl-Shift-4
   tab-5:
-    - Ctrl-5
+    - Ctrl-Shift-5
   tab-6:
-    - Ctrl-6
+    - Ctrl-Shift-6
   tab-7:
-    - Ctrl-7
+    - Ctrl-Shift-7
   tab-8:
-    - Ctrl-8
+    - Ctrl-Shift-8
   tab-9:
-    - Ctrl-9
+    - Ctrl-Shift-9
   tab-10: []
   copy:
     - Ctrl-Shift-C
