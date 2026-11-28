@@ -27,7 +27,7 @@
       "Read",
       "Skill",
       "TodoWrite",
-      "WebFetch",
+      "WebFetch"
     ],
     "ask": [
       "Bash(npm install *)",
