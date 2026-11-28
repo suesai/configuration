@@ -46,18 +46,6 @@ ReplaceHomeTab=0
 NoTabClose=0
 AllowMultiInstances=0
 RightClickAssigned=1
-SessionP=786709015928024
-
-[WindowPos_WIN-AS0IVGK9HJG_1920_1080_1920_1080]
-CompactMode=0
-MonitorCount=2
-Left=-8
-Top=-8
-Width=1936
-Height=1066
-Maximized=1
-SidebarVisible=0
-SidebarWidth=292
 
 [SSH]
 SFTPShowDotFiles=1
@@ -196,6 +184,17 @@ Exit MobaXterm=<none>
 Show / hide popup terminal=<none>
 Show MobaXterm / hide to systray=<none>
 Paste in terminal=Ctrl + Shift + V
+
+[WindowPos_WIN-AS0IVGK9HJG_1920_1080_1920_1080]
+CompactMode=0
+MonitorCount=2
+Left=-8
+Top=-8
+Width=1936
+Height=1066
+Maximized=1
+SidebarVisible=0
+SidebarWidth=292
 
 [WindowPos_WIN-AS0IVGK9HJG_1920_1080]
 CompactMode=0
